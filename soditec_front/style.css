@@ -8308,12 +8308,14 @@ p.form-messege{
 }
  .breadcumb-area {
      padding: 150px 0px;
-     background-image: url(assets/images/slider-2.jpg);
+     background-image: url(assets/image/about/Reseau4.jpg);
      background-position: center center;
      background-repeat: no-repeat;
      position: relative;
      background-size: cover;
 }
+
+
  .breadcumb-area::before, .breadcumb-blog-area::before {
      position: absolute;
      left: 0;
@@ -8335,7 +8337,7 @@ p.form-messege{
      color:#fff;
 }
  .breadcumb-inner li a {
-     font-weight: 600;
+     font-weight: 900;
      color: #fff;
 }
  .breadcumb-inner li a:hover{
