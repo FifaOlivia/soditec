@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .chatbot-avatar {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        .chatbot-avatar img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        }
+        .chatbot-bubble {
+            background: #007bff;
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 15px;
+            margin-right: 10px;
+            font-size: 14px;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .chat-container {
+            display: none;
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            width: 300px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.3);
+            overflow: hidden;
+            animation: slideUp 0.4s ease-in-out;
+        }
+        .chat-header {
+            background: #007bff;
+            color: #fff;
+            padding: 15px;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+        }
+        .chat-header img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .chat-body {
+            padding: 15px;
+            height: 300px;
+            overflow-y: auto;
+            background: #f9f9f9;
+        }
+        .chat-message {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+        .chat-message img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+        .chat-message p {
+            max-width: 200px;
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 14px;
+        }
+        .chat-message.bot p {
+            background: #007bff;
+            color: #fff;
+            margin-left: 10px;
+        }
+        .chat-message.user {
+            flex-direction: row-reverse;
+        }
+        .chat-message.user p {
+            background: #e1e1e1;
+            margin-right: 10px;
+        }
+        .chat-footer {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background: #fff;
+        }
+        .chat-footer input[type="file"] {
+            display: none;
+        }
+        .file-label, .send-btn {
+            cursor: pointer;
+            font-size: 20px;
+            color: #007bff;
+            margin-right: 10px;
+        }
+        .message-input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="chatbot-avatar" onclick="toggleChat()">
+    <div class="chatbot-bubble">Nous sommes là pour vous répondre 24/24</div>
+    <img src="assets/image/Testimonial/87.jpeg" alt="Chatbot">
+</div>
+
+<div class="chat-container" id="chatContainer">
+    <div class="chat-header">
+        <img src="assets/image/Testimonial/87.jpeg" alt="Bot">
+        <span>Support</span>
+    </div>
+    <div class="chat-body" id="chatBody">
+        <div class="chat-message bot">
+            <img src="assets/image/Testimonial/87.jpeg" alt="Bot">
+            <p>Bonjour! Comment puis-je vous aider?</p>
+        </div>
+    </div>
+    <div class="chat-footer">
+        <label for="fileInput" class="file-label">📎</label>
+        <input type="file" id="fileInput">
+        <input type="text" class="message-input" id="messageInput" placeholder="Écrivez un message...">
+        <span class="send-btn" onclick="sendMessage()">📩</span>
+    </div>
+</div>
+
+<script>
+    function toggleChat() {
+        const chatContainer = document.getElementById("chatContainer");
+        chatContainer.style.display = chatContainer.style.display === "none" ? "block" : "none";
+    }
+
+    function sendMessage() {
+        const input = document.getElementById("messageInput");
+        const message = input.value;
+        if (message.trim() !== "") {
+            const chatBody = document.getElementById("chatBody");
+            const userMessage = document.createElement("div");
+            userMessage.classList.add("chat-message", "user");
+            userMessage.innerHTML = `<p>${message}</p><img src='assets/image/Testimonial/86.jpeg' alt='User'>`;
+            chatBody.appendChild(userMessage);
+            input.value = "";
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+    }
+</script>
+
+</body>
+</html>
