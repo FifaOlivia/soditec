@@ -224,13 +224,14 @@
     /*--------------------------
      scrollUp
     ---------------------------- */
-    $.scrollUp({
-        scrollText: '<i class="fa fa-angle-up"></i>',
-        easingType: 'linear',
-        scrollSpeed: 900,
-        animation: 'fade'
-    });
-
+	$.scrollUp({
+		scrollText: '<i class="fa fa-angle-up"></i>',
+		easingType: 'linear',
+		scrollSpeed: 500,  // Réduire à 500ms ou moins pour un effet plus rapide
+		animation: 'fade',
+		scrollTarget: 'body'
+	});
+	
     /* Venubox */
 
     $('.venobox').venobox({
