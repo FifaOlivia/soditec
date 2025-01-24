@@ -12534,3 +12534,116 @@ p.form-messege{
  .solutech_pricing2_area.choose_page {
      padding: 0px 0px 70px;
 }
+
+/* Comment Section Styling */
+.comments-section {
+    margin-top: 50px;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.comments-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 30px;
+    text-align: center; /* Centrer le titre */
+}
+
+.comment-form {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 600px; /* Limiter la largeur du formulaire */
+    margin: 0 auto; /* Centrer le formulaire */
+}
+
+.comment-form .form-group {
+    margin-bottom: 12px; /* Réduire l'espacement entre les champs */
+}
+
+.comment-form label {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.comment-form .form-control {
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    padding: 8px; /* Réduire le padding dans les champs */
+    font-size: 14px;
+    width: 100%;
+}
+
+.comment-form .form-control:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 8px rgba(0, 86, 179, 0.2);
+}
+
+.btn-submit {
+    background-color: #0056b3;
+    color: white;
+    padding: 8px 16px; /* Réduire les padding du bouton */
+    border: none;
+    border-radius: 5px;
+    font-size: 14px; /* Réduire la taille de la police du bouton */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: auto;
+}
+
+.btn-submit:hover {
+    background-color: #003d80;
+}
+
+.comments-list {
+    margin-top: 40px;
+}
+
+.single-comment {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.comment-author {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.comment-author-img {
+    width: 40px; /* Réduire la taille de l'image */
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.comment-author-info p {
+    margin: 0;
+}
+
+.comment-author-info p strong {
+    font-weight: 600;
+    color: #333;
+}
+
+.comment-author-info p i {
+    color: #888;
+    margin-right: 5px;
+}
+
+.comment-text {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+    margin-top: 10px;
+}
