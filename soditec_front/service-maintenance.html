@@ -13,173 +13,173 @@
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<link rel="stylesheet" type="text/css" href="assets/css/responsive.css">	
 		
-		<style>
-			body {
-				font-family: Arial, sans-serif;
-				margin: 0;
-				padding: 0;
-				background-color: #f4f4f4;
-			}
-			.chatbot-avatar {
-				position: fixed;
-				bottom: 70px;
-				right: 20px;
-				display: flex;
-				align-items: center;
-				cursor: pointer;
-				animation: blink 1.5s infinite;
-			}
-			.chatbot-avatar img {
-				width: 60px;
-				height: 60px;
-				border-radius: 50%;
-				box-shadow: 0 0 10px rgba(0,0,0,0.3);
-			}
-			.chatbot-bubble {
-				background: #007bff;
-				color: #fff;
-				padding: 10px 15px;
-				border-radius: 15px;
-				margin-right: 10px;
-				font-size: 14px;
-				animation: fadeIn 0.5s ease-in-out;
-			}
-			.chat-container {
-				display: none;
-				position: fixed;
-				bottom: 100px;
-				right: 20px;
-				width: 350px;
-				background: #fff;
-				border-radius: 10px;
-				box-shadow: 0 0 15px rgba(0,0,0,0.3);
-				overflow: hidden;
-				animation: slideUp 0.4s ease-in-out;
-			}
-			.chat-header {
-				background: #007bff;
-				color: #fff;
-				padding: 15px;
-				font-size: 16px;
-				display: flex;
-				align-items: center;
-			}
-			.chat-header img {
-				width: 40px;
-				height: 40px;
-				border-radius: 50%;
-				margin-right: 10px;
-			}
-			.chat-body {
-				padding: 15px;
-				height: 300px;
-				overflow-y: auto;
-				background: #f9f9f9;
-			}
-			.chat-message {
-				margin-bottom: 15px;
-				display: flex;
-				align-items: flex-start;
-			}
-			.chat-message img {
-				width: 40px;
-				height: 40px;
-				border-radius: 50%;
-			}
-			.chat-message p {
-				max-width: 250px;
-				padding: 10px;
-				border-radius: 10px;
-				font-size: 14px;
-			}
-			.chat-message.bot p {
-				background: #007bff;
-				color: #fff;
-				margin-left: 10px;
-			}
-			.chat-message.user {
-				flex-direction: row-reverse;
-			}
-			.chat-message.user p {
-				background: #e1e1e1;
-				margin-right: 10px;
-			}
-			.chat-footer {
-				display: flex;
-				align-items: center;
-				padding: 10px;
-				background: #fff;
-			}
-			.chat-footer input[type="file"] {
-				display: none;
-			}
-			.file-label, .send-btn {
-				cursor: pointer;
-				font-size: 20px;
-				color: #007bff;
-				margin-right: 10px;
-			}
-			.message-input {
-				flex: 1;
-				padding: 10px;
-				border: 1px solid #ddd;
-				border-radius: 5px;
-			}
-			@keyframes fadeIn {
-				from { opacity: 0; }
-				to { opacity: 1; }
-			}
-			@keyframes slideUp {
-				from { transform: translateY(50px); opacity: 0; }
-				to { transform: translateY(0); opacity: 1; }
-			}
-			@keyframes blink {
-				0% { opacity: 1; }
-				50% { opacity: 0.5; }
-				100% { opacity: 1; }
-			}
-			@media (max-width: 768px) {
-				.chatbot-avatar {
-					bottom: 30px;
-				}
-				.chatbot-bubble {
-					display: none;
-				}
-				.chat-container {
-					width: 90%;
-					bottom: 50px;
-					right: 5%;
-				}
-			}
-		
-			/* Barre de défilement personnalisée */
-		::-webkit-scrollbar {
-			width: 10px;
-		}
-		
-		::-webkit-scrollbar-track {
-			background: #e0e0e0; /* Couleur de fond de la piste */
-			border-radius: 10px;
-		}
-		
-		::-webkit-scrollbar-thumb {
-			background: #007bff; /* Couleur du "pouce" de la barre de défilement */
-			border-radius: 10px;
-			border: 2px solid #fff; /* Bordure pour un effet de relief */
-		}
-		
-		::-webkit-scrollbar-thumb:hover {
-			background: #0056b3; /* Couleur au survol */
-		}
-		
-		::-webkit-scrollbar-corner {
-			background: transparent; /* Coin de la barre de défilement */
-		}
-		
-			
-		</style>		
-			</head>
-		<body>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f4f4f4;
+            }
+            .chatbot-avatar {
+                position: fixed;
+                bottom: 70px;
+                right: 20px;
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                animation: blink 1.5s infinite;
+            }
+            .chatbot-avatar img {
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            }
+            .chatbot-bubble {
+                background: #007bff;
+                color: #fff;
+                padding: 10px 15px;
+                border-radius: 15px;
+                margin-right: 10px;
+                font-size: 14px;
+                animation: fadeIn 0.5s ease-in-out;
+            }
+            .chat-container {
+                display: none;
+                position: fixed;
+                bottom: 100px;
+                right: 20px;
+                width: 350px;
+                background: #fff;
+                border-radius: 10px;
+                box-shadow: 0 0 15px rgba(0,0,0,0.3);
+                overflow: hidden;
+                animation: slideUp 0.4s ease-in-out;
+            }
+            .chat-header {
+                background: #007bff;
+                color: #fff;
+                padding: 15px;
+                font-size: 16px;
+                display: flex;
+                align-items: center;
+            }
+            .chat-header img {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                margin-right: 10px;
+            }
+            .chat-body {
+                padding: 15px;
+                height: 300px;
+                overflow-y: auto;
+                background: #f9f9f9;
+            }
+            .chat-message {
+                margin-bottom: 15px;
+                display: flex;
+                align-items: flex-start;
+            }
+            .chat-message img {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+            }
+            .chat-message p {
+                max-width: 250px;
+                padding: 10px;
+                border-radius: 10px;
+                font-size: 14px;
+            }
+            .chat-message.bot p {
+                background: #007bff;
+                color: #fff;
+                margin-left: 10px;
+            }
+            .chat-message.user {
+                flex-direction: row-reverse;
+            }
+            .chat-message.user p {
+                background: #e1e1e1;
+                margin-right: 10px;
+            }
+            .chat-footer {
+                display: flex;
+                align-items: center;
+                padding: 10px;
+                background: #fff;
+            }
+            .chat-footer input[type="file"] {
+                display: none;
+            }
+            .file-label, .send-btn {
+                cursor: pointer;
+                font-size: 20px;
+                color: #007bff;
+                margin-right: 10px;
+            }
+            .message-input {
+                flex: 1;
+                padding: 10px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+            }
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+            @keyframes slideUp {
+                from { transform: translateY(50px); opacity: 0; }
+                to { transform: translateY(0); opacity: 1; }
+            }
+            @keyframes blink {
+                0% { opacity: 1; }
+                50% { opacity: 0.5; }
+                100% { opacity: 1; }
+            }
+            @media (max-width: 768px) {
+                .chatbot-avatar {
+                    bottom: 30px;
+                }
+                .chatbot-bubble {
+                    display: none;
+                }
+                .chat-container {
+                    width: 90%;
+                    bottom: 50px;
+                    right: 5%;
+                }
+            }
+        
+            /* Barre de défilement personnalisée */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #e0e0e0; /* Couleur de fond de la piste */
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #007bff; /* Couleur du "pouce" de la barre de défilement */
+            border-radius: 10px;
+            border: 2px solid #fff; /* Bordure pour un effet de relief */
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0056b3; /* Couleur au survol */
+        }
+        
+        ::-webkit-scrollbar-corner {
+            background: transparent; /* Coin de la barre de défilement */
+        }
+        
+            
+        </style>		
+            </head>
+        <body>
 	<div class="em40_header_area_main">
 		<!-- HEADER TOP AREA -->
 	   <div class="solutech-header-top">
@@ -333,20 +333,19 @@
         <div class="row">
             <div class="col-md-12 txtc text-center ccase">
                 <div class="brpt">
-                    <h2>Développement Web</h2>
+                    <h2>Service maintenance</h2>
                 </div>
                 <div class="breadcumb-inner">
                     <ul>
                         <li><a href="index.html">Accueil</a></li>
                         <li><i class="fas fa-angle-right"></i></li>
-                        <li>Développement Web</li>
+                        <li>Service Maintenance</li>
                     </ul>						
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 
 <!-- solutech_about_area -->
 <div class="solutech_about_area home_security">
@@ -355,34 +354,35 @@
             <div class="col-lg-6 col-md-12 col-sm-12">
                 <div class="single_image_area">
                     <div class="single_image">
-                        <img src="assets/image/services/Developpement web.jpg" alt="Développement Web">
+                        <img src="assets/image/services/Maintenance2.jpg" alt="Maintenance Informatique">
                     </div>
                 </div>
             </div>
             <div class="col-lg-6 col-md-10 col-sm-12">
                 <div class="witr_section_title">
                     <div class="witr_section_title_inner text-left">
-                        <h2>Développement Web Moderne</h2>		
-                        <h3>Transformez vos idées en solutions digitales.</h3>		
+                        <h2>Solutions de Maintenance Informatique</h2>		
+                        <h3>Protégez vos systèmes, préservez vos performances.</h3>		
                         <p>
-                            Nous créons des solutions web innovantes et performantes adaptées à vos besoins. Que ce soit pour un site vitrine, une plateforme e-commerce, ou une application web complexe, notre expertise garantit des résultats exceptionnels.
-                            Nous utilisons les dernières technologies comme <b>React</b>, <b>Next.js</b>, et <b>Node.js</b> pour assurer des performances optimales.
+                            Nous proposons des services de maintenance informatique pour garantir la performance, la sécurité et la disponibilité de vos équipements et systèmes. 
+                            De la gestion des mises à jour à la résolution des pannes, nous vous aidons à maintenir un environnement informatique stable et fiable.
+                            Notre expertise couvre les équipements matériels, les réseaux, ainsi que les systèmes d'exploitation et logiciels.
                         </p>		
                     </div>
                 </div>
                 <div class="witr_single_progress">
                     <div class="witr_title2">
-                        <span class="witr_label">Création de sites web</span>	
+                        <span class="witr_label">Maintenance préventive</span>	
                     </div>		
                     <div class="progress witr_progress-style2">
-                        <div class="progress-bar wow fadeInLeft" style="width: 95%;">
-                            <span class="witr_percent">95%</span>					
+                        <div class="progress-bar wow fadeInLeft" style="width: 90%;">
+                            <span class="witr_percent">90%</span>					
                         </div>
                     </div>				
                 </div>
                 <div class="witr_single_progress">
                     <div class="witr_title2">
-                        <span class="witr_label">Développement d'applications web</span>	
+                        <span class="witr_label">Maintenance corrective</span>	
                     </div>		
                     <div class="progress witr_progress-style2">
                         <div class="progress-bar wow fadeInLeft" style="width: 85%;">
@@ -419,7 +419,7 @@
                         <div class="witr_btn_sinner">	
                             <a href="#" class="witr_bbtn bbtn1">Voir les services			
                                 <span class="btn_w a_active">
-                                    <i class="icofont-web"></i>
+                                    <i class="icofont-computer"></i>
                                 </span>
                             </a>
                             <a href="#" class="witr_btn">Demander Devis</a>
@@ -438,7 +438,7 @@
             <div class="col-lg-12">
                 <div class="witr_section_title">
                     <div class="witr_section_title_inner text-center">
-                        <h3>Nos Services de Développement Web</h3>		
+                        <h3>Nos Services de Maintenance Informatique</h3>		
                         <h1>Découvrez nos solutions</h1>		
                     </div>
                 </div>
@@ -454,10 +454,10 @@
                             <div class="witr_service_position">
                                 <div class="witr_service_content_3d">
                                     <div class="witr_service_icon_3d all_icon_color">
-                                        <i class="icofont-web"></i>
+                                        <i class="icofont-gear"></i>
                                     </div>
-                                    <h3>Création de Sites Web</h3>
-                                    <p>Concevez un site web moderne et responsive qui met en valeur votre entreprise.</p>		
+                                    <h3>Audit et Diagnostic</h3>
+                                    <p>Évaluez l'état de vos systèmes pour anticiper les problèmes.</p>		
                                 </div>
                             </div>
                         </div>
@@ -466,12 +466,11 @@
                             <div class="witr_service_position">
                                 <div class="witr_service_content_3d">
                                     <div class="witr_service_icon_3d all_icon_color">
-                                        <i class="icofont-web"></i>
+                                        <i class="icofont-gear"></i>
                                     </div>
-                                    <h3><a href="#">Création de Sites Web</a></h3>
-                                    <p>Concevez un site web moderne et responsive qui met en valeur votre entreprise.</p>		
+                                    <h3><a href="#">Audit et Diagnostic</a></h3>
+                                    <p>Évaluez l'état de vos systèmes pour anticiper les problèmes.</p>		
                                 </div>
-                              
                             </div>
                         </div>
                     </div>
@@ -486,10 +485,10 @@
                             <div class="witr_service_position">
                                 <div class="witr_service_content_3d">
                                     <div class="witr_service_icon_3d all_icon_color">
-                                        <i class="icofont-settings"></i>
+                                        <i class="icofont-tools"></i>
                                     </div>
-                                    <h3>Développement d'Applications Web</h3>
-                                    <p>Créez des applications web sur mesure pour vos projets complexes.</p>		
+                                    <h3>Réparation et Maintenance</h3>
+                                    <p>Corrigez les dysfonctionnements pour un retour à la normale rapide.</p>		
                                 </div>
                             </div>
                         </div>
@@ -498,12 +497,11 @@
                             <div class="witr_service_position">
                                 <div class="witr_service_content_3d">
                                     <div class="witr_service_icon_3d all_icon_color">
-                                        <i class="icofont-settings"></i>
+                                        <i class="icofont-tools"></i>
                                     </div>
-                                    <h3><a href="#">Développement d'Applications Web</a></h3>
-                                    <p>Créez des applications web sur mesure pour vos projets complexes.</p>		
+                                    <h3><a href="#">Réparation et Maintenance</a></h3>
+                                    <p>Corrigez les dysfonctionnements pour un retour à la normale rapide.</p>		
                                 </div>
-                             
                             </div>
                         </div>
                     </div>
@@ -518,10 +516,10 @@
                             <div class="witr_service_position">
                                 <div class="witr_service_content_3d">
                                     <div class="witr_service_icon_3d all_icon_color">
-                                        <i class="icofont-tools"></i>
+                                        <i class="icofont-network"></i>
                                     </div>
-                                    <h3>Maintenance & Optimisation</h3>
-                                    <p>Assurez le bon fonctionnement et l'optimisation de votre plateforme web.</p>		
+                                    <h3>Gestion des Sauvegardes</h3>
+                                    <p>Sécurisez vos données avec des solutions de sauvegarde fiables.</p>		
                                 </div>
                             </div>
                         </div>
@@ -530,12 +528,11 @@
                             <div class="witr_service_position">
                                 <div class="witr_service_content_3d">
                                     <div class="witr_service_icon_3d all_icon_color">
-                                        <i class="icofont-tools"></i>
+                                        <i class="icofont-network"></i>
                                     </div>
-                                    <h3><a href="#">Maintenance & Optimisation</a></h3>
-                                    <p>Assurez le bon fonctionnement et l'optimisation de votre plateforme web.</p>		
+                                    <h3><a href="#">Gestion des Sauvegardes</a></h3>
+                                    <p>Sécurisez vos données avec des solutions de sauvegarde fiables.</p>		
                                 </div>
-                              
                             </div>
                         </div>
                     </div>
@@ -544,10 +541,6 @@
         </div>
     </div>
 </div>
-
-
-
-
 
 
 	
