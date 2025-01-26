@@ -3,7 +3,7 @@
     <head>
 		<meta charset="UTF-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
-		<title>Solutech - CCTV & Security Responsive Website Template</title>
+		<title>Soditec - Déploiement d'infrastructure technologique</title>
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon"  type="image/png" href="assets/images/favicon.png">		
@@ -11,406 +11,476 @@
         <link rel="stylesheet" type="text/css" href="venobox/venobox.css">
         <link rel="stylesheet" type="text/css" href="assets/css/plugin_theme_css.css">       
 		<link rel="stylesheet" type="text/css" href="style.css">
-		<link rel="stylesheet" type="text/css" href="assets/css/responsive.css">	
+		<link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
+			
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				margin: 0;
+				padding: 0;
+				background-color: #f4f4f4;
+			}
+			.chatbot-avatar {
+				position: fixed;
+				bottom: 70px;
+				right: 20px;
+				display: flex;
+				align-items: center;
+				cursor: pointer;
+				animation: blink 1.5s infinite;
+			}
+			.chatbot-avatar img {
+				width: 60px;
+				height: 60px;
+				border-radius: 50%;
+				box-shadow: 0 0 10px rgba(0,0,0,0.3);
+			}
+			.chatbot-bubble {
+				background: #007bff;
+				color: #fff;
+				padding: 10px 15px;
+				border-radius: 15px;
+				margin-right: 10px;
+				font-size: 14px;
+				animation: fadeIn 0.5s ease-in-out;
+			}
+			.chat-container {
+				display: none;
+				position: fixed;
+				bottom: 100px;
+				right: 20px;
+				width: 350px;
+				background: #fff;
+				border-radius: 10px;
+				box-shadow: 0 0 15px rgba(0,0,0,0.3);
+				overflow: hidden;
+				animation: slideUp 0.4s ease-in-out;
+			}
+			.chat-header {
+				background: #007bff;
+				color: #fff;
+				padding: 15px;
+				font-size: 16px;
+				display: flex;
+				align-items: center;
+			}
+			.chat-header img {
+				width: 40px;
+				height: 40px;
+				border-radius: 50%;
+				margin-right: 10px;
+			}
+			.chat-body {
+				padding: 15px;
+				height: 300px;
+				overflow-y: auto;
+				background: #f9f9f9;
+			}
+			.chat-message {
+				margin-bottom: 15px;
+				display: flex;
+				align-items: flex-start;
+			}
+			.chat-message img {
+				width: 40px;
+				height: 40px;
+				border-radius: 50%;
+			}
+			.chat-message p {
+				max-width: 250px;
+				padding: 10px;
+				border-radius: 10px;
+				font-size: 14px;
+			}
+			.chat-message.bot p {
+				background: #007bff;
+				color: #fff;
+				margin-left: 10px;
+			}
+			.chat-message.user {
+				flex-direction: row-reverse;
+			}
+			.chat-message.user p {
+				background: #e1e1e1;
+				margin-right: 10px;
+			}
+			.chat-footer {
+				display: flex;
+				align-items: center;
+				padding: 10px;
+				background: #fff;
+			}
+			.chat-footer input[type="file"] {
+				display: none;
+			}
+			.file-label, .send-btn {
+				cursor: pointer;
+				font-size: 20px;
+				color: #007bff;
+				margin-right: 10px;
+			}
+			.message-input {
+				flex: 1;
+				padding: 10px;
+				border: 1px solid #ddd;
+				border-radius: 5px;
+			}
+			@keyframes fadeIn {
+				from { opacity: 0; }
+				to { opacity: 1; }
+			}
+			@keyframes slideUp {
+				from { transform: translateY(50px); opacity: 0; }
+				to { transform: translateY(0); opacity: 1; }
+			}
+			@keyframes blink {
+				0% { opacity: 1; }
+				50% { opacity: 0.5; }
+				100% { opacity: 1; }
+			}
+			@media (max-width: 768px) {
+				.chatbot-avatar {
+					bottom: 30px;
+				}
+				.chatbot-bubble {
+					display: none;
+				}
+				.chat-container {
+					width: 90%;
+					bottom: 50px;
+					right: 5%;
+				}
+			}
 		
-    </head>
-<body>
-<div class="em40_header_area_main">
- 	<!-- HEADER TOP AREA -->
-	<div class="solutech-header-top">
-		<div class="container">
-			<div class="row">
-				<div class="col-xs-12 col-lg-9 col-xl-9 col-md-9 col-sm-12">
-					<div class="top-address text-left">
-						<p>
-							<span><i class="fas fa-home"></i>Ground Floor New World.</span>
-							<a href="#"><i class="fas fa-phone-alt"></i>+998556778345</a>
-							<a href="#"><i class="fas fa-envelope"></i>demo@example.com</a>
-						</p>
-					</div>
-				</div>
-				<!-- TOP RIGHT -->
-				<div class="col-xs-12 col-lg-3 col-xl-3 col-md-3 col-sm-12 ">
-					<div class="top-right-menu">
-						<ul class="social-icons text-right text_m_center">
-							<li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
-							<li><a href="#"><i class="fab fa-x-twitter"></i></a></li>
-							<li><a href="#"><i class="fab fa-instagram"></i></a></li>
-							<li><a href="#"><i class="fab fa-tumblr"></i></a></li>
-							<li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>								
-						</ul>
-					</div>
-				</div>	
-			</div>		
-		</div>
-	</div>
-    <!-- END HEADER TOP AREA -->
-	<div class="tx_top2_relative">
-		<div class="">
-			<div class="tx_relative_m">
-				<div class="">  
-					<div class="mainmenu_width_tx  ">
-						<div class="solutech-main-menu one_page hidden-xs hidden-sm witr_h_h10">
-							<div class="solutech_nav_area scroll_fixed postfix">
-								<div class="container">
-									<div class="row logo-left">				
-										<!-- LOGO -->
-										<div class="col-md-3 col-sm-3 col-xs-4">
-											<div class="logo">
-												<a class="main_sticky_main_l" href="index.html" title="solutech">
-													<img src="assets/images/logo.png" alt="solutech">
-												</a>
-												<a class="main_sticky_l" href="index.html" title="solutech">
-													<img src="assets/images/logo2.png" alt="solutech">
-												</a>
-											</div>	  
-										</div>
-										<div class="col-md-9 col-sm-9 col-xs-8">
-											<nav class="solutech_menu main-search-menu">					
-												<ul class="sub-menu">
-													<li class="menu-item-has-children">
-														<a href="#">Home</a>
-														<ul class="sub-menu">
-															<li><a href="index.html">Home Page</a></li>
-															<li><a href="index-2.html">Landing Page</a></li>
-															<li><a href="index-3.html">Home Banner Page</a></li>
-														</ul>
-													</li>
-													<li><a href="about.html">About</a></li>
-													<li class="menu-item-has-children">
-														<a href="#">Service</a>
-														<ul class="sub-menu">
-															<li><a href="home-security.html">Home Security</a></li>
-															<li><a href="software-development.html">Software Development</a></li>
-															<li><a href="installation.html">Installation CCTV</a></li>
-															<li><a href="service-details.html">Service Details</a></li>
-														</ul>
-													</li>
-													<li class="menu-item-has-children">
-														<a href="#">Pages</a>
-														<ul class="sub-menu">
-															<li><a href="pricing-plan.html">Pricing Plan</a></li>
-															<li><a href="why-choose-us.html">Why Choose Us</a></li>	
-															<li><a href="faq.html">FAQ’S</a></li>
-															<li class="menu-item-has-children">
-																<a href="#">Portfolio</a>
-																<ul class="sub-menu">
-																	<li><a href="portfolio-2column.html">Portfolio 2Column</a></li>
-																	<li><a href="portfolio-3column.html">Portfolio 3Column</a></li>
-																	<li><a href="portfolio-4column.html">Portfolio 4Column</a></li>
-																</ul>
-															</li>
-															<li><a href="team.html">Team</a></li>
-															<li><a href="testimonial.html">Testimonial</a></li>
-														</ul>
-													</li>
-													<li class="menu-item-has-children">
-														<a href="#">News</a>
-														<ul class="sub-menu">
-															<li><a href="blog.html">Blog Grid</a></li>
-															<li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
-															<li><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
-														</ul>
-													</li>
-													<li><a href="contact.html">Contact Us</a></li>
-												</ul>
-												<div class="donate-btn-header">
-													<a class="dtbtn" href="#">Contact Now</a>	
-												</div>
-											</nav>
-										</div>	
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div> 			
-			</div>
-		</div> 
-	</div> 
-</div> 
-
-
-
-
-
-<!-- MOBILE MENU Logo AREA -->
-<div class="mobile_logo_area hidden-md hidden-lg">
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-12">
-				<div class="mobile_menu_logo text-center">
-					<a href="index.html" title="solutech">
-						<img src="assets/images/logo.png" alt="solutech">
-					</a>		
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
-<!-- MOBILE MENU AREA -->
-<div class="home-2 mbm hidden-md hidden-lg  header_area main-menu-area">
-	<div class="menu_area mobile-menu">
-		<nav class="solutech_menu">						
-			<ul class="sub-menu">
-				<li class="menu-item-has-children">
-					<a href="#">Home</a>
-					<ul class="sub-menu">
-						<li><a href="index.html">Home Page</a></li>
-						<li><a href="index-2.html">Landing Page</a></li>
-						<li><a href="index-3.html">Home Banner Page</a></li>
-					</ul>
-				</li>
-				<li><a href="about.html">About</a></li>
-				<li class="menu-item-has-children">
-					<a href="#">Service</a>
-					<ul class="sub-menu">
-						<li><a href="home-security.html">Home Security</a></li>
-						<li><a href="software-development.html">Software Development</a></li>
-						<li><a href="installation.html">Installation CCTV</a></li>
-						<li><a href="service-details.html">Service Details</a></li>
-					</ul>
-				</li>
-				<li class="menu-item-has-children">
-					<a href="#">Pages</a>
-					<ul class="sub-menu">
-						<li><a href="pricing-plan.html">Pricing Plan</a></li>
-						<li><a href="why-choose-us.html">Why Choose Us</a></li>	
-						<li><a href="faq.html">FAQ’S</a></li>
-						<li class="menu-item-has-children">
-							<a href="#">Portfolio</a>
-							<ul class="sub-menu">
-								<li><a href="portfolio-2column.html">Portfolio 2Column</a></li>
-								<li><a href="portfolio-3column.html">Portfolio 3Column</a></li>
-								<li><a href="portfolio-4column.html">Portfolio 4Column</a></li>
-							</ul>
-						</li>
-						<li><a href="team.html">Team</a></li>
-						<li><a href="testimonial.html">Testimonial</a></li>
-					</ul>
-				</li>
-				<li class="menu-item-has-children">
-					<a href="#">News</a>
-					<ul class="sub-menu">
-						<li><a href="blog.html">Blog Grid</a></li>
-						<li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
-						<li><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
-					</ul>
-				</li>
-				<li><a href="contact.html">Contact Us</a></li>
-			</ul>
-		</nav>	
-	</div>					
-</div>
-<!-- END MOBILE MENU AREA  -->
-
-
+			/* Barre de défilement personnalisée */
+		::-webkit-scrollbar {
+			width: 10px;
+		}
+		
+		::-webkit-scrollbar-track {
+			background: #e0e0e0; /* Couleur de fond de la piste */
+			border-radius: 10px;
+		}
+		
+		::-webkit-scrollbar-thumb {
+			background: #007bff; /* Couleur du "pouce" de la barre de défilement */
+			border-radius: 10px;
+			border: 2px solid #fff; /* Bordure pour un effet de relief */
+		}
+		
+		::-webkit-scrollbar-thumb:hover {
+			background: #0056b3; /* Couleur au survol */
+		}
+		
+		::-webkit-scrollbar-corner {
+			background: transparent; /* Coin de la barre de défilement */
+		}
+		
+			
+		</style>		
+			</head>
+		<body>
+	<div class="em40_header_area_main">
+		<!-- HEADER TOP AREA -->
+	   <div class="solutech-header-top">
+		   <div class="container">
+			   <div class="row">
+				   <div class="col-xs-12 col-lg-9 col-xl-9 col-md-9 col-sm-12">
+					   <div class="top-address text-left">
+						   <p>
+							   <span><i class="fas fa-home"></i>Zogbohoue, Cotonou</span>
+							   <a href="#"><i class="fas fa-phone-alt"></i>+229 63014242</a>
+							   <a href="#"><i class="fas fa-envelope"></i>contact@soditec.bj</a>
+						   </p>
+					   </div>
+				   </div>
+				   <!-- TOP RIGHT -->
+				   <div class="col-xs-12 col-lg-3 col-xl-3 col-md-3 col-sm-12 ">
+					   <div class="top-right-menu">
+						   <ul class="social-icons text-right text_m_center">
+							   <li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
+							   <li><a href="#"><i class="fab fa-x-twitter"></i></a></li>
+							   <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+							   <li><a href="#"><i class="fab fa-tumblr"></i></a></li>
+							   <li><a href="#"><i class="fab fa-whatsapp"></i></a></li>								
+						   </ul>
+					   </div>
+				   </div>	
+			   </div>		
+		   </div>
+	   </div>
+	   <!-- END HEADER TOP AREA -->
+	   <div class="tx_top2_relative">
+		   <div class="">
+			   <div class="tx_relative_m">
+				   <div class="">  
+					   <div class="mainmenu_width_tx  ">
+						   <div class="solutech-main-menu one_page hidden-xs hidden-sm witr_h_h10">
+							   <div class="solutech_nav_area scroll_fixed postfix">
+								   <div class="container">
+									   <div class="row logo-left">				
+										   <!-- LOGO -->
+										   <div class="col-md-3 col-sm-3 col-xs-4">
+											   <div class="logo" style="margin-top: -20px;">
+												   <a class="main_sticky_main_l" href="index.html" title="solutech">
+													   <img src="assets/image/header/logo_bleu.png" alt="solutech">
+												   </a>
+												   <a class="main_sticky_l" href="index.html" title="solutech">
+													   <img src="assets/image/header/logo_blanc.png" alt="solutech">
+												   </a>
+											   </div>	  
+										   </div>
+										   <div class="col-md-9 col-sm-9 col-xs-8">
+											   <nav class="solutech_menu main-search-menu">					
+												   <ul class="sub-menu">
+													   <li>
+														   <a href="index.html">Accueil</a>
+													   </li>
+													   <li><a href="about.html">A propos</a></li>
+													   <li class="menu-item-has-children">
+														   <a href="service-details.html">Services</a>
+														   <ul class="sub-menu">
+															   <li><a href="home-security.html">Dévelopment Web</a></li>
+															   <li><a href="software-development.html">Télécommunication</a></li>
+															   <li><a href="installation.html">Ingénierie System</a></li>
+															   <li><a href="service-maintenance.html">Maintenance Informatique</a></li>
+															   <li><a href="service-reseaux.html">Réseaux</a></li>
+															   <li><a href="service-video-surveillance.html">Vidéo Surveillance</a></li>
+															   <li><a href="service-audiovisuel.html">AudioVisuel</a></li>
+															   <li><a href="service-formation.html">Formations professionnelles</a></li>
+														   </ul>
+													   </li>
+													   <li>
+														   <a href="blog-left-sidebar.html">Blog</a>
+													   </li>
+													   <li><a href="portfolio-4column.html">Formations</a></li>
+												   </ul>
+												   <div class="donate-btn-header">
+													   <a class="dtbtn" href="contact.html">Contactez Nous</a>	
+												   </div>
+											   </nav>
+										   </div>	
+									   </div>
+								   </div>
+							   </div>
+						   </div>
+					   </div>
+				   </div> 			
+			   </div>
+		   </div> 
+	   </div> 
+   </div> 
+   
+   
+   
+   
+   
+   <!-- MOBILE MENU Logo AREA -->
+   <div class="mobile_logo_area hidden-md hidden-lg">
+	   <div class="container">
+		   <div class="row">
+			   <div class="col-sm-12">
+				   <div class="mobile_menu_logo text-center">
+					   <a href="index.html" title="solutech">
+						   <img src="assets/image/header/logo_bleu.png" alt="solutech">
+					   </a>		
+				   </div>
+			   </div>
+		   </div>
+	   </div>
+   </div>
+   <!-- MOBILE MENU AREA -->
+   <div class="home-2 mbm hidden-md hidden-lg  header_area main-menu-area">
+	   <div class="menu_area mobile-menu">
+		   <nav class="solutech_menu">						
+			   <ul class="sub-menu">
+				   <li class="menu-item-has-children">
+					   <a href="index.html">Accueil</a>
+				   </li>
+				   <li><a href="about.html">A propos</a></li>
+				   <li class="menu-item-has-children">
+					   <a href="service-details.html">Services</a>
+					   <ul class="sub-menu">
+						   <li><a href="home-security.html">Dévelopment Web</a></li>
+															   <li><a href="software-development.html">Télécommunication</a></li>
+															   <li><a href="installation.html">Ingénierie System</a></li>
+															   <li><a href="service-maintenance.html">Maintenance Informatique</a></li>
+															   <li><a href="service-reseaux.html">Réseaux</a></li>
+															   <li><a href="service-video-surveillance.html">Vidéo Surveillance</a></li>
+															   <li><a href="service-audiovisuel.html">AudioVisuel</a></li>
+															   <li><a href="service-formation.html">Formations professionnelles</a></li>
+					   </ul>
+				   </li>
+				   <li>
+					   <a href="blog-left-sidebar.html">Blog</a>
+				   </li>
+				   <li><a href="portfolio-4column.html">Formations</a></li>
+				   <li><a href="contact.html">Contactez Nous</a></li>
+			   </ul>
+		   </nav>	
+	   </div>					
+   </div>
+   <!-- END MOBILE MENU AREA  -->
+   
 
 
 <!-- breadcumb-area -->
-<div class="breadcumb-area">
-	<div class="container">				
-		<div class="row">
-			<div class="col-md-12 txtc  text-center ccase">
-				<div class="brpt">
-					<h2>About</h2>
-				</div>
-				<div class="breadcumb-inner">
-					<ul>
-						<li><a href="index.html">Home</a></li>
-						<li><i class="fas fa-angle-right"></i></li>
-						<li>About</li>
-					</ul>						
-				</div>
-			</div>
-		</div>
-	</div>
+<div class="breadcumb-area" style="position: relative; padding: 150px 0px; background-image: url('assets/image/about/Reseau4.jpg'); background-position: center center; background-repeat: no-repeat; background-size: cover;">
+    <!-- Calque semi-transparent -->
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5);"></div>
+    
+    <div class="container" style="position: relative; z-index: 1;">
+        <div class="row">
+            <div class="col-md-12 txtc text-center ccase">
+                <div class="brpt">
+                    <h2>A propos</h2>
+                </div>
+                <div class="breadcumb-inner">
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><i class="fas fa-angle-right"></i></li>
+                        <li>A propos</li>
+                    </ul>						
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
+<!-- Section de bienvenue -->
+<section class="about-welcome-section py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="row align-items-center">
+            <!-- Colonne du texte -->
+            <div class="col-lg-6 col-md-12 mb-8 lg:mb-0">
+                <div class="about-welcome-content">
+                    <h2 class="text-5xl font-bold text-gray-800 mb-6 transition duration-500 ease-in-out transform hover:scale-105">
+                        Bienvenue chez SODITEC
+                    </h2>
+                    <p class="text-xl text-gray-700 mb-6">
+                        Chez <strong>SODITEC</strong> (Société de Déploiement d'Infrastructures Technologiques), 
+                        nous mettons notre expertise au service de vos besoins technologiques. Basés à 
+                        Cotonou, Zogbohoué, nous offrons des solutions complètes et adaptées pour garantir 
+                        la performance, la sécurité et l’efficacité de vos systèmes informatiques et réseaux.
+                    </p>
+                    <p class="text-xl text-gray-700 mb-6">
+                        Notre mission est de vous accompagner dans la transformation digitale en déployant 
+                        des infrastructures technologiques de pointe et en proposant des formations 
+                        pour vous préparer aux métiers de demain.
+                    </p>
+                    <a href="contact.html" class="btn btn-primary py-3 px-8 bg-blue-600 text-white font-semibold text-xl rounded-lg hover:bg-blue-700 transition duration-500 transform hover:scale-110 shadow-lg">
+                        Contactez-nous
+                    </a>
+                </div>
+            </div>
+            <!-- Colonne de l'image -->
+            <div class="col-lg-6 col-md-12">
+                <div class="about-welcome-image opacity-90 transition duration-500 ease-in-out hover:opacity-100">
+                    <img src="assets/image/about/undraw_typewriter_d4km.png" alt="Équipe SODITEC" class="w-full h-auto rounded-lg shadow-lg object-cover opacity-90 transition duration-500 ease-in-out hover:opacity-100">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-<!-- solutech_about_area -->
-<div class="solutech_about_area">
-	<div class="container">	
+
+
+<div class="single_faq_bg_area faq_area">
+	<div class="container">
 		<div class="row">
-			<div class="col-lg-12">
+			<div class="col-lg-6 col-md-10 col-sm-12">
 				<div class="witr_section_title">
-					<div class="witr_section_title_inner text-center">
-						<h2>Our Singin 1987.</h2>		
-						<h3>DISCOVER THE WORLD OF BEST</h3>		
-						<h1>CCTV Safety.</h1>		
+					<div class="witr_section_title_inner text-left">
+						<h2>Notre Vision</h2>
 					</div>
 				</div>
+				<div class="witr_single_progress">
+					<div class="witr_title2">
+						<span class="witr_label"> Innovation</span>	
+					</div>		
+					<div class="progress witr_progress-style2">
+						<div class="progress-bar wow fadeInLeft " data-wow-duration="1.5s" data-wow-delay="0.2s" style="width: 90%;">
+							<span class="witr_percent">90%</span>					
+						</div>
+					</div>				
+				</div>
+				<div class="witr_single_progress">
+					<div class="witr_title2">
+						<span class="witr_label">Écoute Client </span>	
+					</div>		
+					<div class="progress witr_progress-style2">
+						<div class="progress-bar wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay="0.2s" style="width: 100%;">
+							<span class="witr_percent">100%</span>					
+						</div>
+					</div>				
+				</div>
+				<div class="witr_single_progress">
+					<div class="witr_title2">
+						<span class="witr_label">Efficacité </span>	
+					</div>		
+					<div class="progress witr_progress-style2">
+						<div class="progress-bar wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay="0.2s" style="width: 85%;">
+							<span class="witr_percent">95%</span>					
+						</div>
+					</div>				
+				</div>
+				<div class="witr_single_progress">
+					<div class="witr_title2">
+						<span class="witr_label">Valorisation des ressources </span>	
+					</div>		
+					<div class="progress witr_progress-style2">
+						<div class="progress-bar wow fadeInLeft " data-wow-duration="1.5s" data-wow-delay="0.2s" style="width: 90%;">
+							<span class="witr_percent">90%</span>					
+						</div>
+					</div>				
+				</div>
 			</div>
-		</div>
-		<div class="witr_pslide3 all_pslides_color ps1 ps3 service_active">
-			<div class="witr_cslide3_idany service_top">
-				<!-- solutech_serivce_01 -->
-				<div class="item_pos col-lg-12">	
-					<div class="witr_single_pslide">	
-						<div class="witr_pslide_image">
-							<img src="assets/images/service-img-1.jpg" alt="image">
-						</div>			
-						<div class="witr_content_pslide_text">
-							<div class="witr_number_pslide">
-								<h4>01.</h4>
+			<div class="col-lg-6 col-md-12 col-sm-12">
+				<div class="accordion_area">
+                    <div class="faq-part">
+                        <div id="accordion">
+							<div class="card card-2">
+								<div class="card-header witr_ac_card">
+									<a href="#" class="card-link witr_ac_style" data-bs-toggle="collapse" data-bs-target="#collapse_242536c" aria-expanded="true">
+									 01. Innovation</a>
+								</div>
+								<div id="collapse_242536c" class="collapse" data-parent="#accordion">
+									<p>Nous restons à la pointe de la technologie pour offrir les meilleures solutions.</p>
+								</div>
 							</div>
-							<div class="witr_content_pslide">
-								<p>SECURITY PROFESSIONAL </p>		
-								<h3><a href="#">Experts and Staff</a></h3>
+							<div class="card card-2">
+								<div class="card-header witr_ac_card">
+									<a href="#" class="card-link witr_ac_style" data-bs-toggle="collapse" data-bs-target="#collapse_9315e3d1" aria-expanded="true">
+									02. Écoute Client</a>
+								</div>
+								<div id="collapse_9315e3d1" class="collapse   " data-parent="#accordion">
+                                    <p>Nous accordons une attention particulière aux besoins spécifiques de chaque client.</p>
+								</div>
+							</div> 
+							<!-- card -->	
+							<div class="card card-2  ">
+								<div class="card-header witr_ac_card">
+									<a href="#" class="card-link witr_ac_style" data-bs-toggle="collapse" data-bs-target="#collapse_9965145" aria-expanded="true">
+									03. Efficacité</a>
+								</div>
+								<div id="collapse_9965145" class="collapse   " data-parent="#accordion">
+                                     <p>Nous optimisons nos processus pour garantir des résultats rapides et fiables.</p>
+								</div>
 							</div>
-							<div class="witr_pslide_custom">	
-								<a href="#"><span class="ti-arrow-right"></span></a>
+							<!-- card -->	
+							<div class="card card-2  ">
+								<div class="card-header witr_ac_card">
+									<a href="#" class="card-link witr_ac_style" data-bs-toggle="collapse" data-bs-target="#collapse_4b685b3" aria-expanded="true">
+									 04. Valorisation des ressources</a>
+								</div>
+								<div id="collapse_4b685b3" class="collapse   " data-parent="#accordion">
+									<p>Nous investissons dans nos talents et nos outils pour maximiser la valeur ajoutée.</p>
+								</div>
 							</div>
-						</div>	
-					</div> 
-				</div>
-				<!-- solutech_serivce_02 -->
-				<div class="item_pos col-lg-12">	
-					<div class="witr_single_pslide">	
-						<div class="witr_pslide_image">
-							<img src="assets/images/service-img-2.jpg" alt="image">
-						</div>			
-						<div class="witr_content_pslide_text">
-							<div class="witr_number_pslide">
-								<h4>02.</h4>
-							</div>
-							<div class="witr_content_pslide">
-								<p>SECURITY PROFESSIONAL </p>		
-								<h3><a href="#">Experts and Staff</a></h3>
-							</div>
-							<div class="witr_pslide_custom">	
-								<a href="#"><span class="ti-arrow-right"></span></a>
-							</div>
-						</div>	
-					</div> 
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
-<!-- solutech_serivce_area -->
-<div class="solutech_serivce_area serivce_bg">
-	<div class="container">	
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="witr_section_title">
-					<div class="witr_section_title_inner text-center">
-						<h2>Our Service</h2>		
-						<h3>Industries What We Serve With You.</h3>		
-					</div>
-				</div>
-			</div>							
-		</div>
-		<div class="row service_top">
-			<!-- solutech_serivce_bg_01 -->
-			<div class="col-lg-4 col-md-6 col-sm-12">
-				<div class="all_feature_color single_feature2 text-center">            
-					<div class="witr_feature2">					
-						<div class="witr_fea2_icon_top">
-							<i class="aprova aprova-website-1"></i>					
+					
 						</div>
-						<h3><a href="#">Concierge &amp; Reception </a></h3>
-						<p>Lorem ipsum dolor ame elit, sed do eiusmod tempor incididunt  </p>		
-						<div class="witr_feature_btn2">
-							<a class="witr_btn_all_color" href="#">Read More</a>
-						</div>
-						<div class="witr_feature2_icon">						
-							<i class="aprova aprova-website-1"></i>	
-						</div>					
-					</div> 	   
-				</div>
-			</div>
-			<!-- solutech_serivce_bg_02 -->
-			<div class="col-lg-4 col-md-6 col-sm-12">
-				<div class="all_feature_color single_feature2 text-center">            
-					<div class="witr_feature2">					
-						<div class="witr_fea2_icon_top">
-							<i class="aprova aprova-landing"></i>				
-						</div>
-						<h3><a href="#">Mobile Patrol And  Security</a></h3>
-						<p>Lorem ipsum dolor ame elit, sed do eiusmod tempor incididunt  </p>		
-						<div class="witr_feature_btn2">
-							<a class="witr_btn_all_color" href="#">Read More</a>
-						</div>
-						<div class="witr_feature2_icon">						
-							<i class="aprova aprova-landing"></i>
-						</div>					
-					</div> 	   
-				</div>
-			</div>
-			<!-- solutech_serivce_bg_03 -->
-			<div class="col-lg-4 col-md-6 col-sm-12">
-				<div class="all_feature_color single_feature2 text-center">            
-					<div class="witr_feature2">					
-						<div class="witr_fea2_icon_top">
-							<i class="aprova aprova-analysis"></i>			
-						</div>
-						<h3><a href="#">Offshore Software Develop </a></h3>
-						<p>Lorem ipsum dolor ame elit, sed do eiusmod tempor incididunt  </p>		
-						<div class="witr_feature_btn2">
-							<a class="witr_btn_all_color" href="#">Read More</a>
-						</div>
-						<div class="witr_feature2_icon">						
-							<i class="aprova aprova-analysis"></i>
-						</div>					
-					</div> 	   
-				</div>
-			</div>
-			<!-- solutech_serivce_bg_04 -->
-			<div class="col-lg-4 col-md-6 col-sm-12">
-				<div class="all_feature_color single_feature2 text-center">            
-					<div class="witr_feature2">					
-						<div class="witr_fea2_icon_top">
-							<i class="aprova aprova-bitcoin-1"></i>			
-						</div>
-						<h3><a href="#">Security Management Service</a></h3>
-						<p>Lorem ipsum dolor ame elit, sed do eiusmod tempor incididunt  </p>		
-						<div class="witr_feature_btn2">
-							<a class="witr_btn_all_color" href="#">Read More</a>
-						</div>
-						<div class="witr_feature2_icon">						
-							<i class="aprova aprova-bitcoin-1"></i>
-						</div>					
-					</div> 	   
-				</div>
-			</div>
-			<!-- solutech_serivce_bg_05 -->
-			<div class="col-lg-4 col-md-6 col-sm-12">
-				<div class="all_feature_color single_feature2 text-center">            
-					<div class="witr_feature2">					
-						<div class="witr_fea2_icon_top">
-							<i class="aprova aprova-startup"></i>				
-						</div>
-						<h3><a href="#">Mobile Patrol And Security</a></h3>
-						<p>Lorem ipsum dolor ame elit, sed do eiusmod tempor incididunt  </p>		
-						<div class="witr_feature_btn2">
-							<a class="witr_btn_all_color" href="#">Read More</a>
-						</div>
-						<div class="witr_feature2_icon">						
-							<i class="aprova aprova-startup"></i>
-						</div>					
-					</div> 	   
-				</div>
-			</div>
-			<!-- solutech_serivce_bg_06 -->
-			<div class="col-lg-4 col-md-6 col-sm-12">
-				<div class="all_feature_color single_feature2 text-center">            
-					<div class="witr_feature2">					
-						<div class="witr_fea2_icon_top">
-							<i class="aprova aprova-bitcoin-6"></i>					
-						</div>
-						<h3><a href="#">Offshore Software Develop</a></h3>
-						<p>Lorem ipsum dolor ame elit, sed do eiusmod tempor incididunt  </p>		
-						<div class="witr_feature_btn2">
-							<a class="witr_btn_all_color" href="#">Read More</a>
-						</div>
-						<div class="witr_feature2_icon">						
-							<i class="aprova aprova-bitcoin-6"></i>
-						</div>					
-					</div> 	   
-				</div>
+                    </div> 	
+                </div>
 			</div>
 		</div>
 	</div>
@@ -424,9 +494,8 @@
 			<div class="col-lg-12">
 				<div class="witr_section_title">
 					<div class="witr_section_title_inner text-center">
-						<h2>OUR MEMBER</h2>		
-						<h3>WHAT DO YOU WANT TO</h3>		
-						<h1>LEARN TODAY ?</h1>		
+						<h2>NOTRE EQUIPE</h2>		
+						<h3>Voici notre équipe d'experts qualifiés</h3>	
 					</div>
 				</div>
 			</div>
@@ -438,18 +507,18 @@
 					<div class="em-team-one">	
 						<div class="em-team-content-image-inner">	
 							<div class="em-team-content-image">
-								<img src="assets/images/team-01.jpg" alt="image">
+								<img src="assets/image/team/Enock2.jpeg" alt="image">
 							</div>	
 						</div>
 						<div class="em-team-content-waraper all_content_bg_color">
 							<div class="em-team-content-title-inner">
 								<div class="em-content-title">
-									<h5><a href="#">EDWARD SMITH </a></h5>
+									<h5><a href="#">James DOSSOUVI</a></h5>
 								</div>
 							</div>
 							<div class="em-team-content-subtitle-inner">
 								<div class="em-content-subtitle">
-									<span>DIRECTOR</span>
+									<span>DIRECTEUR GENERAL</span>
 								</div>
 							</div>
 							<div class="em-team-content-socials-inner">
@@ -470,18 +539,18 @@
 					<div class="em-team-one">	
 						<div class="em-team-content-image-inner">	
 							<div class="em-team-content-image">
-								<img src="assets/images/team-02.jpg" alt="image">
-							</div>	
+								<img src="assets/image/team/Enock2.jpeg" alt="image">
+							</div>
 						</div>
 						<div class="em-team-content-waraper all_content_bg_color">
 							<div class="em-team-content-title-inner">
 								<div class="em-content-title">
-									<h5><a href="#">RUBEL SMITH</a></h5>
+									<h5><a href="#">Cynthia FELIHO</a></h5>
 								</div>
 							</div>
 							<div class="em-team-content-subtitle-inner">
 								<div class="em-content-subtitle">
-									<span>MANAGER</span>
+									<span>COMPTABILITE & COMMERCIAL</span>
 								</div>
 							</div>
 							<div class="em-team-content-socials-inner">
@@ -502,18 +571,18 @@
 					<div class="em-team-one">	
 						<div class="em-team-content-image-inner">	
 							<div class="em-team-content-image">
-								<img src="assets/images/team-03.jpg" alt="image">
+								<img src="assets/image/team/Enock2.jpeg" alt="image">
 							</div>	
 						</div>
 						<div class="em-team-content-waraper all_content_bg_color">
 							<div class="em-team-content-title-inner">
 								<div class="em-content-title">
-									<h5><a href="#">ANDORSON</a></h5>
+									<h5><a href="#">Enock TOGLOZIN</a></h5>
 								</div>
 							</div>
 							<div class="em-team-content-subtitle-inner">
 								<div class="em-content-subtitle">
-									<span>MARKETING</span>
+									<span>Technicien</span>
 								</div>
 							</div>
 							<div class="em-team-content-socials-inner">
@@ -531,292 +600,65 @@
 		</div>
 	</div>
 </div>
-
 <!-- solutech_counter_area -->
 <div class="solutech_counter_area">
-	<div class="container counter_bg">	
-		<div class="row">
-			<!-- desicat_counter_01 -->
-			<div class="col-lg-3 col-md-6 col-sm-12">
-				<div class="witr_counter_single all_counter_color">
-					<div class="witr_custom_icon">
-						<i class="icofont-man-in-glasses"></i>
-					</div>
-					<div class="witr_counter_number_inn">
-						<h3 class="counter">130</h3>				
-						<span>+</span>
-						<h4>Happy Customers </h4>		
-					</div> 
-				</div>
-			</div>
-			<!-- desicat_counter_02 -->
-			<div class="col-lg-3 col-md-6 col-sm-12">
-				<div class="witr_counter_single all_counter_color">
-					<div class="witr_custom_icon">
-						<i class="icofont-automation"></i>
-					</div>	
-					<div class="witr_counter_number_inn">
-						<h3 class="counter">60</h3>				
-						<span>+</span>
-						<h4>Employer Solutions</h4>		
-					</div> 	
-				</div>
-			</div>
-			<!-- desicat_counter_03 -->
-			<div class="col-lg-3 col-md-6 col-sm-12">
-				<div class="witr_counter_single all_counter_color">
-					<div class="witr_custom_icon">
-						<i class="icofont-money"></i>
-					</div>	
-					<div class="witr_counter_number_inn">
-						<h3 class="counter">30</h3>				
-						<span>+</span>
-						<h4>Client Coffee</h4>		
-					</div> 	
-				</div>
-			</div>
-			<!-- desicat_counter_04 -->
-			<div class="col-lg-3 col-md-6 col-sm-12">
-				<div class="witr_counter_single all_counter_color">
-					<div class="witr_custom_icon">
-						<i class="icofont-checked"></i>
-					</div>	
-					<div class="witr_counter_number_inn">
-						<h3 class="counter">33</h3>				
-						<span>+</span>
-						<h4>Project Completed</h4>		
-					</div> 	
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- single_faq_bg_area -->
-<div class="single_faq_bg_area faq_area">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-6 col-md-10 col-sm-12">
-				<div class="witr_section_title">
-					<div class="witr_section_title_inner text-left">
-						<h2>OUR FAQ</h2>		
-						<h3>Frequently Asked Questions?</h3>		
-					</div>
-				</div>
-				<div class="witr_single_progress">
-					<div class="witr_title2">
-						<span class="witr_label">SKILLED EMPLOYEE </span>	
-					</div>		
-					<div class="progress witr_progress-style2">
-						<div class="progress-bar wow fadeInLeft " data-wow-duration="1.5s" data-wow-delay="0.2s" style="width: 90%;">
-							<span class="witr_percent">90%</span>					
-						</div>
-					</div>				
-				</div>
-				<div class="witr_single_progress">
-					<div class="witr_title2">
-						<span class="witr_label">QUALITY SERVICES </span>	
-					</div>		
-					<div class="progress witr_progress-style2">
-						<div class="progress-bar wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay="0.2s" style="width: 60%;">
-							<span class="witr_percent">60%</span>					
-						</div>
-					</div>				
-				</div>
-				<div class="witr_single_progress">
-					<div class="witr_title2">
-						<span class="witr_label">SKILLED COMPLATET </span>	
-					</div>		
-					<div class="progress witr_progress-style2">
-						<div class="progress-bar wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay="0.2s" style="width: 85%;">
-							<span class="witr_percent">85%</span>					
-						</div>
-					</div>				
-				</div>
-				<div class="witr_single_progress">
-					<div class="witr_title2">
-						<span class="witr_label">SUPPORT COMPLATET </span>	
-					</div>		
-					<div class="progress witr_progress-style2">
-						<div class="progress-bar wow fadeInLeft " data-wow-duration="1.5s" data-wow-delay="0.2s" style="width: 90%;">
-							<span class="witr_percent">90%</span>					
-						</div>
-					</div>				
-				</div>
-				<div class="witr_button_area button2">
-					<div class="witr_btn_style mr">
-						<div class="witr_btn_sinner">	
-							<a href="#" class="witr_btn">DISCOVER MORE</a>
-						</div>						
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-6 col-md-12 col-sm-12">
-				<div class="accordion_area">
-                    <div class="faq-part">
-                        <div id="accordion">
-							<div class="card card-2">
-								<div class="card-header witr_ac_card">
-									<a href="#" class="card-link witr_ac_style" data-bs-toggle="collapse" data-bs-target="#collapse_242536c" aria-expanded="true">
-									 01. Do You Need A Business Service?</a>
-								</div>
-								<div id="collapse_242536c" class="collapse" data-parent="#accordion">
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqu ad minim veniam, quis nostrud exercitation.</p>
-								</div>
-							</div>
-							<div class="card card-2">
-								<div class="card-header witr_ac_card">
-									<a href="#" class="card-link witr_ac_style" data-bs-toggle="collapse" data-bs-target="#collapse_9315e3d1" aria-expanded="true">
-									02. Business Service A Scam?</a>
-								</div>
-								<div id="collapse_9315e3d1" class="collapse   " data-parent="#accordion">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqu ad minim veniam, quis nostrud exercitation.</p>
-								</div>
-							</div> 
-							<!-- card -->	
-							<div class="card card-2  ">
-								<div class="card-header witr_ac_card">
-									<a href="#" class="card-link witr_ac_style" data-bs-toggle="collapse" data-bs-target="#collapse_9965145" aria-expanded="true">
-									03. Most Out Of Your Business Service?</a>
-								</div>
-								<div id="collapse_9965145" class="collapse   " data-parent="#accordion">
-                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqu ad minim veniam, quis nostrud exercitation.</p>
-								</div>
-							</div>
-							<!-- card -->	
-							<div class="card card-2  ">
-								<div class="card-header witr_ac_card">
-									<a href="#" class="card-link witr_ac_style" data-bs-toggle="collapse" data-bs-target="#collapse_4b685b3" aria-expanded="true">
-									 04. The Sound Of Business Service?</a>
-								</div>
-								<div id="collapse_4b685b3" class="collapse   " data-parent="#accordion">
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqu ad minim veniam, quis nostrud exercitation.</p>
-								</div>
-							</div>
-							<!-- card -->	
-							<div class="card card-2  ">
-								<div class="card-header witr_ac_card">
-									<a href="#" class="card-link witr_ac_style" data-bs-toggle="collapse" data-bs-target="#collapse_4b685b4" aria-expanded="true">
-									05. The Sound Of Business Service?</a>
-								</div>
-								<div id="collapse_4b685b4" class="collapse   " data-parent="#accordion">
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqu ad minim veniam, quis nostrud exercitation.</p>
-								</div>
-							</div> 
-						</div>
-                    </div> 	
+    <div class="container counter_bg">    
+        <div class="row">
+            <!-- Clients satisfaits -->
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="witr_counter_single all_counter_color">
+                    <div class="witr_custom_icon">
+                        <i class="icofont-handshake-deal"></i>
+                    </div>
+                    <div class="witr_counter_number_inn">
+                        <h3 class="counter">150</h3>                
+                        <span>+</span>
+                        <h4>Clients satisfaits</h4>        
+                    </div> 
                 </div>
-			</div>
-		</div>
-	</div>
+            </div>
+            <!-- Projets déployés -->
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="witr_counter_single all_counter_color">
+                    <div class="witr_custom_icon">
+                        <i class="icofont-building-alt"></i>
+                    </div>    
+                    <div class="witr_counter_number_inn">
+                        <h3 class="counter">200</h3>                
+                        <span>+</span>
+                        <h4>Projets déployés</h4>        
+                    </div>     
+                </div>
+            </div>
+            <!-- Formations dispensées -->
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="witr_counter_single all_counter_color">
+                    <div class="witr_custom_icon">
+                        <i class="icofont-graduate"></i>
+                    </div>    
+                    <div class="witr_counter_number_inn">
+                        <h3 class="counter">50</h3>                
+                        <span>+</span>
+                        <h4>Formations dispensées</h4>        
+                    </div>     
+                </div>
+            </div>
+            <!-- Partenaires stratégiques -->
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="witr_counter_single all_counter_color">
+                    <div class="witr_custom_icon">
+                        <i class="icofont-business-man"></i>
+                    </div>    
+                    <div class="witr_counter_number_inn">
+                        <h3 class="counter">20</h3>                
+                        <span>+</span>
+                        <h4>Partenaires stratégiques</h4>        
+                    </div>     
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
-
-
-<!-- solutech_project_area -->
-<div class="solutech_project_area">
-	<div class="containers">	
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="witr_section_title">
-					<div class="witr_section_title_inner text-center">
-						<h2> We Work Project</h2>		
-						<h3>How We Approach Our Projects</h3>		
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="witr_pslide all_pslides_color ps1 service_active">
-			<div class="witr_islidess_slick witr_cslide_idany project_top">
-				<!-- solutech_project_01 -->
-				<div class="item_pos col-lg-12">	
-					<div class="witr_single_pslide">	
-						<div class="witr_pslide_image">
-							<img src="assets/images/project-thumb-02.jpg" alt="image">
-						</div>
-						<div class="witr_pslide_custom">	
-							<a href="#"><span class="ti-arrow-right"></span></a>
-						</div>
-						<div class="witr_content_pslide_text">
-							<div class="witr_content_pslide">
-								<h3><a href="#">Fingerprint Door </a></h3>
-								<p>Access </p>		
-							</div>
-						</div>	
-					</div> 
-				</div>
-				<!-- solutech_project_02 -->
-				<div class="item_pos col-lg-12">	
-					<div class="witr_single_pslide">	
-						<div class="witr_pslide_image">
-							<img src="assets/images/project-thumb-03.jpg" alt="image">
-						</div>
-						<div class="witr_pslide_custom">	
-							<a href="#"><span class="ti-arrow-right"></span></a>
-						</div>
-						<div class="witr_content_pslide_text">
-							<div class="witr_content_pslide">
-								<h3><a href="#">Antenna Tagging</a></h3>
-								<p>Alarm & Lock  </p>		
-							</div>
-						</div>	
-					</div> 
-				</div>
-				<!-- solutech_project_03 -->
-				<div class="item_pos col-lg-12">	
-					<div class="witr_single_pslide">	
-						<div class="witr_pslide_image">
-							<img src="assets/images/project-thumb-04.jpg" alt="image">
-						</div>
-						<div class="witr_pslide_custom">	
-							<a href="#"><span class="ti-arrow-right"></span></a>
-						</div>
-						<div class="witr_content_pslide_text">
-							<div class="witr_content_pslide">
-								<h3><a href="#">Home Automation </a></h3>
-								<p>System  </p>		
-							</div>
-						</div>	
-					</div> 
-				</div>
-				<!-- solutech_project_04 -->
-				<div class="item_pos col-lg-12">	
-					<div class="witr_single_pslide">	
-						<div class="witr_pslide_image">
-							<img src="assets/images/project-thumb-01.jpg" alt="image">
-						</div>
-						<div class="witr_pslide_custom">	
-							<a href="#"><span class="ti-arrow-right"></span></a>
-						</div>
-						<div class="witr_content_pslide_text">
-							<div class="witr_content_pslide">
-								<h3><a href="#">Fingerprint Door </a></h3>
-								<p>Access </p>		
-							</div>
-						</div>	
-					</div> 
-				</div>
-				<!-- solutech_project_05 -->
-				<div class="item_pos col-lg-12">	
-					<div class="witr_single_pslide">	
-						<div class="witr_pslide_image">
-							<img src="assets/images/project-thumb-05.jpg" alt="image">
-						</div>
-						<div class="witr_pslide_custom">	
-							<a href="#"><span class="ti-arrow-right"></span></a>
-						</div>
-						<div class="witr_content_pslide_text">
-							<div class="witr_content_pslide">
-								<h3><a href="#">Fingerprint Door Lock</a></h3>
-								<p>Alarm & Lock  </p>		
-							</div>
-						</div>	
-					</div> 
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
 
 
 <!-- solutech_testimonial_bg_area -->
@@ -824,98 +666,12 @@
 	<div class="container">	
 		<div class="row">
 			<div class="col-lg-12">
-				<div class="witr_section_title white">
-					<div class="witr_section_title_inner text-center">
-						<h2>Our Testimonial</h2>		
-						<h3>Compilate Recent Product For</h3>		
-						<h1>Our Customer</h1>	
-					</div>
-				</div>
 			</div>						
-		</div>
-		<div class="carso_idtesti all_color_testimonial dfa testi_top">
-			<!-- solutech_blog_01 -->
-			<div class="item guttergs">
-				<div class="single_creativeItem post_t6">
-					<div class="box-size">
-						<div class="testiCreCon">
-							<i class="fa fa-quote-right"></i>
-							<!-- content -->	
-							<p>Following best practices and pro edures provided by the leading orga izations in the industry, our clea ng and disinfectingIt</p>								
-						</div>
-						<div class="em_test_thumb">
-							<img src="assets/images/testimonial2.png" alt="image" >
-						</div>
-						<div class="testAuthor">
-							<h6>Zonson Amplilian</h6>
-							<span> Co- Of Officer </span>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- solutech_blog_02 -->
-			<div class="item guttergs">
-				<div class="single_creativeItem post_t6">
-					<div class="box-size">
-						<div class="testiCreCon">
-							<i class="fa fa-quote-right"></i>
-							<!-- content -->	
-							<p>Following best practices and pro edures provided by the leading orga izations in the industry, our clea ng and disinfectingIt</p>								
-						</div>
-						<div class="em_test_thumb">
-							<img src="assets/images/testimonial1.png" alt="image" >
-						</div>
-						<div class="testAuthor">
-							<h6>Rahul Alartson</h6>
-							<span> Admin Officer </span> 
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- solutech_blog_03 -->
-			<div class="item guttergs">
-				<div class="single_creativeItem post_t6">
-					<div class="box-size">
-						<div class="testiCreCon">
-							<i class="fa fa-quote-right"></i>
-							<!-- content -->	
-							<p>Following best practices and pro edures provided by the leading orga izations in the industry, our clea ng and disinfectingIt</p>								
-						</div>
-						<div class="em_test_thumb">
-							<img src="assets/images/testimonial3.png" alt="image" >
-						</div>
-						<div class="testAuthor">
-							<h6>Robert Amplilian</h6>
-							<span> Chief People Officer </span> 
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- solutech_blog_04 -->
-			<div class="item guttergs">
-				<div class="single_creativeItem post_t6">
-					<div class="box-size">
-						<div class="testiCreCon">
-							<i class="fa fa-quote-right"></i>
-							<!-- content -->	
-							<p>Following best practices and pro edures provided by the leading orga izations in the industry, our clea ng and disinfectingIt</p>								
-						</div>
-						<div class="em_test_thumb">
-							<img src="assets/images/testimonial1.png" alt="image" >
-						</div>
-						<div class="testAuthor">
-							<h6>Marvin McKinney</h6>
-							<span> District Officer </span> 
-						</div>
-					</div>
-				</div>
-			</div>
 		</div>
 	</div>
 </div>
 
-
-<!-- witr_brand_area -->
+<!-- witr_equipementiers_area -->
 <div class="witr_brand_area brand2">
 	<div class="container">
 		<div class="row">
@@ -923,37 +679,30 @@
 				<div class="imagess_area wittr_car_top_left brand_bg">
 					<div class="witr_car_overlay brand_imagess_active">
 						<div class="slide_items">
-							<img src="assets/images/brand1.png" alt="image" >
+							<img src="assets/image/equipmentier/cisco (1).png" alt="image" >
 						</div>
 						<div class="slide_items">
-							<img src="assets/images/brand2.png" alt="image" >
+							<img src="assets/image/equipmentier/Fortinet (1).png" alt="image" >
 						</div>
 						<div class="slide_items">
-							<img src="assets/images/brand3.png" alt="image" >
+							<img src="assets/image/equipmentier/Huawei (1).jpg" alt="image" >
 						</div>
 						<div class="slide_items">
-							<img src="assets/images/brand4.png" alt="image" >
+							<img src="assets/image/equipmentier/microsoft (1).jpg" alt="image" >
 						</div>
 						<div class="slide_items">
-							<img src="assets/images/brand2.png" alt="image" >
+							<img src="assets/image/equipmentier/mikrotik (1).jpg" alt="image" >
 						</div>
 						<div class="slide_items">
-							<img src="assets/images/brand3.png" alt="image" >
+							<img src="assets/image/equipmentier/Ubiquity (1).png" alt="image" >
+						</div>
+						<div class="slide_items">
+							<img src="assets/image/equipmentier/tplink (1).png" alt="image" >
 						</div>
 					</div>
 				</div> 
 			</div>
-			<div class="col-lg-3 col-md-4 col-sm-12 pdlf">
-				<div class="witr_button_bg">
-					<div class="witr_button_area">
-						<div class="witr_btn_style mr">
-							<div class="witr_btn_sinner">	
-								<a href="#" class="witr_bbtn">More Portfolio</a>
-							</div>						
-						</div>
-					</div>
-				</div>
-			</div>
+			
 		</div>
 	</div>
 </div>
@@ -968,8 +717,8 @@
 				<div class=" col-lg-3 col-md-6 col-sm-12">
 					<div class="widget widget_solutech_description_widget">				
 						<div class="solutech-description-area">
-							<a href="#"><img src="assets/images/logo2.png" alt="image"></a>
-							<p>We help businesses elevate the alue ere custom softwa topmet, product fr design lored many of the easier. technicians lif making people.</p>
+							<a href="#"><img src="assets/image/header/logo_blanc.png" alt="image"></a>
+							<p>Nous aidons les entreprises à élever la valeur avant de créer des logiciels personnalisés et de concevoir des produits parmi les plus simples. les techniciens vivent pour créer des gens.</p>
 							<div class="social-icons">
 								<a href="#"><i class="fa fa-facebook-f"></i></a>
 								<a href="#"><i class="fab fa-google-plus-g"></i></a>
@@ -981,31 +730,29 @@
 				</div>
 				<div class=" col-lg-3 col-md-6 col-sm-12">
 					<div class="widget widget_nav_menu">
-						<h2 class="widget-title">Support 24/7</h2>
+						<h2 class="widget-title">Soutien 24/7</h2>
 						<ul class="menu">
-							<li><a href="#">Privacy Policy</a></li>
-							<li><a href="#">FAQ’s</a></li>
-							<li><a href="#">Term & Conditions</a></li>
+							<li><a href="#">Politique de confidentialité</a></li>
+							<li><a href="#">FAQ</a></li>
+							<li><a href="#">Conditions générales & Conditions</a></li>
 							<li><a href="#">Contact</a></li>
-							<li><a href="#">History & Experience</a></li>
+							<li><a href="#">Histoire & expérience</a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="col-lg-3 col-md-6 col-sm-12">
 					<div class="widget about_us">
-						<h2 class="widget-title">Local Address</h2>
+						<h2 class="widget-title">Adresse Locale</h2>
 						<div class="about-footer">
 							<div class="footer-widget address">
-								<div class="footer-logo">
-									<p>Fire suppression and incident of manage get recovery.</p>
-								</div>
+							
 								<div class="footer-address">
 									<div class="footer_s_inner"> 
 										<div class="footer-sociala-icon">
 											<i class="fa fa-map-marker"></i>
 										</div>									
 										<div class="footer-sociala-info">				
-											<p>Address : New York. US</p>
+											<p>Address : Zogbohoue,COTONOU</p>
 										</div> 
 									</div> 
 									<div class="footer_s_inner"> 
@@ -1013,7 +760,7 @@
 											<i class="fa fa-phone"></i>
 										</div> 									
 										<div class="footer-sociala-info">   
-												<p>Phone : +99 568 989 565</p>
+												<p>Phone : +229 0160988585</p>
 										</div>
 									</div>
 									<div class="footer_s_inner"> 
@@ -1021,7 +768,7 @@
 											<i class="fa fa-envelope"></i>
 										</div> 
 										<div class="footer-sociala-info">  
-											<p>Email : demo@gmail.com</p>									
+											<p>Email : contact@soditec.com</p>									
 										</div>
 									</div>
 								</div>
@@ -1031,28 +778,21 @@
 				</div>
 				<div class="col-sm-12 col-md-6  col-lg-3 last">
 					<div class="widget_text widget widget_custom_html">
-						<h2 class="widget-title">Working Hours</h2>
+						<h2 class="widget-title">HORAIRES</h2>
 						<div class="textwidget custom-html-widget">
 							<div class="witr_table">
 								<div class="witr_sub_table">
-									<span>Tuesday - Friday</span>
-									<span>08:00 - 20:00</span>
+									<span>Lundi - Vendredi</span>
+									<span>08:00 - 18:00</span>
 								</div>
 								<div class="witr_sub_table">	
 									<span>Saturday</span>
 									<span>09:00 - 18:00</span>
 								</div>		
+															
 								<div class="witr_sub_table">		
-									<span>Sunday</span>
-									<span>09:00 - 18:00</span>
-								</div>
-								<div class="witr_sub_table">		
-									<span>Monday</span>
-									<span>09:00 - 18:00</span>
-								</div>
-								<div class="witr_sub_table">		
-									<span>Emergency:</span>
-									<span> (+099) 020 768 69</span>
+									<span>Urgence:</span>
+									<span> (+229) 0160988585</span>
 								</div>
 							</div>
 						</div>
@@ -1066,7 +806,7 @@
 			<div class="row">
 				<div class="col-lg-6 col-md-6  col-sm-12">
 					<div class="copy-right-text">
-						<p>Copyright &copy; solutech all rights reserved.</p>
+						<p>Copyright &copy; soditec all rights reserved.</p>
 					</div>
 				</div>
 				<div class="col-lg-6 col-md-6  col-sm-12">				
