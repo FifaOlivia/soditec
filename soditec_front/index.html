@@ -1,1459 +1,1993 @@
-<!DOCTYPE HTML>
+<!doctype html>
 <html lang="en-US">
-    <head>
-		<meta charset="UTF-8">
-		<meta http-equiv="x-ua-compatible" content="ie=edge">
-		<title>Soditec - Déploiement d'infrastructure technologique</title>
-		<meta name="description" content="">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="icon"  type="image/png" href="assets/images/favicon.png">		
-        <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="venobox/venobox.css">
-        <link rel="stylesheet" type="text/css" href="assets/css/plugin_theme_css.css">       
-		<link rel="stylesheet" type="text/css" href="style.css">
-		<link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Soditec - Déploiement d'infrastructure technologique</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="assets/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="venobox/venobox.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="assets/css/plugin_theme_css.css"
+    />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/responsive.css" />
 
-		<style>
-	body {
-		font-family: Arial, sans-serif;
-		margin: 0;
-		padding: 0;
-		background-color: #f4f4f4;
-	}
-	.chatbot-avatar {
-		position: fixed;
-		bottom: 70px;
-		right: 20px;
-		display: flex;
-		align-items: center;
-		cursor: pointer;
-		animation: blink 1.5s infinite;
-	}
-	.chatbot-avatar img {
-		width: 60px;
-		height: 60px;
-		border-radius: 50%;
-		box-shadow: 0 0 10px rgba(0,0,0,0.3);
-	}
-	.chatbot-bubble {
-		background: #007bff;
-		color: #fff;
-		padding: 10px 15px;
-		border-radius: 15px;
-		margin-right: 10px;
-		font-size: 14px;
-		animation: fadeIn 0.5s ease-in-out;
-	}
-	.chat-container {
-		display: none;
-		position: fixed;
-		bottom: 100px;
-		right: 20px;
-		width: 350px;
-		background: #fff;
-		border-radius: 10px;
-		box-shadow: 0 0 15px rgba(0,0,0,0.3);
-		overflow: hidden;
-		animation: slideUp 0.4s ease-in-out;
-	}
-	.chat-header {
-		background: #007bff;
-		color: #fff;
-		padding: 15px;
-		font-size: 16px;
-		display: flex;
-		align-items: center;
-	}
-	.chat-header img {
-		width: 40px;
-		height: 40px;
-		border-radius: 50%;
-		margin-right: 10px;
-	}
-	.chat-body {
-		padding: 15px;
-		height: 300px;
-		overflow-y: auto;
-		background: #f9f9f9;
-	}
-	.chat-message {
-		margin-bottom: 15px;
-		display: flex;
-		align-items: flex-start;
-	}
-	.chat-message img {
-		width: 40px;
-		height: 40px;
-		border-radius: 50%;
-	}
-	.chat-message p {
-		max-width: 250px;
-		padding: 10px;
-		border-radius: 10px;
-		font-size: 14px;
-	}
-	.chat-message.bot p {
-		background: #007bff;
-		color: #fff;
-		margin-left: 10px;
-	}
-	.chat-message.user {
-		flex-direction: row-reverse;
-	}
-	.chat-message.user p {
-		background: #e1e1e1;
-		margin-right: 10px;
-	}
-	.chat-footer {
-		display: flex;
-		align-items: center;
-		padding: 10px;
-		background: #fff;
-	}
-	.chat-footer input[type="file"] {
-		display: none;
-	}
-	.file-label, .send-btn {
-		cursor: pointer;
-		font-size: 20px;
-		color: #007bff;
-		margin-right: 10px;
-	}
-	.message-input {
-		flex: 1;
-		padding: 10px;
-		border: 1px solid #ddd;
-		border-radius: 5px;
-	}
-	@keyframes fadeIn {
-		from { opacity: 0; }
-		to { opacity: 1; }
-	}
-	@keyframes slideUp {
-		from { transform: translateY(50px); opacity: 0; }
-		to { transform: translateY(0); opacity: 1; }
-	}
-	@keyframes blink {
-		0% { opacity: 1; }
-		50% { opacity: 0.5; }
-		100% { opacity: 1; }
-	}
-	@media (max-width: 768px) {
-		.chatbot-avatar {
-			bottom: 30px;
-		}
-		.chatbot-bubble {
-			display: none;
-		}
-		.chat-container {
-			width: 90%;
-			bottom: 50px;
-			right: 5%;
-		}
-	}
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
+      .chatbot-avatar {
+        position: fixed;
+        bottom: 70px;
+        right: 20px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        animation: blink 1.5s infinite;
+      }
+      .chatbot-avatar img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      }
+      .chatbot-bubble {
+        background: #007bff;
+        color: #fff;
+        padding: 10px 15px;
+        border-radius: 15px;
+        margin-right: 10px;
+        font-size: 14px;
+        animation: fadeIn 0.5s ease-in-out;
+      }
+      .chat-container {
+        display: none;
+        position: fixed;
+        bottom: 100px;
+        right: 20px;
+        width: 350px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+        animation: slideUp 0.4s ease-in-out;
+      }
+      .chat-header {
+        background: #007bff;
+        color: #fff;
+        padding: 15px;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+      }
+      .chat-header img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-right: 10px;
+      }
+      .chat-body {
+        padding: 15px;
+        height: 300px;
+        overflow-y: auto;
+        background: #f9f9f9;
+      }
+      .chat-message {
+        margin-bottom: 15px;
+        display: flex;
+        align-items: flex-start;
+      }
+      .chat-message img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+      }
+      .chat-message p {
+        max-width: 250px;
+        padding: 10px;
+        border-radius: 10px;
+        font-size: 14px;
+      }
+      .chat-message.bot p {
+        background: #007bff;
+        color: #fff;
+        margin-left: 10px;
+      }
+      .chat-message.user {
+        flex-direction: row-reverse;
+      }
+      .chat-message.user p {
+        background: #e1e1e1;
+        margin-right: 10px;
+      }
+      .chat-footer {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        background: #fff;
+      }
+      .chat-footer input[type="file"] {
+        display: none;
+      }
+      .file-label,
+      .send-btn {
+        cursor: pointer;
+        font-size: 20px;
+        color: #007bff;
+        margin-right: 10px;
+      }
+      .message-input {
+        flex: 1;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+      h1 {
+        font-weight: bold;
+        font-size: 2rem;
+        text-align: center;
+        margin-bottom: 1rem;
+      }
 
-	/* Barre de défilement personnalisée */
-::-webkit-scrollbar {
-    width: 10px;
-}
+      .mycontainer {
+        display: flex;
+        overflow: hidden;
+        border-top: 2px solid #007bff;
+        border-bottom: 2px solid #007bff;
+        padding: 1rem;
+        background-color: #ffffff;
+      }
 
-::-webkit-scrollbar-track {
-    background: #e0e0e0; /* Couleur de fond de la piste */
-    border-radius: 10px;
-}
+      .images {
+        display: flex;
+        gap: 4rem;
+        animation: loop-scroll 10s linear infinite;
+      }
 
-::-webkit-scrollbar-thumb {
-    background: #007bff; /* Couleur du "pouce" de la barre de défilement */
-    border-radius: 10px;
-    border: 2px solid #fff; /* Bordure pour un effet de relief */
-}
+      .images:hover {
+        animation-play-state: paused;
+      }
 
-::-webkit-scrollbar-thumb:hover {
-    background: #0056b3; /* Couleur au survol */
-}
+      .images img {
+        width: 8rem;
+        height: 8rem;
+        max-width: none;
+      }
 
-::-webkit-scrollbar-corner {
-    background: transparent; /* Coin de la barre de défilement */
-}
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes slideUp {
+        from {
+          transform: translateY(50px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+      @keyframes loop-scroll {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
+      @keyframes blink {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.5;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      @media (max-width: 768px) {
+        .chatbot-avatar {
+          bottom: 30px;
+        }
+        .chatbot-bubble {
+          display: none;
+        }
+        .chat-container {
+          width: 90%;
+          bottom: 50px;
+          right: 5%;
+        }
+      }
 
-	
-</style>		
-    </head>
-<body>
-<div class="em40_header_area_main">
- 	<!-- HEADER TOP AREA -->
-	<div class="solutech-header-top">
-		<div class="container">
-			<div class="row">
-				<div class="col-xs-12 col-lg-9 col-xl-9 col-md-9 col-sm-12">
-					<div class="top-address text-left">
-						<p>
-							<span><i class="fas fa-home"></i>Zogbohoue, Cotonou</span>
-							<a href="#"><i class="fas fa-phone-alt"></i>+229 63014242</a>
-							<a href="#"><i class="fas fa-envelope"></i>contact@soditec.bj</a>
-						</p>
-					</div>
-				</div>
-				<!-- TOP RIGHT -->
-				<div class="col-xs-12 col-lg-3 col-xl-3 col-md-3 col-sm-12 ">
-					<div class="top-right-menu">
-						<ul class="social-icons text-right text_m_center">
-							<li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
-							<li><a href="#"><i class="fab fa-x-twitter"></i></a></li>
-							<li><a href="#"><i class="fab fa-instagram"></i></a></li>
-							<li><a href="#"><i class="fab fa-tumblr"></i></a></li>
-							<li><a href="#"><i class="fab fa-whatsapp"></i></a></li>								
-						</ul>
-					</div>
-				</div>	
-			</div>		
-		</div>
-	</div>
-    <!-- END HEADER TOP AREA -->
-	<div class="tx_top2_relative">
-		<div class="">
-			<div class="tx_relative_m">
-				<div class="">  
-					<div class="mainmenu_width_tx  ">
-						<div class="solutech-main-menu one_page hidden-xs hidden-sm witr_h_h10">
-							<div class="solutech_nav_area scroll_fixed postfix">
-								<div class="container">
-									<div class="row logo-left">				
-										<!-- LOGO -->
-										<div class="col-md-3 col-sm-3 col-xs-4">
-											<div class="logo" style="margin-top: -20px;">
-												<a class="main_sticky_main_l" href="index.html" title="solutech">
-													<img src="assets/image/header/logo_bleu.png" alt="solutech">
-												</a>
-												<a class="main_sticky_l" href="index.html" title="solutech">
-													<img src="assets/image/header/logo_blanc.png" alt="solutech">
-												</a>
-											</div>	  
-										</div>
-										<div class="col-md-9 col-sm-9 col-xs-8">
-											<nav class="solutech_menu main-search-menu">					
-												<ul class="sub-menu">
-													<li>
-														<a href="index.html">Accueil</a>
-													</li>
-													<li><a href="about.html">A propos</a></li>
-													<li class="menu-item-has-children">
-														<a href="service-details.html">Services</a>
-														<ul class="sub-menu">
-<<<<<<<<< Temporary merge branch 1
-															<li><a href="service-reseau.html">Réseaux</a></li>
-															<li><a href="home-security.html">Télécommunication</a></li>
-															<li><a href="home-security.html">Ingénierie Système</a></li>
-															<li><a href="home-security.html">Maintenance Informatique</a></li>
-															<li><a href="home-security.html">Développement Web</a></li>
-															<li><a href="home-security.html">Vidéo Surveillance</a></li>
-															<li><a href="home-security.html">AudioVisuel</a></li>
-															<li><a href="home-security.html">Formations professionnelles</a></li>
-=========
-															<li><a href="home-security.html">Dévelopment Web</a></li>
-															<li><a href="software-development.html">Télécommunication</a></li>
-															<li><a href="installation.html">Ingénierie System</a></li>
-															<li><a href="service-details.html">Maintenance Informatique</a></li>
-															<li><a href="service-reseaux.html">Réseaux</a></li>
-															<li><a href="service-video-surveillance.html">Vidéo Surveillance</a></li>
-															<li><a href="service-audiovisuel.html">AudioVisuel</a></li>
-															<li><a href="service-formation.html">Formations professionnelles</a></li>
->>>>>>>>> Temporary merge branch 2
-														</ul>
-													</li>
-													<li>
-														<a href="blog-left-sidebar.html">Blog</a>
-													</li>
-													<li><a href="portfolio-4column.html">Formations</a></li>
-												</ul>
-												<div class="donate-btn-header">
-													<a class="dtbtn" href="contact.html">Contactez Nous</a>	
-												</div>
-											</nav>
-										</div>	
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div> 			
-			</div>
-		</div> 
-	</div> 
-</div> 
+      /* Barre de défilement personnalisée */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
 
+      ::-webkit-scrollbar-track {
+        background: #e0e0e0; /* Couleur de fond de la piste */
+        border-radius: 10px;
+      }
 
+      ::-webkit-scrollbar-thumb {
+        background: #007bff; /* Couleur du "pouce" de la barre de défilement */
+        border-radius: 10px;
+        border: 2px solid #fff; /* Bordure pour un effet de relief */
+      }
 
+      ::-webkit-scrollbar-thumb:hover {
+        background: #0056b3; /* Couleur au survol */
+      }
 
-
-<!-- MOBILE MENU Logo AREA -->
-<div class="mobile_logo_area hidden-md hidden-lg">
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-12">
-				<div class="mobile_menu_logo text-center">
-					<a href="index.html" title="solutech">
-						<img src="assets/image/header/logo_bleu.png" alt="solutech">
-					</a>		
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- MOBILE MENU AREA -->
-<div class="home-2 mbm hidden-md hidden-lg  header_area main-menu-area">
-	<div class="menu_area mobile-menu">
-		<nav class="solutech_menu">						
-			<ul class="sub-menu">
-				<li class="menu-item-has-children">
-					<a href="index.html">Accueil</a>
-				</li>
-				<li><a href="about.html">A propos</a></li>
-				<li class="menu-item-has-children">
-					<a href="service-details.html">Services</a>
-					<ul class="sub-menu">
-						<li><a href="home-security.html">Dévelopment Web</a></li>
-															<li><a href="software-development.html">Télécommunication</a></li>
-															<li><a href="installation.html">Ingénierie System</a></li>
-															<li><a href="service-maintenance.html">Maintenance Informatique</a></li>
-															<li><a href="service-reseaux.html">Réseaux</a></li>
-															<li><a href="service-video-surveillance.html">Vidéo Surveillance</a></li>
-															<li><a href="service-audiovisuel.html">AudioVisuel</a></li>
-															<li><a href="service-formation.html">Formations professionnelles</a></li>
-					</ul>
-				</li>
-				<li>
-					<a href="blog-left-sidebar.html">Blog</a>
-				</li>
-				<li><a href="portfolio-4column.html">Formations</a></li>
-				<li><a href="contact.html">Contactez Nous</a></li>
-			</ul>
-		</nav>	
-	</div>					
-</div>
-<!-- END MOBILE MENU AREA  -->
-
-<div class="witr_swiper_area">
-	<div class="swiper-container witr_active_id5" style="overflow: hidden;">
-		<div class="swiper-wrapper">
-			
-			<!-- Slide 1 -->
-			<div class="swiper-slide witr_swiper_height" style="
-			    background-image: url(assets/image/hero_section/data_center.jpg);
-			    background-size: cover;
-			    background-position: center;
-			    position: relative;">
-			    
-			    <!-- Calque semi-transparent -->
-			    <div style="
-			        position: absolute;
-			        top: 0;
-			        left: 0;
-			        width: 100%;
-			        height: 100%;
-			        background-color: rgba(0, 0, 0, 0.5);
-			        z-index: 1;">
-			    </div>
-
-			    <div class="witr_sw_text_area text-left" style="position: relative; z-index: 2;">
-			        <div class="witr_swiper_content">
-			            <h2>Des infrastructures de données <span>fiables</span></h2>
-			            <h3>avec nos solutions de Data-center</h3>
-			            <div class="slider_btn">
-			                <div class="witr_btn_style">
-			                    <div class="witr_btn_sinner">
-			                        <a class="witr_btn" href="#">DÉCOUVRIR PLUS</a>
-			                        <a class="witr_btn active recpwit" href="#" style="color: white; background-color: transparent; border: 1px solid white;">
-										NOUS CONTACTER
-									</a>
-			                    </div>
-			                </div>
-			            </div>
-			        </div>
-			        <div class="slider_vd_icon">
-			            <div class="slider_vd_icon_inner">
-			                <a class="tx_svd_icon recpwit video-popup video-vemo-icon">
-			                   <i class="fas fa-server"></i>
-			                </a>
-			            </div>
-			        </div>
-			    </div>
-			</div>
-
-			<!-- Slide 2 -->
-			<div class="swiper-slide witr_swiper_height" style="
-			    background-image: url(assets/image/hero_section/Sécurity2.jpg);
-			    background-size: cover;
-			    background-position: center;
-			    position: relative;">
-
-			    <div style="
-			        position: absolute;
-			        top: 0;
-			        left: 0;
-			        width: 100%;
-			        height: 100%;
-			        background-color: rgba(0, 0, 0, 0.5);
-			        z-index: 1;">
-			    </div>
-
-			    <div class="witr_sw_text_area text-left" style="position: relative; z-index: 2;">
-			        <div class="witr_swiper_content">
-			            <h2>Connectez votre entreprise avec des réseaux</h2>
-			            <h3><span>performants, stables et sécurisés</span></h3>
-			            <div class="slider_btn">
-			                <div class="witr_btn_style">
-			                    <div class="witr_btn_sinner">
-			                        <a class="witr_btn" href="#">DÉCOUVRIR PLUS</a>
-									<a class="witr_btn active recpwit" href="#" style="color: white; background-color: transparent; border: 1px solid white;">
-										NOUS CONTACTER
-									</a>									
-			                    </div>
-			                </div>
-			            </div>
-			        </div>
-			        <div class="slider_vd_icon">
-			            <div class="slider_vd_icon_inner">
-			                <a class="tx_svd_icon recpwit video-popup video-vemo-icon" 
-			                   data-vbtype="youtube" data-autoplay="true">
-			                   <i class="fas fa-network-wired"></i>
-			                </a>
-			            </div>
-			        </div>
-			    </div>
-			</div>
-
-			<!-- Slide 3 (Ajouté) -->
-			<div class="swiper-slide witr_swiper_height" style="
-			    background-image: url(assets/image/hero_section/study-group-african-people.jpg);
-			    background-size: cover;
-			    background-position: center;
-			    position: relative;">
-
-			    <div style="
-			        position: absolute;
-			        top: 0;
-			        left: 0;
-			        width: 100%;
-			        height: 100%;
-			        background-color: rgba(0, 0, 0, 0.5);
-			        z-index: 1;">
-			    </div>
-
-			    <div class="witr_sw_text_area text-left" style="position: relative; z-index: 2;">
-			        <div class="witr_swiper_content">
-			            <h2>Formez vous aux <span>métiers du numérique </span>et exceller</h2>
-			            <h3> dans votre carrière</h3>
-			            <div class="slider_btn">
-			                <div class="witr_btn_style">
-			                    <div class="witr_btn_sinner">
-			                        <a class="witr_btn" href="#">DÉCOUVRIR PLUS</a>
-									<a class="witr_btn active recpwit" href="#" style="color: white; background-color: transparent; border: 1px solid white;">
-										NOUS CONTACTER
-									</a>
-			                    </div>
-			                </div>
-			            </div>
-			        </div>
-			        <div class="slider_vd_icon">
-			            <div class="slider_vd_icon_inner">
-			                <a class="tx_svd_icon recpwit video-popup video-vemo-icon" 
-			                   data-vbtype="youtube" data-autoplay="true">
-							   <i class="fas fa-graduation-cap"></i>
-			                </a>
-			            </div>
-			        </div>
-			    </div>
-			</div>
-
-		</div>
-
-		<!-- Add Pagination -->
-		<div class="swiper-scrollbar"></div>
-		<div class="swiper-button-next"></div>
-		<div class="swiper-button-prev"></div>					
-	</div>
-</div>
-
-			
-<!-- solutech_serivce_bg_area -->
-<div class="solutech_serivce_area serivce_bg">
-	<div class="container">	
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="witr_section_title">
-					<div class="witr_section_title_inner text-center">
-						<h2>Nos Services</h2>		
-						<h3>Nos domaines d'interventions</h3>						
-					</div>
-				</div>
-			</div>							
-		</div>
-		<div class="row service_top">
-			<!-- solutech_serivce_bg_01 -->
-			<div class="col-lg-3 col-md-6 col-sm-12">
-				<div class="all_feature_color single_feature2 text-center">            
-					<div class="witr_feature2">					
-						<div class="witr_fea2_icon_top">
-							<i class="aprova-data"></i>					
-						</div>
-						<h3><a href="#">Réseaux</a></h3>
-						<p>Solutions LAN/WAN optimisées pour une connectivité fiable et sécurisée.</p>		
-						<div class="witr_feature_btn2">
-							<a class="witr_btn_all_color" href="#">Lire plus</a>
-						</div>
-						<div class="witr_feature2_icon">						
-							<i class="aprova-data"></i>	
-						</div>					
-					</div> 	   
-				</div>
-			</div>
-			<!-- solutech_serivce_bg_02 -->
-			<div class="col-lg-3 col-md-6 col-sm-12">
-				<div class="all_feature_color single_feature2 text-center">            
-					<div class="witr_feature2">					
-						<div class="witr_fea2_icon_top">
-							<i class="aprova-talk"></i>				
-						</div>
-						<h3><a href="#">Télecommunications</a></h3>
-						<p>Solutions VoIP et internet multisite pour une communication efficace. et sécurisée.</p>		
-						<div class="witr_feature_btn2">
-							<a class="witr_btn_all_color" href="#">Lire plus</a>
-						</div>
-						<div class="witr_feature2_icon">						
-							<i class="aprova-talk"></i>
-						</div>					
-					</div> 	   
-				</div>
-			</div>
-			<!-- solutech_serivce_bg_03 -->
-			<div class="col-lg-3 col-md-6 col-sm-12">
-				<div class="all_feature_color single_feature2 text-center">            
-					<div class="witr_feature2">					
-						<div class="witr_fea2_icon_top">
-							<i class="aprova-computer"></i>			
-						</div>
-						<h3><a href="#">Ingénierie Système</a></h3>
-						<p>Infrastructure robuste avec virtualisation et data centers sécurisés.</p>		
-						<div class="witr_feature_btn2">
-							<a class="witr_btn_all_color" href="#">Lire plus</a>
-						</div>
-						<div class="witr_feature2_icon">						
-							<i class="aprova-computer"></i>
-						</div>					
-					</div> 	   
-				</div>
-			</div>
-
-			<div class="col-lg-3 col-md-6 col-sm-12">
-				<div class="all_feature_color single_feature2 text-center">            
-					<div class="witr_feature2">					
-						<div class="witr_fea2_icon_top">
-							<i class="aprova-plaster"></i>			
-						</div>
-						<h3><a href="#">Maintenance Informatique</a></h3>
-						<p>Maintenance préventive et curative pour assurer la continuité des services.</p>		
-						<div class="witr_feature_btn2">
-							<a class="witr_btn_all_color" href="#">Lire plus</a>
-						</div>
-						<div class="witr_feature2_icon">						
-							<i class="aprova-plaster"></i>
-						</div>					
-					</div> 	   
-				</div>
-			</div>
-			<!-- solutech_serivce_bg_04 -->
-			<div class="col-lg-3 col-md-6 col-sm-12">
-				<div class="all_feature_color single_feature2 text-center">            
-					<div class="witr_feature2">					
-						<div class="witr_fea2_icon_top">
-							<i class="aprova-ui"></i>			
-						</div>
-						<h3><a href="#">Développement Web</a></h3>
-						<p>Sites web interactifs et solutions digitales adaptées à vos besoins.</p>		
-						<div class="witr_feature_btn2">
-							<a class="witr_btn_all_color" href="#">Lire plus</a>
-						</div>
-						<div class="witr_feature2_icon">						
-							<i class="aprova-ui"></i>
-						</div>					
-					</div> 	   
-				</div>
-			</div>
-			<!-- solutech_serivce_bg_05 -->
-			<div class="col-lg-3 col-md-6 col-sm-12">
-				<div class="all_feature_color single_feature2 text-center">            
-					<div class="witr_feature2">					
-						<div class="witr_fea2_icon_top">
-							<i class="aprova-music"></i>				
-						</div>
-						<h3><a href="#">Audiovisuel</a></h3>
-						<p>Design graphique et vidéo pour vos communications visuelles.</p>		
-						<div class="witr_feature_btn2">
-							<a class="witr_btn_all_color" href="#">Lire plus</a>
-						</div>
-						<div class="witr_feature2_icon">						
-							<i class="aprova-music"></i>
-						</div>					
-					</div> 	   
-				</div>
-			</div>
-			<!-- solutech_serivce_bg_06 -->
-			<div class="col-lg-3 col-md-6 col-sm-12">
-				<div class="all_feature_color single_feature2 text-center">            
-					<div class="witr_feature2">					
-						<div class="witr_fea2_icon_top">
-							<i class="aprova-screen"></i>					
-						</div>
-						<h3><a href="#">Vidéo Surveillance</a></h3>
-						<p>Solutions de surveillance haute définition avec alarmes intégrées.</p>		
-						<div class="witr_feature_btn2">
-							<a class="witr_btn_all_color" href="#">Lire plus</a>
-						</div>
-						<div class="witr_feature2_icon">						
-							<i class="aprova-screen"></i>
-						</div>					
-					</div> 	   
-				</div>
-			</div>
-
-			<div class="col-lg-3 col-md-6 col-sm-12">
-				<div class="all_feature_color single_feature2 text-center">            
-					<div class="witr_feature2">					
-						<div class="witr_fea2_icon_top">
-							<i class="aprova-award"></i>					
-						</div>
-						<h3><a href="#">Formations</a></h3>
-						<p>Formations professionnelles pour préparer votre carriere.</p>		
-						<div class="witr_feature_btn2">
-							<a class="witr_btn_all_color" href="#">Lire plus</a>
-						</div>
-						<div class="witr_feature2_icon">						
-							<i class="aprova-award"></i>
-						</div>					
-					</div> 	   
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
-<!-- solutech_project_area -->
-<div class="solutech_project_area">
-	<div class="containers">	
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="witr_section_title">
-					<div class="witr_section_title_inner text-center">
-						<h2>Déploiement de Solutions IT</h2>		
-                        <h3>Notre Approche Stratégique et Technique</h3>		
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="witr_pslide all_pslides_color ps1 service_active">
-			<div class="witr_islidess_slick witr_cslide_idany project_top">
-				<!-- solutech_project_01 -->
-				<div class="item_pos col-lg-12">	
-					<div class="witr_single_pslide">	
-						<div class="witr_pslide_image">
-							<img src="assets/image/infrastructure/Borne-de-diffusion-Hotspot-scaled-qdzm0n43ky9zzwu9topldsm6qd4xtsq5wk0k1ish9s.jpg" alt="image">
-						</div>
-						<div class="witr_content_pslide_text">
-							<div class="witr_content_pslide">
-								<h3><a href="#">Installation d'une borne wifi à l'ONAB</a></h3>
-								<p>Infrastructure</p>		
-							</div>
-						</div>	
-					</div> 
-				</div>
-				<!-- solutech_project_02 -->
-				<div class="item_pos col-lg-12">	
-					<div class="witr_single_pslide">	
-						<div class="witr_pslide_image">
-							<img src="assets/image/infrastructure/Borne-de-diffusion-Hotspot_2-scaled-qdzm3hki9w695epg7ezxfkrfhd3y4t0wmn4hcokkfk.jpg" alt="image">
-						</div>
-						<div class="witr_content_pslide_text">
-							<div class="witr_content_pslide">
-								<h3><a href="#">Borne wifi</a></h3>
-								<p>Infrastructure</p>		
-							</div>
-						</div>	
-					</div> 
-				</div>
-				<!-- solutech_project_03 -->
-				<div class="item_pos col-lg-12">	
-					<div class="witr_single_pslide">	
-						<div class="witr_pslide_image">
-							<img src="assets/image/infrastructure/face-scaled-qdzm6s0670ods9xezu6x5qvibww72o332xbntjoynk.jpg" alt="image">
-						</div>
-						<div class="witr_content_pslide_text">
-							<div class="witr_content_pslide">
-								<h3><a href="#">Déploiement d'un Data-Center à Bourjon</a></h3>
-								<p>Matériel</p>		
-							</div>
-						</div>	
-					</div> 
-				</div>
-				<!-- solutech_project_04 -->
-				<div class="item_pos col-lg-12">	
-					<div class="witr_single_pslide">	
-						<div class="witr_pslide_image">
-							<img src="assets/image/infrastructure/Fin-du-Nat-scaled-qdzm7vhe626fbwc2lb992gwva3hm1yft8cq1z62fe8.jpg" alt="image">
-						</div>
-						<div class="witr_content_pslide_text">
-							<div class="witr_content_pslide">
-								<h3><a href="#">Mise en place d'une Baie Server à l'ONAB</a></h3>
-								<p>Matériel</p>		
-							</div>
-						</div>	
-					</div> 
-				</div>
-				<!-- solutech_project_05 -->
-				<div class="item_pos col-lg-12">	
-					<div class="witr_single_pslide">	
-						<div class="witr_pslide_image">
-							<img src="assets/image/infrastructure/WhatsApp-Image-2022-07-23-at-17..jpg" alt="image">
-						</div>
-						<div class="witr_content_pslide_text">
-							<div class="witr_content_pslide">
-								<h3><a href="#">Exemple de travail de Soditec</a></h3>
-								<p>Materiel</p>		
-							</div>
-						</div>	
-					</div> 
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
-
-<!-- solutech_team_area -->
-<div class="solutech_team2_area">
-	<div class="container">	
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="witr_section_title">
-					<div class="witr_section_title_inner text-center">
-						<h2>NOTRE EQUIPE</h2>		
-						<h3>Voici notre équipe d'experts qualifiés</h3>	
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row team_top">
-			<!-- solutech_team_01 -->
-			<div class="col-lg-4 col-md-6 col-sm-12">
-				<div class="em-team all_color_team ">
-					<div class="em-team-one">	
-						<div class="em-team-content-image-inner">	
-							<div class="em-team-content-image">
-								<img src="assets/image/team/Enock2.jpeg" alt="image">
-							</div>	
-						</div>
-						<div class="em-team-content-waraper all_content_bg_color">
-							<div class="em-team-content-title-inner">
-								<div class="em-content-title">
-									<h5><a href="#">James DOSSOUVI</a></h5>
-								</div>
-							</div>
-							<div class="em-team-content-subtitle-inner">
-								<div class="em-content-subtitle">
-									<span>DIRECTEUR GENERAL</span>
-								</div>
-							</div>
-							<div class="em-team-content-socials-inner">
-								<div class="em-team-content-socials all_team_s_color">			
-									<a href="#"><i class="fa fa-facebook-f"></i></a>		
-									<a href="#"><i class="fab fa-x-twitter"></i></a>		
-									<a href="#"><i class="fab fa-tumblr"></i></a>		
-									<a href="#"><i class="fab fa-vimeo-v"></i></a>		
-								</div>
-							</div>							
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- solutech_team_02 -->
-			<div class="col-lg-4 col-md-6 col-sm-12">
-				<div class="em-team all_color_team ">
-					<div class="em-team-one">	
-						<div class="em-team-content-image-inner">	
-							<div class="em-team-content-image">
-								<img src="assets/image/team/Enock2.jpeg" alt="image">
-							</div>
-						</div>
-						<div class="em-team-content-waraper all_content_bg_color">
-							<div class="em-team-content-title-inner">
-								<div class="em-content-title">
-									<h5><a href="#">Cynthia FELIHO</a></h5>
-								</div>
-							</div>
-							<div class="em-team-content-subtitle-inner">
-								<div class="em-content-subtitle">
-									<span>COMPTABILITE & COMMERCIAL</span>
-								</div>
-							</div>
-							<div class="em-team-content-socials-inner">
-								<div class="em-team-content-socials all_team_s_color">			
-									<a href="#"><i class="fa fa-facebook-f"></i></a>		
-									<a href="#"><i class="fab fa-x-twitter"></i></a>		
-									<a href="#"><i class="fab fa-tumblr"></i></a>		
-									<a href="#"><i class="fab fa-vimeo-v"></i></a>		
-								</div>
-							</div>							
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- solutech_team_03 -->
-			<div class="col-lg-4 col-md-6 col-sm-12">
-				<div class="em-team all_color_team ">
-					<div class="em-team-one">	
-						<div class="em-team-content-image-inner">	
-							<div class="em-team-content-image">
-								<img src="assets/image/team/Enock2.jpeg" alt="image">
-							</div>	
-						</div>
-						<div class="em-team-content-waraper all_content_bg_color">
-							<div class="em-team-content-title-inner">
-								<div class="em-content-title">
-									<h5><a href="#">Enock TOGLOZIN</a></h5>
-								</div>
-							</div>
-							<div class="em-team-content-subtitle-inner">
-								<div class="em-content-subtitle">
-									<span>Technicien</span>
-								</div>
-							</div>
-							<div class="em-team-content-socials-inner">
-								<div class="em-team-content-socials all_team_s_color">			
-									<a href="#"><i class="fa fa-facebook-f"></i></a>		
-									<a href="#"><i class="fab fa-x-twitter"></i></a>		
-									<a href="#"><i class="fab fa-tumblr"></i></a>		
-									<a href="#"><i class="fab fa-vimeo-v"></i></a>		
-								</div>
-							</div>							
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- solutech_counter_area -->
-<div class="solutech_counter_area">
-    <div class="container counter_bg">    
-        <div class="row">
-            <!-- Clients satisfaits -->
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <div class="witr_counter_single all_counter_color">
-                    <div class="witr_custom_icon">
-                        <i class="icofont-handshake-deal"></i>
+      ::-webkit-scrollbar-corner {
+        background: transparent; /* Coin de la barre de défilement */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="em40_header_area_main">
+      <!-- HEADER TOP AREA -->
+      <div class="solutech-header-top">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12 col-lg-9 col-xl-9 col-md-9 col-sm-12">
+              <div class="top-address text-left">
+                <p>
+                  <span><i class="fas fa-home"></i>Zogbohoue, Cotonou</span>
+                  <a href="#"><i class="fas fa-phone-alt"></i>+229 63014242</a>
+                  <a href="#"
+                    ><i class="fas fa-envelope"></i>contact@soditec.bj</a
+                  >
+                </p>
+              </div>
+            </div>
+            <!-- TOP RIGHT -->
+            <div class="col-xs-12 col-lg-3 col-xl-3 col-md-3 col-sm-12">
+              <div class="top-right-menu">
+                <ul class="social-icons text-right text_m_center">
+                  <li>
+                    <a href="#"><i class="fa fa-facebook-f"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><i class="fab fa-x-twitter"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><i class="fab fa-tumblr"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- END HEADER TOP AREA -->
+      <div class="tx_top2_relative">
+        <div class="">
+          <div class="tx_relative_m">
+            <div class="">
+              <div class="mainmenu_width_tx">
+                <div
+                  class="solutech-main-menu one_page hidden-xs hidden-sm witr_h_h10"
+                >
+                  <div class="solutech_nav_area scroll_fixed postfix">
+                    <div class="container">
+                      <div class="row logo-left">
+                        <!-- LOGO -->
+                        <div class="col-md-3 col-sm-3 col-xs-4">
+                          <div class="logo" style="margin-top: -20px">
+                            <a
+                              class="main_sticky_main_l"
+                              href="index.html"
+                              title="solutech"
+                            >
+                              <img
+                                src="assets/image/header/logo_bleu.png"
+                                alt="solutech"
+                              />
+                            </a>
+                            <a
+                              class="main_sticky_l"
+                              href="index.html"
+                              title="solutech"
+                            >
+                              <img
+                                src="assets/image/header/logo_blanc.png"
+                                alt="solutech"
+                              />
+                            </a>
+                          </div>
+                        </div>
+                        <div class="col-md-9 col-sm-9 col-xs-8">
+                          <nav class="solutech_menu main-search-menu">
+                            <ul class="sub-menu">
+                              <li>
+                                <a href="index.html">Accueil</a>
+                              </li>
+                              <li><a href="about.html">A propos</a></li>
+                              <li class="menu-item-has-children">
+                                <a href="service-details.html">Services</a>
+                                <ul class="sub-menu">
+                                  <<<<<<<<< Temporary merge branch 1
+                                  <li>
+                                    <a href="service-reseau.html">Réseaux</a>
+                                  </li>
+                                  <li>
+                                    <a href="home-security.html"
+                                      >Télécommunication</a
+                                    >
+                                  </li>
+                                  <li>
+                                    <a href="home-security.html"
+                                      >Ingénierie Système</a
+                                    >
+                                  </li>
+                                  <li>
+                                    <a href="home-security.html"
+                                      >Maintenance Informatique</a
+                                    >
+                                  </li>
+                                  <li>
+                                    <a href="home-security.html"
+                                      >Développement Web</a
+                                    >
+                                  </li>
+                                  <li>
+                                    <a href="home-security.html"
+                                      >Vidéo Surveillance</a
+                                    >
+                                  </li>
+                                  <li>
+                                    <a href="home-security.html">AudioVisuel</a>
+                                  </li>
+                                  <li>
+                                    <a href="home-security.html"
+                                      >Formations professionnelles</a
+                                    >
+                                  </li>
+                                  =========
+                                  <li>
+                                    <a href="home-security.html"
+                                      >Dévelopment Web</a
+                                    >
+                                  </li>
+                                  <li>
+                                    <a href="software-development.html"
+                                      >Télécommunication</a
+                                    >
+                                  </li>
+                                  <li>
+                                    <a href="installation.html"
+                                      >Ingénierie System</a
+                                    >
+                                  </li>
+                                  <li>
+                                    <a href="service-details.html"
+                                      >Maintenance Informatique</a
+                                    >
+                                  </li>
+                                  <li>
+                                    <a href="service-reseaux.html">Réseaux</a>
+                                  </li>
+                                  <li>
+                                    <a href="service-video-surveillance.html"
+                                      >Vidéo Surveillance</a
+                                    >
+                                  </li>
+                                  <li>
+                                    <a href="service-audiovisuel.html"
+                                      >AudioVisuel</a
+                                    >
+                                  </li>
+                                  <li>
+                                    <a href="service-formation.html"
+                                      >Formations professionnelles</a
+                                    >
+                                  </li>
+                                  >>>>>>>>> Temporary merge branch 2
+                                </ul>
+                              </li>
+                              <li>
+                                <a href="blog-left-sidebar.html">Blog</a>
+                              </li>
+                              <li>
+                                <a href="portfolio-4column.html">Formations</a>
+                              </li>
+                            </ul>
+                            <div class="donate-btn-header">
+                              <a class="dtbtn" href="contact.html"
+                                >Contactez Nous</a
+                              >
+                            </div>
+                          </nav>
+                        </div>
+                      </div>
                     </div>
-                    <div class="witr_counter_number_inn">
-                        <h3 class="counter">150</h3>                
-                        <span>+</span>
-                        <h4>Clients satisfaits</h4>        
-                    </div> 
+                  </div>
                 </div>
+              </div>
             </div>
-            <!-- Projets déployés -->
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <div class="witr_counter_single all_counter_color">
-                    <div class="witr_custom_icon">
-                        <i class="icofont-building-alt"></i>
-                    </div>    
-                    <div class="witr_counter_number_inn">
-                        <h3 class="counter">200</h3>                
-                        <span>+</span>
-                        <h4>Projets déployés</h4>        
-                    </div>     
-                </div>
-            </div>
-            <!-- Formations dispensées -->
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <div class="witr_counter_single all_counter_color">
-                    <div class="witr_custom_icon">
-                        <i class="icofont-graduate"></i>
-                    </div>    
-                    <div class="witr_counter_number_inn">
-                        <h3 class="counter">50</h3>                
-                        <span>+</span>
-                        <h4>Formations dispensées</h4>        
-                    </div>     
-                </div>
-            </div>
-            <!-- Partenaires stratégiques -->
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <div class="witr_counter_single all_counter_color">
-                    <div class="witr_custom_icon">
-                        <i class="icofont-business-man"></i>
-                    </div>    
-                    <div class="witr_counter_number_inn">
-                        <h3 class="counter">20</h3>                
-                        <span>+</span>
-                        <h4>Partenaires stratégiques</h4>        
-                    </div>     
-                </div>
-            </div>
+          </div>
         </div>
+      </div>
     </div>
-</div>
 
+    <!-- MOBILE MENU Logo AREA -->
+    <div class="mobile_logo_area hidden-md hidden-lg">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="mobile_menu_logo text-center">
+              <a href="index.html" title="solutech">
+                <img src="assets/image/header/logo_bleu.png" alt="solutech" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- MOBILE MENU AREA -->
+    <div class="home-2 mbm hidden-md hidden-lg header_area main-menu-area">
+      <div class="menu_area mobile-menu">
+        <nav class="solutech_menu">
+          <ul class="sub-menu">
+            <li class="menu-item-has-children">
+              <a href="index.html">Accueil</a>
+            </li>
+            <li><a href="about.html">A propos</a></li>
+            <li class="menu-item-has-children">
+              <a href="service-details.html">Services</a>
+              <ul class="sub-menu">
+                <li><a href="home-security.html">Dévelopment Web</a></li>
+                <li>
+                  <a href="software-development.html">Télécommunication</a>
+                </li>
+                <li><a href="installation.html">Ingénierie System</a></li>
+                <li>
+                  <a href="service-maintenance.html"
+                    >Maintenance Informatique</a
+                  >
+                </li>
+                <li><a href="service-reseaux.html">Réseaux</a></li>
+                <li>
+                  <a href="service-video-surveillance.html"
+                    >Vidéo Surveillance</a
+                  >
+                </li>
+                <li><a href="service-audiovisuel.html">AudioVisuel</a></li>
+                <li>
+                  <a href="service-formation.html"
+                    >Formations professionnelles</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="blog-left-sidebar.html">Blog</a>
+            </li>
+            <li><a href="portfolio-4column.html">Formations</a></li>
+            <li><a href="contact.html">Contactez Nous</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <!-- END MOBILE MENU AREA  -->
 
+    <div class="witr_swiper_area">
+      <div class="swiper-container witr_active_id5" style="overflow: hidden">
+        <div class="swiper-wrapper">
+          <!-- Slide 1 -->
+          <div
+            class="swiper-slide witr_swiper_height"
+            style="
+              background-image: url(assets/image/hero_section/data_center.jpg);
+              background-size: cover;
+              background-position: center;
+              position: relative;
+            "
+          >
+            <!-- Calque semi-transparent -->
+            <div
+              style="
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 1;
+              "
+            ></div>
 
-<div class="single_faq_bg_area faq_area">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-6 col-md-10 col-sm-12">
-				<div class="witr_section_title">
-					<div class="witr_section_title_inner text-left">
-						<h2>Notre Vision</h2>
-					</div>
-				</div>
-				<div class="witr_single_progress">
-					<div class="witr_title2">
-						<span class="witr_label"> Innovation</span>	
-					</div>		
-					<div class="progress witr_progress-style2">
-						<div class="progress-bar wow fadeInLeft " data-wow-duration="1.5s" data-wow-delay="0.2s" style="width: 90%;">
-							<span class="witr_percent">90%</span>					
-						</div>
-					</div>				
-				</div>
-				<div class="witr_single_progress">
-					<div class="witr_title2">
-						<span class="witr_label">Écoute Client </span>	
-					</div>		
-					<div class="progress witr_progress-style2">
-						<div class="progress-bar wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay="0.2s" style="width: 100%;">
-							<span class="witr_percent">100%</span>					
-						</div>
-					</div>				
-				</div>
-				<div class="witr_single_progress">
-					<div class="witr_title2">
-						<span class="witr_label">Efficacité </span>	
-					</div>		
-					<div class="progress witr_progress-style2">
-						<div class="progress-bar wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay="0.2s" style="width: 85%;">
-							<span class="witr_percent">95%</span>					
-						</div>
-					</div>				
-				</div>
-				<div class="witr_single_progress">
-					<div class="witr_title2">
-						<span class="witr_label">Valorisation des ressources </span>	
-					</div>		
-					<div class="progress witr_progress-style2">
-						<div class="progress-bar wow fadeInLeft " data-wow-duration="1.5s" data-wow-delay="0.2s" style="width: 90%;">
-							<span class="witr_percent">90%</span>					
-						</div>
-					</div>				
-				</div>
-			</div>
-			<div class="col-lg-6 col-md-12 col-sm-12">
-				<div class="accordion_area">
-                    <div class="faq-part">
-                        <div id="accordion">
-							<div class="card card-2">
-								<div class="card-header witr_ac_card">
-									<a href="#" class="card-link witr_ac_style" data-bs-toggle="collapse" data-bs-target="#collapse_242536c" aria-expanded="true">
-									 01. Innovation</a>
-								</div>
-								<div id="collapse_242536c" class="collapse" data-parent="#accordion">
-									<p>Nous restons à la pointe de la technologie pour offrir les meilleures solutions.</p>
-								</div>
-							</div>
-							<div class="card card-2">
-								<div class="card-header witr_ac_card">
-									<a href="#" class="card-link witr_ac_style" data-bs-toggle="collapse" data-bs-target="#collapse_9315e3d1" aria-expanded="true">
-									02. Écoute Client</a>
-								</div>
-								<div id="collapse_9315e3d1" class="collapse   " data-parent="#accordion">
-                                    <p>Nous accordons une attention particulière aux besoins spécifiques de chaque client.</p>
-								</div>
-							</div> 
-							<!-- card -->	
-							<div class="card card-2  ">
-								<div class="card-header witr_ac_card">
-									<a href="#" class="card-link witr_ac_style" data-bs-toggle="collapse" data-bs-target="#collapse_9965145" aria-expanded="true">
-									03. Efficacité</a>
-								</div>
-								<div id="collapse_9965145" class="collapse   " data-parent="#accordion">
-                                     <p>Nous optimisons nos processus pour garantir des résultats rapides et fiables.</p>
-								</div>
-							</div>
-							<!-- card -->	
-							<div class="card card-2  ">
-								<div class="card-header witr_ac_card">
-									<a href="#" class="card-link witr_ac_style" data-bs-toggle="collapse" data-bs-target="#collapse_4b685b3" aria-expanded="true">
-									 04. Valorisation des ressources</a>
-								</div>
-								<div id="collapse_4b685b3" class="collapse   " data-parent="#accordion">
-									<p>Nous investissons dans nos talents et nos outils pour maximiser la valeur ajoutée.</p>
-								</div>
-							</div>
-					
-						</div>
-                    </div> 	
+            <div
+              class="witr_sw_text_area text-left"
+              style="position: relative; z-index: 2"
+            >
+              <div class="witr_swiper_content">
+                <h2>Des infrastructures de données <span>fiables</span></h2>
+                <h3>avec nos solutions de Data-center</h3>
+                <div class="slider_btn">
+                  <div class="witr_btn_style">
+                    <div class="witr_btn_sinner">
+                      <a class="witr_btn" href="#">DÉCOUVRIR PLUS</a>
+                      <a
+                        class="witr_btn active recpwit"
+                        href="#"
+                        style="
+                          color: white;
+                          background-color: transparent;
+                          border: 1px solid white;
+                        "
+                      >
+                        NOUS CONTACTER
+                      </a>
+                    </div>
+                  </div>
                 </div>
-			</div>
-		</div>
-	</div>
-</div>
+              </div>
+              <div class="slider_vd_icon">
+                <div class="slider_vd_icon_inner">
+                  <a class="tx_svd_icon recpwit video-popup video-vemo-icon">
+                    <i class="fas fa-server"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
 
+          <!-- Slide 2 -->
+          <div
+            class="swiper-slide witr_swiper_height"
+            style="
+              background-image: url(assets/image/hero_section/Sécurity2.jpg);
+              background-size: cover;
+              background-position: center;
+              position: relative;
+            "
+          >
+            <div
+              style="
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 1;
+              "
+            ></div>
 
-<!-- solutech_testimonial_bg_area -->
-<div class="solutech_testimonial_bg_area">
-	<div class="container">	
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="witr_section_title white">
-					<div class="witr_section_title_inner text-center">
-						<h2>Nos Témoignages</h2>        
-                        <h3>Ils nous font confiance</h3>        
-                        <h1>Ce que disent nos clients</h1>   
-					</div>
-				</div>
-			</div>						
-		</div>
-		<div class="carso_idtesti all_color_testimonial dfa testi_top">
-			<!-- solutech_blog_01 -->
-			<div class="item guttergs">
-				<div class="single_creativeItem post_t6">
-					<div class="box-size">
-						<div class="testiCreCon">
-							<i class="fa fa-quote-right"></i>
-							<!-- content -->	
-							<p>La mise en place de notre réseau LAN en fibre optique a transformé notre façon 
-								de travailler. Merci à SODITEC pour leur professionnalisme !</p>								
-						</div>
-						<div class="em_test_thumb">
-							<img src="assets/image/Testimonial/86.jpg" alt="image" >
-						</div>
-						<div class="testAuthor">
-							<h6>Olivier B.</h6>
-							<span> Responsable Technique </span>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- solutech_blog_02 -->
-			<div class="item guttergs">
-				<div class="single_creativeItem post_t6">
-					<div class="box-size">
-						<div class="testiCreCon">
-							<i class="fa fa-quote-right"></i>
-							<!-- content -->	
-							<p>Grâce à leur maintenance corrective, nos systèmes fonctionnent désormais sans 
-								aucun problème. Un service efficace et professionnel.</p>								
-						</div>
-						<div class="em_test_thumb">
-							<img src="assets/image/Testimonial/87.jpeg" alt="image" >
-						</div>
-						<div class="testAuthor">
-							<h6>Aïcha T.</h6>
-							<span> Admin Officer </span> 
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- solutech_blog_03 -->
-			<div class="item guttergs">
-				<div class="single_creativeItem post_t6">
-					<div class="box-size">
-						<div class="testiCreCon">
-							<i class="fa fa-quote-right"></i>
-							<!-- content -->	
-							<p>La formation que j’ai suivie chez SODITEC a complètement transformé ma carrière.
-								J’ai acquis des compétences pratiques en réseau informatique.</p>								
-						</div>
-						<div class="em_test_thumb">
-							<img src="assets/image/Testimonial/88.jpeg" alt="image" >
-						</div>
-						<div class="testAuthor">
-							<h6>Antoine M.</h6>
-							<span> Jeune Diplomé </span> 
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- solutech_blog_04 -->
-			<div class="item guttergs">
-				<div class="single_creativeItem post_t6">
-					<div class="box-size">
-						<div class="testiCreCon">
-							<i class="fa fa-quote-right"></i>
-							<!-- content -->	
-							<p>Nous avons été impressionnés par la qualité des équipements et la rapidité 
-								de l’installation. Merci, SODITEC !</p>								
-						</div>
-						<div class="em_test_thumb">
-							<img src="assets/image/Testimonial/89.jpg" alt="image" >
-						</div>
-						<div class="testAuthor">
-							<h6>Marvin M.</h6>
-							<span> Chef d’entreprise</span> 
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+            <div
+              class="witr_sw_text_area text-left"
+              style="position: relative; z-index: 2"
+            >
+              <div class="witr_swiper_content">
+                <h2>Connectez votre entreprise avec des réseaux</h2>
+                <h3><span>performants, stables et sécurisés</span></h3>
+                <div class="slider_btn">
+                  <div class="witr_btn_style">
+                    <div class="witr_btn_sinner">
+                      <a class="witr_btn" href="#">DÉCOUVRIR PLUS</a>
+                      <a
+                        class="witr_btn active recpwit"
+                        href="#"
+                        style="
+                          color: white;
+                          background-color: transparent;
+                          border: 1px solid white;
+                        "
+                      >
+                        NOUS CONTACTER
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="slider_vd_icon">
+                <div class="slider_vd_icon_inner">
+                  <a
+                    class="tx_svd_icon recpwit video-popup video-vemo-icon"
+                    data-vbtype="youtube"
+                    data-autoplay="true"
+                  >
+                    <i class="fas fa-network-wired"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
 
+          <!-- Slide 3 (Ajouté) -->
+          <div
+            class="swiper-slide witr_swiper_height"
+            style="
+              background-image: url(assets/image/hero_section/study-group-african-people.jpg);
+              background-size: cover;
+              background-position: center;
+              position: relative;
+            "
+          >
+            <div
+              style="
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 1;
+              "
+            ></div>
 
-<!-- witr_brand_area -->
-<div class="witr_brand_area">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-9 col-md-8 col-sm-12 pdlf">	
-				<div class="imagess_area wittr_car_top_left brand_bg">
-					<div class="witr_car_overlay brand_imagess_active">
-						<div class="slide_items">
-							<img src="assets/image/equipmentier/cisco (1).png" alt="image" >
-						</div>
-						<div class="slide_items">
-							<img src="assets/image/equipmentier/Fortinet (1).png" alt="image" >
-						</div>
-						<div class="slide_items">
-							<img src="assets/image/equipmentier/Huawei (1).jpg" alt="image" >
-						</div>
-						<div class="slide_items">
-							<img src="assets/image/equipmentier/microsoft (1).jpg" alt="image" >
-						</div>
-						<div class="slide_items">
-							<img src="assets/image/equipmentier/mikrotik (1).jpg" alt="image" >
-						</div>
-						<div class="slide_items">
-							<img src="assets/image/equipmentier/Ubiquity (1).png" alt="image" >
-						</div>
-						<div class="slide_items">
-							<img src="assets/image/equipmentier/tplink (1).png" alt="image" >
-						</div>
-					</div>
-				</div> 
-			</div>
-		</div>
-	</div>
-</div>
+            <div
+              class="witr_sw_text_area text-left"
+              style="position: relative; z-index: 2"
+            >
+              <div class="witr_swiper_content">
+                <h2>
+                  Formez vous aux <span>métiers du numérique </span>et exceller
+                </h2>
+                <h3>dans votre carrière</h3>
+                <div class="slider_btn">
+                  <div class="witr_btn_style">
+                    <div class="witr_btn_sinner">
+                      <a class="witr_btn" href="#">DÉCOUVRIR PLUS</a>
+                      <a
+                        class="witr_btn active recpwit"
+                        href="#"
+                        style="
+                          color: white;
+                          background-color: transparent;
+                          border: 1px solid white;
+                        "
+                      >
+                        NOUS CONTACTER
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="slider_vd_icon">
+                <div class="slider_vd_icon_inner">
+                  <a
+                    class="tx_svd_icon recpwit video-popup video-vemo-icon"
+                    data-vbtype="youtube"
+                    data-autoplay="true"
+                  >
+                    <i class="fas fa-graduation-cap"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-				
-<!-- solutech_blog_bg_area -->
-<div class="solutech_blog_bg_area">
-	<div class="container">	
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="witr_section_title">
-					<div class="witr_section_title_inner text-center">
-						<h2>Nos Actualités & Médias</h2>		
-						<h3>Les dernières nouvelles en avant</h3>		
-					</div>
-				</div>
-			</div>						
-		</div>
-		<div class="witr_blog_area11 witr_blog_area16">
-			<div class="blog_wrap blog16_idblog1 blog_top">
-				<!-- solutech_blog_01 -->
-				<div class="witr_all_mb_30 col-lg-12 ">
-					<div class="busi_singleBlog">
-						<div class="witr_sb_thumb">
-							<a href="#"><img src="assets/image/blog/schema-vpn-5.jpg" alt="image" ></a>
-						</div>	
-						<div class="all_blog_color">	
-							<div class="witr_blog_con bs5">									
-								<h2><a href="#">Pourquoi utiliser un VPN pour votre entreprise ?</a></h2>
-								<p>Découvrez comment un VPN peut sécuriser vos communications et protéger vos données.</p>
-								<div class="em-blog-content-area_adn ">
-									<div class="learn_more_adn">
-										<a class="learn_btn adnbtn2" href="#">Lire Plus</a>
-									</div>
-								</div>	
-								<div class="witr_blog_border"></div>
-								<span><i class="icofont-tags"></i> <a href="#">Cybersécurité</a></span>
-								<span><a href="#"><i class="icofont-ui-clock"></i></a> 01 Fevrier, 2025</span>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- solutech_blog_02 -->
-				<div class="witr_all_mb_30 col-lg-12">
-					<div class="busi_singleBlog">
-						<div class="witr_sb_thumb">
-							<a href="#"><img src="assets/image/blog/Nasse.jpg" alt="image" ></a>
-						</div>	
-						<div class="all_blog_color">	
-							<div class="witr_blog_con bs5">									
-								<h2><a href="#">Gestion de réseau avec Nasse</a></h2>
-								<p>Apprenez comment la solution Nasse peut optimiser la gestion de votre infrastructure réseau.</p>
-								<div class="em-blog-content-area_adn ">
-									<div class="learn_more_adn">
-										<a class="learn_btn adnbtn2" href="#">Lire plus </a>
-									</div>
-								</div>	
-								<div class="witr_blog_border"></div>
-								<span><i class="icofont-tags"></i> <a href="#">	Infrastructure</a></span>
-								<span><a href="#"><i class="icofont-ui-clock"></i></a> 01 Fevrier, 2025</span>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- solutech_blog_03 -->
-				<div class="witr_all_mb_30 col-lg-12">
-					<div class="busi_singleBlog">
-						<div class="witr_sb_thumb">
-							<a href="#"><img src="assets/image/blog/mikrotik3.jpg" alt="image" ></a>
-						</div>	
-						<div class="all_blog_color">	
-							<div class="witr_blog_con bs5">									
-								<h2><a href="#">Optimisation réseau avec Mikrotik</a></h2>
-								<p>Découvrez comment les solutions Mikrotik peuvent révolutionner la gestion et l'optimisation de votre réseau informatique.</p>
-								<div class="em-blog-content-area_adn ">
-									<div class="learn_more_adn">
-										<a class="learn_btn adnbtn2" href="#">Lire plus </a>
-									</div>
-								</div>	
-								<div class="witr_blog_border"></div>
-								<span><i class="icofont-tags"></i> <a href="#">Réseaux</a></span>
-								<span><a href="#"><i class="icofont-ui-clock"></i></a> 01 Fevrier, 2025</span>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- solutech_blog_04 -->
-				<div class="witr_all_mb_30 col-lg-12">
-					<div class="busi_singleBlog">
-						<div class="witr_sb_thumb">
-							<a href="#"><img src="assets/image/blog/virtualisation_serveur.jpg" alt="image" ></a>
-						</div>	
-						<div class="all_blog_color">	
-							<div class="witr_blog_con bs5">									
-								<h2><a href="#">Les avantages de la virtualisation de serveurs</a></h2>
-								<p>Comment la virtualisation peut améliorer l'efficacité et la sécurité de vos systèmes.</p>
-								<div class="em-blog-content-area_adn ">
-									<div class="learn_more_adn">
-										<a class="learn_btn adnbtn2" href="#">Lire plus </a>
-									</div>
-								</div>	
-								<div class="witr_blog_border"></div>
-								<span><i class="icofont-tags"></i> <a href="#">Machine virtuelle</a></span>
-								<span><a href="#"><i class="icofont-ui-clock"></i></a> 01 Fevrier, 2025</span>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="witr_all_mb_30 col-lg-12">
-					<div class="busi_singleBlog">
-						<div class="witr_sb_thumb">
-							<a href="#"><img src="assets/image/blog/cloud_computing.jpg" alt="image"></a>
-						</div>	
-						<div class="all_blog_color">	
-							<div class="witr_blog_con bs5">									
-								<h2><a href="#">Les bénéfices du Cloud Computing pour votre entreprise</a></h2>
-								<p>Découvrez comment le Cloud Computing peut améliorer la sécurité de vos infrastructures IT.</p>
-								<div class="em-blog-content-area_adn">
-									<div class="learn_more_adn">
-										<a class="learn_btn adnbtn2" href="#">Lire plus</a>
-									</div>
-								</div>	
-								<div class="witr_blog_border"></div>
-								<span><i class="icofont-tags"></i> <a href="#">Cloud Computing</a></span>
-								<span><a href="#"><i class="icofont-ui-clock"></i></a> 01 Février, 2025</span>
-							</div>
-						</div>
-					</div>
-				</div>				
-			</div>
-		</div>
-	</div>
-</div>
+        <!-- Add Pagination -->
+        <div class="swiper-scrollbar"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+    </div>
 
+    <!-- solutech_serivce_bg_area -->
+    <div class="solutech_serivce_area serivce_bg">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="witr_section_title">
+              <div class="witr_section_title_inner text-center">
+                <h2>Nos Services</h2>
+                <h3>Nos domaines d'interventions</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row service_top">
+          <!-- solutech_serivce_bg_01 -->
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="all_feature_color single_feature2 text-center">
+              <div class="witr_feature2">
+                <div class="witr_fea2_icon_top">
+                  <i class="aprova-data"></i>
+                </div>
+                <h3><a href="#">Réseaux</a></h3>
+                <p>
+                  Solutions LAN/WAN optimisées pour une connectivité fiable et
+                  sécurisée.
+                </p>
+                <div class="witr_feature_btn2">
+                  <a class="witr_btn_all_color" href="#">Lire plus</a>
+                </div>
+                <div class="witr_feature2_icon">
+                  <i class="aprova-data"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- solutech_serivce_bg_02 -->
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="all_feature_color single_feature2 text-center">
+              <div class="witr_feature2">
+                <div class="witr_fea2_icon_top">
+                  <i class="aprova-talk"></i>
+                </div>
+                <h3><a href="#">Télecommunications</a></h3>
+                <p>
+                  Solutions VoIP et internet multisite pour une communication
+                  efficace. et sécurisée.
+                </p>
+                <div class="witr_feature_btn2">
+                  <a class="witr_btn_all_color" href="#">Lire plus</a>
+                </div>
+                <div class="witr_feature2_icon">
+                  <i class="aprova-talk"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- solutech_serivce_bg_03 -->
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="all_feature_color single_feature2 text-center">
+              <div class="witr_feature2">
+                <div class="witr_fea2_icon_top">
+                  <i class="aprova-computer"></i>
+                </div>
+                <h3><a href="#">Ingénierie Système</a></h3>
+                <p>
+                  Infrastructure robuste avec virtualisation et data centers
+                  sécurisés.
+                </p>
+                <div class="witr_feature_btn2">
+                  <a class="witr_btn_all_color" href="#">Lire plus</a>
+                </div>
+                <div class="witr_feature2_icon">
+                  <i class="aprova-computer"></i>
+                </div>
+              </div>
+            </div>
+          </div>
 
-<div class="chatbot-avatar" onclick="toggleChat()">
-    <div class="chatbot-bubble">Nous sommes là pour vous répondre 24/24</div>
-    <img src="assets/image/Testimonial/87.jpeg" alt="Chatbot">
-</div>
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="all_feature_color single_feature2 text-center">
+              <div class="witr_feature2">
+                <div class="witr_fea2_icon_top">
+                  <i class="aprova-plaster"></i>
+                </div>
+                <h3><a href="#">Maintenance Informatique</a></h3>
+                <p>
+                  Maintenance préventive et curative pour assurer la continuité
+                  des services.
+                </p>
+                <div class="witr_feature_btn2">
+                  <a class="witr_btn_all_color" href="#">Lire plus</a>
+                </div>
+                <div class="witr_feature2_icon">
+                  <i class="aprova-plaster"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- solutech_serivce_bg_04 -->
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="all_feature_color single_feature2 text-center">
+              <div class="witr_feature2">
+                <div class="witr_fea2_icon_top">
+                  <i class="aprova-ui"></i>
+                </div>
+                <h3><a href="#">Développement Web</a></h3>
+                <p>
+                  Sites web interactifs et solutions digitales adaptées à vos
+                  besoins.
+                </p>
+                <div class="witr_feature_btn2">
+                  <a class="witr_btn_all_color" href="#">Lire plus</a>
+                </div>
+                <div class="witr_feature2_icon">
+                  <i class="aprova-ui"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- solutech_serivce_bg_05 -->
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="all_feature_color single_feature2 text-center">
+              <div class="witr_feature2">
+                <div class="witr_fea2_icon_top">
+                  <i class="aprova-music"></i>
+                </div>
+                <h3><a href="#">Audiovisuel</a></h3>
+                <p>
+                  Design graphique et vidéo pour vos communications visuelles.
+                </p>
+                <div class="witr_feature_btn2">
+                  <a class="witr_btn_all_color" href="#">Lire plus</a>
+                </div>
+                <div class="witr_feature2_icon">
+                  <i class="aprova-music"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- solutech_serivce_bg_06 -->
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="all_feature_color single_feature2 text-center">
+              <div class="witr_feature2">
+                <div class="witr_fea2_icon_top">
+                  <i class="aprova-screen"></i>
+                </div>
+                <h3><a href="#">Vidéo Surveillance</a></h3>
+                <p>
+                  Solutions de surveillance haute définition avec alarmes
+                  intégrées.
+                </p>
+                <div class="witr_feature_btn2">
+                  <a class="witr_btn_all_color" href="#">Lire plus</a>
+                </div>
+                <div class="witr_feature2_icon">
+                  <i class="aprova-screen"></i>
+                </div>
+              </div>
+            </div>
+          </div>
 
-<div class="chat-container" id="chatContainer">
-    <div class="chat-header">
-        <img src="assets/image/Testimonial/87.jpeg" alt="Bot">
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="all_feature_color single_feature2 text-center">
+              <div class="witr_feature2">
+                <div class="witr_fea2_icon_top">
+                  <i class="aprova-award"></i>
+                </div>
+                <h3><a href="#">Formations</a></h3>
+                <p>Formations professionnelles pour préparer votre carriere.</p>
+                <div class="witr_feature_btn2">
+                  <a class="witr_btn_all_color" href="#">Lire plus</a>
+                </div>
+                <div class="witr_feature2_icon">
+                  <i class="aprova-award"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="solutech_pricing_bg_area">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="witr_section_title">
+              <div class="witr_section_title_inner text-center">
+                <h2>Tarification</h2>
+                <div class="witr_bar_main">
+                  <div class="witr_bar_inner witr_bar_innerc"></div>
+                </div>
+                <h6>
+                  Choisissez le bon plan tarifaire pour vous et votre
+                  entreprise.
+                </h6>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row pricing_top">
+          <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="pricing_area all_pricing_color">
+              <div class="pricing-part">
+                <div class="witr_pricing_icon">
+                  <i class="fas fa-comment-dollar"></i>
+                </div>
+                <h4>Forfait Mensuel</h4>
+                <sub>SODITEC</sub>
+                <div class="prt_content">
+                  <p>30% réduction</p>
+                </div>
+                <h5>192000 <span> /Mois</span></h5>
+                <div class="witri_texti_list">
+                  <ul>
+                    <li>Infos à prendre auprès de SODITEC</li>
+                    <li>Infos à prendre auprès de SODITEC</li>
+                    <li>Infos à prendre auprès de SODITEC</li>
+                  </ul>
+                </div>
+                <div class="witr_btnp_color">
+                  <a class="btn" href="#">Abonnez-vous</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="pricing_area all_pricing_color">
+              <div class="pricing-part">
+                <div class="witr_pricing_icon">
+                  <i class="fas fa-coins"></i>
+                </div>
+                <h4>Forfait annuel</h4>
+                <sub>SODITEC</sub>
+                <div class="prt_content">
+                  <p>40% de réduction</p>
+                </div>
+                <h5>50000 <span> /Mois</span></h5>
+                <div class="witri_texti_list">
+                  <ul>
+                    <li>Infos à prendre auprès de SODITEC</li>
+                    <li>Infos à prendre auprès de SODITEC</li>
+                    <li>Infos à prendre auprès de SODITEC</li>
+                  </ul>
+                </div>
+                <div class="witr_btnp_color">
+                  <a class="btn" href="#">Abonnez-vous</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="pricing_area all_pricing_color">
+              <div class="pricing-part">
+                <div class="witr_pricing_icon">
+                  <i class="fab fa-bitcoin"></i>
+                </div>
+                <h4>Forfait Premium</h4>
+                <sub>SODITEC </sub>
+                <div class="prt_content">
+                  <p>50% de réduction</p>
+                </div>
+                <h5>1000000 <span> /month</span></h5>
+                <div class="witri_texti_list">
+                  <ul>
+                    <li>Infos à prendre auprès de SODITEC</li>
+                    <li>Infos à prendre auprès de SODITEC</li>
+                    <li>Infos à prendre auprès de SODITEC</li>
+                  </ul>
+                </div>
+                <div class="witr_btnp_color">
+                  <a class="btn" href="#">Abonnez-vous</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- solutech_project_area -->
+    <div class="solutech_project_area">
+      <div class="containers">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="witr_section_title">
+              <div class="witr_section_title_inner text-center">
+                <h2>Déploiement de Solutions IT</h2>
+                <h3>Notre Approche Stratégique et Technique</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="witr_pslide all_pslides_color ps1 service_active">
+          <div class="witr_islidess_slick witr_cslide_idany project_top">
+            <!-- solutech_project_01 -->
+            <div class="item_pos col-lg-12">
+              <div class="witr_single_pslide">
+                <div class="witr_pslide_image">
+                  <img
+                    src="assets/image/infrastructure/Borne-de-diffusion-Hotspot-scaled-qdzm0n43ky9zzwu9topldsm6qd4xtsq5wk0k1ish9s.jpg"
+                    alt="image"
+                  />
+                </div>
+                <div class="witr_content_pslide_text">
+                  <div class="witr_content_pslide">
+                    <h3>
+                      <a href="#">Installation d'une borne wifi à l'ONAB</a>
+                    </h3>
+                    <p>Infrastructure</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- solutech_project_02 -->
+            <div class="item_pos col-lg-12">
+              <div class="witr_single_pslide">
+                <div class="witr_pslide_image">
+                  <img
+                    src="assets/image/infrastructure/Borne-de-diffusion-Hotspot_2-scaled-qdzm3hki9w695epg7ezxfkrfhd3y4t0wmn4hcokkfk.jpg"
+                    alt="image"
+                  />
+                </div>
+                <div class="witr_content_pslide_text">
+                  <div class="witr_content_pslide">
+                    <h3><a href="#">Borne wifi</a></h3>
+                    <p>Infrastructure</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- solutech_project_03 -->
+            <div class="item_pos col-lg-12">
+              <div class="witr_single_pslide">
+                <div class="witr_pslide_image">
+                  <img
+                    src="assets/image/infrastructure/face-scaled-qdzm6s0670ods9xezu6x5qvibww72o332xbntjoynk.jpg"
+                    alt="image"
+                  />
+                </div>
+                <div class="witr_content_pslide_text">
+                  <div class="witr_content_pslide">
+                    <h3>
+                      <a href="#">Déploiement d'un Data-Center à Bourjon</a>
+                    </h3>
+                    <p>Matériel</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- solutech_project_04 -->
+            <div class="item_pos col-lg-12">
+              <div class="witr_single_pslide">
+                <div class="witr_pslide_image">
+                  <img
+                    src="assets/image/infrastructure/Fin-du-Nat-scaled-qdzm7vhe626fbwc2lb992gwva3hm1yft8cq1z62fe8.jpg"
+                    alt="image"
+                  />
+                </div>
+                <div class="witr_content_pslide_text">
+                  <div class="witr_content_pslide">
+                    <h3>
+                      <a href="#">Mise en place d'une Baie Server à l'ONAB</a>
+                    </h3>
+                    <p>Matériel</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- solutech_project_05 -->
+            <div class="item_pos col-lg-12">
+              <div class="witr_single_pslide">
+                <div class="witr_pslide_image">
+                  <img
+                    src="assets/image/infrastructure/WhatsApp-Image-2022-07-23-at-17..jpg"
+                    alt="image"
+                  />
+                </div>
+                <div class="witr_content_pslide_text">
+                  <div class="witr_content_pslide">
+                    <h3><a href="#">Exemple de travail de Soditec</a></h3>
+                    <p>Materiel</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- solutech_team_area -->
+    <div class="solutech_team2_area">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="witr_section_title">
+              <div class="witr_section_title_inner text-center">
+                <h2>NOTRE EQUIPE</h2>
+                <h3>Voici notre équipe d'experts qualifiés</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row team_top">
+          <!-- solutech_team_01 -->
+          <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="em-team all_color_team">
+              <div class="em-team-one">
+                <div class="em-team-content-image-inner">
+                  <div class="em-team-content-image">
+                    <img src="assets/image/team/Enock2.jpeg" alt="image" />
+                  </div>
+                </div>
+                <div class="em-team-content-waraper all_content_bg_color">
+                  <div class="em-team-content-title-inner">
+                    <div class="em-content-title">
+                      <h5><a href="#">James DOSSOUVI</a></h5>
+                    </div>
+                  </div>
+                  <div class="em-team-content-subtitle-inner">
+                    <div class="em-content-subtitle">
+                      <span>DIRECTEUR GENERAL</span>
+                    </div>
+                  </div>
+                  <div class="em-team-content-socials-inner">
+                    <div class="em-team-content-socials all_team_s_color">
+                      <a href="#"><i class="fa fa-facebook-f"></i></a>
+                      <a href="#"><i class="fab fa-x-twitter"></i></a>
+                      <a href="#"><i class="fab fa-tumblr"></i></a>
+                      <a href="#"><i class="fab fa-vimeo-v"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- solutech_team_02 -->
+          <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="em-team all_color_team">
+              <div class="em-team-one">
+                <div class="em-team-content-image-inner">
+                  <div class="em-team-content-image">
+                    <img src="assets/image/team/Enock2.jpeg" alt="image" />
+                  </div>
+                </div>
+                <div class="em-team-content-waraper all_content_bg_color">
+                  <div class="em-team-content-title-inner">
+                    <div class="em-content-title">
+                      <h5><a href="#">Cynthia FELIHO</a></h5>
+                    </div>
+                  </div>
+                  <div class="em-team-content-subtitle-inner">
+                    <div class="em-content-subtitle">
+                      <span>COMPTABILITE & COMMERCIAL</span>
+                    </div>
+                  </div>
+                  <div class="em-team-content-socials-inner">
+                    <div class="em-team-content-socials all_team_s_color">
+                      <a href="#"><i class="fa fa-facebook-f"></i></a>
+                      <a href="#"><i class="fab fa-x-twitter"></i></a>
+                      <a href="#"><i class="fab fa-tumblr"></i></a>
+                      <a href="#"><i class="fab fa-vimeo-v"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- solutech_team_03 -->
+          <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="em-team all_color_team">
+              <div class="em-team-one">
+                <div class="em-team-content-image-inner">
+                  <div class="em-team-content-image">
+                    <img src="assets/image/team/Enock2.jpeg" alt="image" />
+                  </div>
+                </div>
+                <div class="em-team-content-waraper all_content_bg_color">
+                  <div class="em-team-content-title-inner">
+                    <div class="em-content-title">
+                      <h5><a href="#">Enock TOGLOZIN</a></h5>
+                    </div>
+                  </div>
+                  <div class="em-team-content-subtitle-inner">
+                    <div class="em-content-subtitle">
+                      <span>Technicien</span>
+                    </div>
+                  </div>
+                  <div class="em-team-content-socials-inner">
+                    <div class="em-team-content-socials all_team_s_color">
+                      <a href="#"><i class="fa fa-facebook-f"></i></a>
+                      <a href="#"><i class="fab fa-x-twitter"></i></a>
+                      <a href="#"><i class="fab fa-tumblr"></i></a>
+                      <a href="#"><i class="fab fa-vimeo-v"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- solutech_counter_area -->
+    <div class="solutech_counter_area">
+      <div class="container counter_bg">
+        <div class="row">
+          <!-- Clients satisfaits -->
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="witr_counter_single all_counter_color">
+              <div class="witr_custom_icon">
+                <i class="icofont-handshake-deal"></i>
+              </div>
+              <div class="witr_counter_number_inn">
+                <h3 class="counter">150</h3>
+                <span>+</span>
+                <h4>Clients satisfaits</h4>
+              </div>
+            </div>
+          </div>
+          <!-- Projets déployés -->
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="witr_counter_single all_counter_color">
+              <div class="witr_custom_icon">
+                <i class="icofont-building-alt"></i>
+              </div>
+              <div class="witr_counter_number_inn">
+                <h3 class="counter">200</h3>
+                <span>+</span>
+                <h4>Projets déployés</h4>
+              </div>
+            </div>
+          </div>
+          <!-- Formations dispensées -->
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="witr_counter_single all_counter_color">
+              <div class="witr_custom_icon">
+                <i class="icofont-graduate"></i>
+              </div>
+              <div class="witr_counter_number_inn">
+                <h3 class="counter">50</h3>
+                <span>+</span>
+                <h4>Formations dispensées</h4>
+              </div>
+            </div>
+          </div>
+          <!-- Partenaires stratégiques -->
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="witr_counter_single all_counter_color">
+              <div class="witr_custom_icon">
+                <i class="icofont-business-man"></i>
+              </div>
+              <div class="witr_counter_number_inn">
+                <h3 class="counter">20</h3>
+                <span>+</span>
+                <h4>Partenaires stratégiques</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="single_faq_bg_area faq_area">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-md-10 col-sm-12">
+            <div class="witr_section_title">
+              <div class="witr_section_title_inner text-left">
+                <h2>Notre Vision</h2>
+              </div>
+            </div>
+            <div class="witr_single_progress">
+              <div class="witr_title2">
+                <span class="witr_label"> Innovation</span>
+              </div>
+              <div class="progress witr_progress-style2">
+                <div
+                  class="progress-bar wow fadeInLeft"
+                  data-wow-duration="1.5s"
+                  data-wow-delay="0.2s"
+                  style="width: 90%"
+                >
+                  <span class="witr_percent">90%</span>
+                </div>
+              </div>
+            </div>
+            <div class="witr_single_progress">
+              <div class="witr_title2">
+                <span class="witr_label">Écoute Client </span>
+              </div>
+              <div class="progress witr_progress-style2">
+                <div
+                  class="progress-bar wow fadeInLeft"
+                  data-wow-duration="1.5s"
+                  data-wow-delay="0.2s"
+                  style="width: 100%"
+                >
+                  <span class="witr_percent">100%</span>
+                </div>
+              </div>
+            </div>
+            <div class="witr_single_progress">
+              <div class="witr_title2">
+                <span class="witr_label">Efficacité </span>
+              </div>
+              <div class="progress witr_progress-style2">
+                <div
+                  class="progress-bar wow fadeInLeft"
+                  data-wow-duration="1.5s"
+                  data-wow-delay="0.2s"
+                  style="width: 85%"
+                >
+                  <span class="witr_percent">95%</span>
+                </div>
+              </div>
+            </div>
+            <div class="witr_single_progress">
+              <div class="witr_title2">
+                <span class="witr_label">Valorisation des ressources </span>
+              </div>
+              <div class="progress witr_progress-style2">
+                <div
+                  class="progress-bar wow fadeInLeft"
+                  data-wow-duration="1.5s"
+                  data-wow-delay="0.2s"
+                  style="width: 90%"
+                >
+                  <span class="witr_percent">90%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-12 col-sm-12">
+            <div class="accordion_area">
+              <div class="faq-part">
+                <div id="accordion">
+                  <div class="card card-2">
+                    <div class="card-header witr_ac_card">
+                      <a
+                        href="#"
+                        class="card-link witr_ac_style"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapse_242536c"
+                        aria-expanded="true"
+                      >
+                        01. Innovation</a
+                      >
+                    </div>
+                    <div
+                      id="collapse_242536c"
+                      class="collapse"
+                      data-parent="#accordion"
+                    >
+                      <p>
+                        Nous restons à la pointe de la technologie pour offrir
+                        les meilleures solutions.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="card card-2">
+                    <div class="card-header witr_ac_card">
+                      <a
+                        href="#"
+                        class="card-link witr_ac_style"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapse_9315e3d1"
+                        aria-expanded="true"
+                      >
+                        02. Écoute Client</a
+                      >
+                    </div>
+                    <div
+                      id="collapse_9315e3d1"
+                      class="collapse"
+                      data-parent="#accordion"
+                    >
+                      <p>
+                        Nous accordons une attention particulière aux besoins
+                        spécifiques de chaque client.
+                      </p>
+                    </div>
+                  </div>
+                  <!-- card -->
+                  <div class="card card-2">
+                    <div class="card-header witr_ac_card">
+                      <a
+                        href="#"
+                        class="card-link witr_ac_style"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapse_9965145"
+                        aria-expanded="true"
+                      >
+                        03. Efficacité</a
+                      >
+                    </div>
+                    <div
+                      id="collapse_9965145"
+                      class="collapse"
+                      data-parent="#accordion"
+                    >
+                      <p>
+                        Nous optimisons nos processus pour garantir des
+                        résultats rapides et fiables.
+                      </p>
+                    </div>
+                  </div>
+                  <!-- card -->
+                  <div class="card card-2">
+                    <div class="card-header witr_ac_card">
+                      <a
+                        href="#"
+                        class="card-link witr_ac_style"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapse_4b685b3"
+                        aria-expanded="true"
+                      >
+                        04. Valorisation des ressources</a
+                      >
+                    </div>
+                    <div
+                      id="collapse_4b685b3"
+                      class="collapse"
+                      data-parent="#accordion"
+                    >
+                      <p>
+                        Nous investissons dans nos talents et nos outils pour
+                        maximiser la valeur ajoutée.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- solutech_testimonial_bg_area -->
+    <div class="solutech_testimonial_bg_area">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="witr_section_title white">
+              <div class="witr_section_title_inner text-center">
+                <h2>Nos Témoignages</h2>
+                <h3>Ils nous font confiance</h3>
+                <h1>Ce que disent nos clients</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carso_idtesti all_color_testimonial dfa testi_top">
+          <!-- solutech_blog_01 -->
+          <div class="item guttergs">
+            <div class="single_creativeItem post_t6">
+              <div class="box-size">
+                <div class="testiCreCon">
+                  <i class="fa fa-quote-right"></i>
+                  <!-- content -->
+                  <p>
+                    La mise en place de notre réseau LAN en fibre optique a
+                    transformé notre façon de travailler. Merci à SODITEC pour
+                    leur professionnalisme !
+                  </p>
+                </div>
+                <div class="em_test_thumb">
+                  <img src="assets/image/Testimonial/86.jpg" alt="image" />
+                </div>
+                <div class="testAuthor">
+                  <h6>Olivier B.</h6>
+                  <span> Responsable Technique </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- solutech_blog_02 -->
+          <div class="item guttergs">
+            <div class="single_creativeItem post_t6">
+              <div class="box-size">
+                <div class="testiCreCon">
+                  <i class="fa fa-quote-right"></i>
+                  <!-- content -->
+                  <p>
+                    Grâce à leur maintenance corrective, nos systèmes
+                    fonctionnent désormais sans aucun problème. Un service
+                    efficace et professionnel.
+                  </p>
+                </div>
+                <div class="em_test_thumb">
+                  <img src="assets/image/Testimonial/87.jpeg" alt="image" />
+                </div>
+                <div class="testAuthor">
+                  <h6>Aïcha T.</h6>
+                  <span> Admin Officer </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- solutech_blog_03 -->
+          <div class="item guttergs">
+            <div class="single_creativeItem post_t6">
+              <div class="box-size">
+                <div class="testiCreCon">
+                  <i class="fa fa-quote-right"></i>
+                  <!-- content -->
+                  <p>
+                    La formation que j’ai suivie chez SODITEC a complètement
+                    transformé ma carrière. J’ai acquis des compétences
+                    pratiques en réseau informatique.
+                  </p>
+                </div>
+                <div class="em_test_thumb">
+                  <img src="assets/image/Testimonial/88.jpeg" alt="image" />
+                </div>
+                <div class="testAuthor">
+                  <h6>Antoine M.</h6>
+                  <span> Jeune Diplomé </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- solutech_blog_04 -->
+          <div class="item guttergs">
+            <div class="single_creativeItem post_t6">
+              <div class="box-size">
+                <div class="testiCreCon">
+                  <i class="fa fa-quote-right"></i>
+                  <!-- content -->
+                  <p>
+                    Nous avons été impressionnés par la qualité des équipements
+                    et la rapidité de l’installation. Un service efficace et
+                    professionnel. Merci, SODITEC !
+                  </p>
+                </div>
+                <div class="em_test_thumb">
+                  <img src="assets/image/Testimonial/89.jpg" alt="image" />
+                </div>
+                <div class="testAuthor">
+                  <h6>Marvin M.</h6>
+                  <span> Chef d’entreprise</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- witr_brand_area -->
+    <h1 style="padding-top: 20px">Nos partenaires</h1>
+    <div class="mycontainer">
+      <div class="images">
+        <img
+          src="assets/image/partenaires/anat.png"
+          alt="Anat"
+          loading="lazy"
+        />
+        <img src="assets/image/partenaires/diz.png" alt="Diz" loading="lazy" />
+        <img
+          src="assets/image/partenaires/obaps.jpeg"
+          alt="Obaps"
+          loading="lazy"
+        />
+        <img
+          src="assets/image/partenaires/sbin.png"
+          alt="Sbin"
+          loading="lazy"
+        />
+        <img
+          src="assets/image/partenaires/swedo.png"
+          alt="Swedo"
+          loading="lazy"
+        />
+        <img src="assets/image/partenaires/up.jpeg" alt="Up" loading="lazy" />
+        <img src="assets/image/partenaires/via.png" alt="Via" loading="lazy" />
+        <img
+          src="assets/image/partenaires/anat.png"
+          alt="Anat"
+          loading="lazy"
+        />
+        <img src="assets/image/partenaires/diz.png" alt="Diz" loading="lazy" />
+        <img
+          src="assets/image/partenaires/obaps.jpeg"
+          alt="Obaps"
+          loading="lazy"
+        />
+        <img
+          src="assets/image/partenaires/sbin.png"
+          alt="Sbin"
+          loading="lazy"
+        />
+        <img
+          src="assets/image/partenaires/swedo.png"
+          alt="Swedo"
+          loading="lazy"
+        />
+        <img src="assets/image/partenaires/up.jpeg" alt="Up" loading="lazy" />
+        <img src="assets/image/partenaires/via.png" alt="Via" loading="lazy" />
+      </div>
+    </div>
+    <!-- solutech_blog_bg_area -->
+
+    <div class="solutech_blog_bg_area">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="witr_section_title">
+              <div class="witr_section_title_inner text-center">
+                <h2>Nos Actualités & Médias</h2>
+                <h3>Les dernières nouvelles en avant</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="witr_blog_area11 witr_blog_area16">
+          <div class="blog_wrap blog16_idblog1 blog_top">
+            <!-- solutech_blog_01 -->
+            <div class="witr_all_mb_30 col-lg-12">
+              <div class="busi_singleBlog">
+                <div class="witr_sb_thumb">
+                  <a href="#"
+                    ><img src="assets/image/blog/schema-vpn-5.jpg" alt="image"
+                  /></a>
+                </div>
+                <div class="all_blog_color">
+                  <div class="witr_blog_con bs5">
+                    <h2>
+                      <a href="#"
+                        >Pourquoi utiliser un VPN pour votre entreprise ?</a
+                      >
+                    </h2>
+                    <p>
+                      Découvrez comment un VPN peut sécuriser vos communications
+                      et protéger vos données.
+                    </p>
+                    <div class="em-blog-content-area_adn">
+                      <div class="learn_more_adn">
+                        <a class="learn_btn adnbtn2" href="#">Lire Plus</a>
+                      </div>
+                    </div>
+                    <div class="witr_blog_border"></div>
+                    <span
+                      ><i class="icofont-tags"></i>
+                      <a href="#">Cybersécurité</a></span
+                    >
+                    <span
+                      ><a href="#"><i class="icofont-ui-clock"></i></a> 01
+                      Fevrier, 2025</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- solutech_blog_02 -->
+            <div class="witr_all_mb_30 col-lg-12">
+              <div class="busi_singleBlog">
+                <div class="witr_sb_thumb">
+                  <a href="#"
+                    ><img src="assets/image/blog/Nasse.jpg" alt="image"
+                  /></a>
+                </div>
+                <div class="all_blog_color">
+                  <div class="witr_blog_con bs5">
+                    <h2><a href="#">Gestion de réseau avec Nasse</a></h2>
+                    <p>
+                      Apprenez comment la solution Nasse peut optimiser la
+                      gestion de votre infrastructure réseau.
+                    </p>
+                    <div class="em-blog-content-area_adn">
+                      <div class="learn_more_adn">
+                        <a class="learn_btn adnbtn2" href="#">Lire plus </a>
+                      </div>
+                    </div>
+                    <div class="witr_blog_border"></div>
+                    <span
+                      ><i class="icofont-tags"></i>
+                      <a href="#"> Infrastructure</a></span
+                    >
+                    <span
+                      ><a href="#"><i class="icofont-ui-clock"></i></a> 01
+                      Fevrier, 2025</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- solutech_blog_03 -->
+            <div class="witr_all_mb_30 col-lg-12">
+              <div class="busi_singleBlog">
+                <div class="witr_sb_thumb">
+                  <a href="#"
+                    ><img src="assets/image/blog/mikrotik3.jpg" alt="image"
+                  /></a>
+                </div>
+                <div class="all_blog_color">
+                  <div class="witr_blog_con bs5">
+                    <h2><a href="#">Optimisation réseau avec Mikrotik</a></h2>
+                    <p>
+                      Découvrez comment les solutions Mikrotik peuvent
+                      révolutionner la gestion et l'optimisation de votre réseau
+                      informatique.
+                    </p>
+                    <div class="em-blog-content-area_adn">
+                      <div class="learn_more_adn">
+                        <a class="learn_btn adnbtn2" href="#">Lire plus </a>
+                      </div>
+                    </div>
+                    <div class="witr_blog_border"></div>
+                    <span
+                      ><i class="icofont-tags"></i>
+                      <a href="#">Réseaux</a></span
+                    >
+                    <span
+                      ><a href="#"><i class="icofont-ui-clock"></i></a> 01
+                      Fevrier, 2025</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- solutech_blog_04 -->
+            <div class="witr_all_mb_30 col-lg-12">
+              <div class="busi_singleBlog">
+                <div class="witr_sb_thumb">
+                  <a href="#"
+                    ><img
+                      src="assets/image/blog/virtualisation_serveur.jpg"
+                      alt="image"
+                  /></a>
+                </div>
+                <div class="all_blog_color">
+                  <div class="witr_blog_con bs5">
+                    <h2>
+                      <a href="#"
+                        >Les avantages de la virtualisation de serveurs</a
+                      >
+                    </h2>
+                    <p>
+                      Comment la virtualisation peut améliorer l'efficacité et
+                      la sécurité de vos systèmes.
+                    </p>
+                    <div class="em-blog-content-area_adn">
+                      <div class="learn_more_adn">
+                        <a class="learn_btn adnbtn2" href="#">Lire plus </a>
+                      </div>
+                    </div>
+                    <div class="witr_blog_border"></div>
+                    <span
+                      ><i class="icofont-tags"></i>
+                      <a href="#">Machine virtuelle</a></span
+                    >
+                    <span
+                      ><a href="#"><i class="icofont-ui-clock"></i></a> 01
+                      Fevrier, 2025</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="witr_all_mb_30 col-lg-12">
+              <div class="busi_singleBlog">
+                <div class="witr_sb_thumb">
+                  <a href="#"
+                    ><img
+                      src="assets/image/blog/cloud_computing.jpg"
+                      alt="image"
+                  /></a>
+                </div>
+                <div class="all_blog_color">
+                  <div class="witr_blog_con bs5">
+                    <h2>
+                      <a href="#"
+                        >Les bénéfices du Cloud Computing pour votre
+                        entreprise</a
+                      >
+                    </h2>
+                    <p>
+                      Découvrez comment le Cloud Computing peut améliorer la
+                      sécurité de vos infrastructures IT.
+                    </p>
+                    <div class="em-blog-content-area_adn">
+                      <div class="learn_more_adn">
+                        <a class="learn_btn adnbtn2" href="#">Lire plus</a>
+                      </div>
+                    </div>
+                    <div class="witr_blog_border"></div>
+                    <span
+                      ><i class="icofont-tags"></i>
+                      <a href="#">Cloud Computing</a></span
+                    >
+                    <span
+                      ><a href="#"><i class="icofont-ui-clock"></i></a> 01
+                      Février, 2025</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chatbot-avatar" onclick="toggleChat()">
+      <div class="chatbot-bubble">Nous sommes là pour vous répondre 24/24</div>
+      <img src="assets/image/Testimonial/87.jpeg" alt="Chatbot" />
+    </div>
+
+    <div class="chat-container" id="chatContainer">
+      <div class="chat-header">
+        <img src="assets/image/Testimonial/87.jpeg" alt="Bot" />
         <span>Support</span>
-    </div>
-    <div class="chat-body" id="chatBody">
+      </div>
+      <div class="chat-body" id="chatBody">
         <div class="chat-message bot">
-            <img src="assets/image/Testimonial/87.jpeg" alt="Bot">
-            <p>Bonjour! Comment puis-je vous aider?</p>
+          <img src="assets/image/Testimonial/87.jpeg" alt="Bot" />
+          <p>Bonjour! Comment puis-je vous aider?</p>
         </div>
-    </div>
-    <div class="chat-footer">
+      </div>
+      <div class="chat-footer">
         <label for="fileInput" class="file-label">📎</label>
-        <input type="file" id="fileInput">
-        <input type="text" class="message-input" id="messageInput" placeholder="Écrivez un message...">
+        <input type="file" id="fileInput" />
+        <input
+          type="text"
+          class="message-input"
+          id="messageInput"
+          placeholder="Écrivez un message..."
+        />
         <span class="send-btn" onclick="sendMessage()">📩</span>
+      </div>
     </div>
-</div>
 
-<script>
-    setTimeout(() => {
-        document.querySelector('.chatbot-avatar').style.display = 'flex';
-    }, 100000);
+    <script>
+      setTimeout(() => {
+        document.querySelector(".chatbot-avatar").style.display = "flex";
+      }, 100000);
 
-    function toggleChat() {
+      function toggleChat() {
         const chatContainer = document.getElementById("chatContainer");
-        chatContainer.style.display = chatContainer.style.display === "none" ? "block" : "none";
-    }
+        chatContainer.style.display =
+          chatContainer.style.display === "none" ? "block" : "none";
+      }
 
-    function sendMessage() {
+      function sendMessage() {
         const input = document.getElementById("messageInput");
         const message = input.value;
         if (message.trim() !== "") {
-            const chatBody = document.getElementById("chatBody");
-            const userMessage = document.createElement("div");
-            userMessage.classList.add("chat-message", "user");
-            userMessage.innerHTML = `<p>${message}</p><img src="assets/image/Testimonial/86.jpeg" alt='User'>`;
-            chatBody.appendChild(userMessage);
-            input.value = "";
-            chatBody.scrollTop = chatBody.scrollHeight;
+          const chatBody = document.getElementById("chatBody");
+          const userMessage = document.createElement("div");
+          userMessage.classList.add("chat-message", "user");
+          userMessage.innerHTML = `<p>${message}</p><img src="assets/image/Testimonial/86.jpeg" alt='User'>`;
+          chatBody.appendChild(userMessage);
+          input.value = "";
+          chatBody.scrollTop = chatBody.scrollHeight;
         }
-    }
-</script>
+      }
+    </script>
+    <!-- witrfm_footer_area -->
+    <div class="witrfm_area">
+      <div class="footer-middle">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-12">
+              <div class="widget widget_solutech_description_widget">
+                <div class="solutech-description-area">
+                  <a href="index.html"
+                    ><img src="assets/image/header/logo_blanc.png" alt="image"
+                  /></a>
+                  <p>
+                    Nous aidons les entreprises à élever la valeur avant de
+                    créer des logiciels personnalisés et de concevoir des
+                    produits parmi les plus simples. les techniciens vivent pour
+                    créer des gens.
+                  </p>
+                  <div class="social-icons">
+                    <a href="#"><i class="fa fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#"><i class="fab fa-x-twitter"></i></a>
+                    <a href="#"><i class="fas fa-rss"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+              <div class="widget widget_nav_menu">
+                <h2 class="widget-title">Soutien 24/7</h2>
+                <ul class="menu">
+                  <li><a href="#">Politique de confidentialité</a></li>
+                  <li><a href="#">FAQ</a></li>
+                  <li><a href="#">Conditions générales & Conditions</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+                  <li><a href="about.html">Histoire & expérience</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+              <div class="widget about_us">
+                <h2 class="widget-title">Adresse Locale</h2>
+                <div class="about-footer">
+                  <div class="footer-widget address">
+                    <div class="footer-address">
+                      <div class="footer_s_inner">
+                        <div class="footer-sociala-icon">
+                          <i class="fa fa-map-marker"></i>
+                        </div>
+                        <div class="footer-sociala-info">
+                          <p>Address : Zogbohoue,COTONOU</p>
+                        </div>
+                      </div>
+                      <div class="footer_s_inner">
+                        <div class="footer-sociala-icon">
+                          <i class="fa fa-phone"></i>
+                        </div>
+                        <div class="footer-sociala-info">
+                          <p>Phone : +229 0160988585</p>
+                        </div>
+                      </div>
+                      <div class="footer_s_inner">
+                        <div class="footer-sociala-icon">
+                          <i class="fa fa-envelope"></i>
+                        </div>
+                        <div class="footer-sociala-info">
+                          <p>Email : contact@soditec.com</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-3 last">
+              <div class="widget_text widget widget_custom_html">
+                <h2 class="widget-title">HORAIRES</h2>
+                <div class="textwidget custom-html-widget">
+                  <div class="witr_table">
+                    <div class="witr_sub_table">
+                      <span>Lundi - Vendredi</span>
+                      <span>08:00 - 18:00</span>
+                    </div>
+                    <div class="witr_sub_table">
+                      <span>Saturday</span>
+                      <span>09:00 - 18:00</span>
+                    </div>
 
-	
-<!-- witrfm_footer_area -->
-<div class="witrfm_area">
-	<div class="footer-middle">  
-		<div class="container">
-			<div class="row">
-				<div class=" col-lg-3 col-md-6 col-sm-12">
-					<div class="widget widget_solutech_description_widget">				
-						<div class="solutech-description-area">
-							<a href="index.html"><img src="assets/image/header/logo_blanc.png" alt="image"></a>
-							<p>Nous aidons les entreprises à élever la valeur avant de créer des logiciels personnalisés et de concevoir des produits parmi les plus simples. les techniciens vivent pour créer des gens.</p>
-							<div class="social-icons">
-								<a href="#"><i class="fa fa-facebook-f"></i></a>
-								<a href="#"><i class="fab fa-google-plus-g"></i></a>
-								<a href="#"><i class="fab fa-x-twitter"></i></a>
-								<a href="#"><i class="fas fa-rss"></i></a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class=" col-lg-3 col-md-6 col-sm-12">
-					<div class="widget widget_nav_menu">
-						<h2 class="widget-title">Soutien 24/7</h2>
-						<ul class="menu">
-							<li><a href="#">Politique de confidentialité</a></li>
-							<li><a href="#">FAQ</a></li>
-							<li><a href="#">Conditions générales & Conditions</a></li>
-							<li><a href="contact.html">Contact</a></li>
-							<li><a href="about.html">Histoire & expérience</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6 col-sm-12">
-					<div class="widget about_us">
-						<h2 class="widget-title">Adresse Locale</h2>
-						<div class="about-footer">
-							<div class="footer-widget address">
-							
-								<div class="footer-address">
-									<div class="footer_s_inner"> 
-										<div class="footer-sociala-icon">
-											<i class="fa fa-map-marker"></i>
-										</div>									
-										<div class="footer-sociala-info">				
-											<p>Address : Zogbohoue,COTONOU</p>
-										</div> 
-									</div> 
-									<div class="footer_s_inner"> 
-										<div class="footer-sociala-icon">
-											<i class="fa fa-phone"></i>
-										</div> 									
-										<div class="footer-sociala-info">   
-												<p>Phone : +229 0160988585</p>
-										</div>
-									</div>
-									<div class="footer_s_inner"> 
-										<div class="footer-sociala-icon"> 
-											<i class="fa fa-envelope"></i>
-										</div> 
-										<div class="footer-sociala-info">  
-											<p>Email : contact@soditec.com</p>									
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>	
-					</div>
-				</div>
-				<div class="col-sm-12 col-md-6  col-lg-3 last">
-					<div class="widget_text widget widget_custom_html">
-						<h2 class="widget-title">HORAIRES</h2>
-						<div class="textwidget custom-html-widget">
-							<div class="witr_table">
-								<div class="witr_sub_table">
-									<span>Lundi - Vendredi</span>
-									<span>08:00 - 18:00</span>
-								</div>
-								<div class="witr_sub_table">	
-									<span>Saturday</span>
-									<span>09:00 - 18:00</span>
-								</div>		
-															
-								<div class="witr_sub_table">		
-									<span>Urgence:</span>
-									<span> (+229) 0160988585</span>
-								</div>
-							</div>
-						</div>
-					</div>				
-				</div>
-			</div>	
-		</div>	
-	</div>	
-	<div class="footer-bottom">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6 col-md-6  col-sm-12">
-					<div class="copy-right-text">
-						<p>Copyright &copy; soditec all rights reserved.</p>
-					</div>
-				</div>
-				<div class="col-lg-6 col-md-6  col-sm-12">				
-					<div class="footer-menu">
-						<ul class="text-right">
-<<<<<<<<< Temporary merge branch 1
-							<li><a href="#">Accueil</a></li>
-							<li><a href="#">A propos</a></li>
-=========
-							<li><a href="#">Acceuil</a></li>
-							<li><a href="#">A Propos </a></li>
->>>>>>>>> Temporary merge branch 2
-							<li><a href="#">Equipe</a></li>
-						</ul> 				
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-	
-  	
-        <!-- Include All JS -->
-        <script src="assets/js/vendor/jquery-3.5.1.min.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
-        <script src="assets/js/isotope.pkgd.min.js"></script>
-        <script src="assets/js/slick.min.js"></script>
-        <script src="assets/js/imagesloaded.pkgd.min.js"></script>
-        <script src="venobox/venobox.min.js"></script>
-        <script src="assets/js/theme-pluginjs.js"></script>
-        <script src="assets/js/jquery.meanmenu.js"></script>
-        <script src="assets/js/ajax-mail.js"></script>		
-        <script src="assets/js/map.js"></script>		
-        <script src="assets/js/theme.js"></script>
-	
-	</body>
+                    <div class="witr_sub_table">
+                      <span>Urgence:</span>
+                      <span> (+229) 0160988585</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+              <div class="copy-right-text">
+                <p>Copyright &copy; soditec all rights reserved.</p>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+              <div class="footer-menu">
+                <ul class="text-right">
+                  <<<<<<<<< Temporary merge branch 1
+                  <li><a href="#">Accueil</a></li>
+                  <li><a href="#">A propos</a></li>
+                  =========
+                  <li><a href="#">Acceuil</a></li>
+                  <li><a href="#">A Propos </a></li>
+                  >>>>>>>>> Temporary merge branch 2
+                  <li><a href="#">Equipe</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Include All JS -->
+    <script src="assets/js/vendor/jquery-3.5.1.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/isotope.pkgd.min.js"></script>
+    <script src="assets/js/slick.min.js"></script>
+    <script src="assets/js/imagesloaded.pkgd.min.js"></script>
+    <script src="venobox/venobox.min.js"></script>
+    <script src="assets/js/theme-pluginjs.js"></script>
+    <script src="assets/js/jquery.meanmenu.js"></script>
+    <script src="assets/js/ajax-mail.js"></script>
+    <script src="assets/js/map.js"></script>
+    <script src="assets/js/theme.js"></script>
+  </body>
 </html>
