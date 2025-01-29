@@ -5,6 +5,7 @@
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		<title>Soditec - Déploiement d'infrastructure technologique</title>
 		<meta name="description" content="">
+		  <script src="https://cdn.tailwindcss.com"></script>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon"  type="image/png" href="assets/images/favicon.png">		
         <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
@@ -175,6 +176,46 @@
 		::-webkit-scrollbar-corner {
 			background: transparent; /* Coin de la barre de défilement */
 		}
+
+		h1 {
+			font-weight: bold;
+			font-size: 8rem;
+			text-align: center;
+			margin-bottom: 1rem;
+		  }
+	  
+		.equipementiercontainer {
+			display: flex;
+			overflow: hidden;
+			border-top: 2px solid #fdba74; /* Orange border */
+			border-bottom: 2px solid #fdba74;
+			padding: 1rem;
+			background-color: #ffffff;
+		  }
+	  
+		  .images {
+			display: flex;
+			gap: 4rem;
+			animation: loop-scroll 10s linear infinite;
+		  }
+	  
+		  .images:hover {
+			animation-play-state: paused;
+		  }
+	  
+		  .images img {
+			
+			max-width: none;
+		  }
+	  
+		  @keyframes loop-scroll {
+			from {
+			  transform: translateX(0);
+			}
+			to {
+			  transform: translateX(-50%);
+			}
+		  }
 		
 			
 		</style>		
@@ -390,10 +431,17 @@
 		<div class="row">
 			<div class="col-lg-6 col-md-10 col-sm-12">
 				<div class="witr_section_title">
-					<div class="witr_section_title_inner text-left">
-						<h2>Notre Vision</h2>
+					<div class="witr_section_title_inner text-center">
+						<h2>NOTRE EQUIPE</h2>		
+						<p class="text-lg leading-relaxed text-gray-700">
+							Créer un futur où la technologie et l'innovation transforment positivement la vie des individus et des communautés à travers le monde. 
+							En repoussant les frontières de l'ingéniosité humaine, nous nous engageons à construire des solutions durables, accessibles et éthiques 
+							qui favorisent la croissance, l'éducation et le bien-être. Nous croyons en l'impact de la technologie comme un vecteur de progrès, 
+							en récoltant la force de notre diversité et de notre collaboration pour façonner un avenir meilleur pour tous.
+						</p>
 					</div>
 				</div>
+				
 				<div class="witr_single_progress">
 					<div class="witr_title2">
 						<span class="witr_label"> Innovation</span>	
@@ -433,7 +481,12 @@
 							<span class="witr_percent">90%</span>					
 						</div>
 					</div>				
+				
 				</div>
+		
+
+
+
 			</div>
 			<div class="col-lg-6 col-md-12 col-sm-12">
 				<div class="accordion_area">
@@ -485,6 +538,37 @@
 		</div>
 	</div>
 </div>
+
+<!-- Missions soditec -->
+<section class="about-welcome-section py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="row align-items-center">
+            <!-- Colonne du texte -->
+            <div class="col-lg-6 col-md-12 mb-8 lg:mb-0">
+                <div class="about-welcome-content">
+                    <h2 class="text-5xl font-bold text-gray-800 mb-6 transition duration-500 ease-in-out transform hover:scale-105">
+                        Notre Mission
+                    </h2>
+                    <!-- <p class="text-xl text-gray-700 mb-6"> -->
+                        <p class="text-lg leading-relaxed text-gray-700">
+							Notre mission est de révolutionner le paysage technologique en créant des solutions innovantes qui simplifient la vie quotidienne et 
+							stimulent la croissance économique. En mettant l'accent sur la qualité, l'intégrité et l'innovation, nous nous engageons à fournir des 
+							produits et services de haute technologie qui répondent aux besoins de nos clients tout en respectant les normes éthiques et environnementales. 
+							Nous croyons en l'importance de la collaboration et de la diversité pour inspirer des idées nouvelles et renforcer notre capacité à surpasser les attentes.
+						  </p>
+                              
+                </div>
+            </div>
+            <!-- Colonne de l'image -->
+            <div class="col-lg-6 col-md-12">
+                <div class="about-welcome-image opacity-90 transition duration-500 ease-in-out hover:opacity-100">
+                    <img src="assets/image/about/undraw_typewriter_d4km.png" alt="Équipe SODITEC" class="w-full h-auto rounded-lg shadow-lg object-cover opacity-90 transition duration-500 ease-in-out hover:opacity-100">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+  
 
 
 <!-- solutech_team_area -->
@@ -672,8 +756,8 @@
 </div>
 
 <!-- witr_equipementiers_area -->
-<div class="witr_brand_area brand2">
-	<div class="container">
+<!-- <div class="witr_brand_area brand2">
+	<div class="container w-full">
 		<div class="row">
 			<div class="col-lg-9 col-md-8 col-sm-12 pdlf">	
 				<div class="imagess_area wittr_car_top_left brand_bg">
@@ -705,9 +789,61 @@
 			
 		</div>
 	</div>
-</div>
-
-
+</div> -->
+<div class="witr_section_title">
+	<div class="witr_section_title_inner  text-center"> <br><br>
+		<h2>Nos Equipementiers</h2>		
+		<h3>Voici Nos  équipementiers</h3><br><br>
+	</div><div class="equipementiercontainer">
+	<div class="images">
+	  <img
+		src="assets/image/equipmentier/cisco (1).png"
+		alt="Anat"
+		loading="lazy"
+	  />
+	  <img src="assets/image/equipmentier/Fortinet (1).png" alt="Diz" loading="lazy" />
+	  <img
+		src="assets/image/equipmentier/Huawei (1).jpg"
+		alt="Obaps"
+		loading="lazy"
+	  />
+	  <img
+		src="assets/image/equipmentier/microsoft (1).jpg"
+		alt="Sbin"
+		loading="lazy"
+	  />
+	  <img
+		src="assets/image/equipmentier/mikrotik (1).jpg"
+		alt="Swedo"
+		loading="lazy"
+	  />
+	  <img src="assets/image/equipmentier/tplink (1).png" alt="Up" loading="lazy" />
+	  <img src="assets/image/equipmentier/Ubiquity (1).png" alt="Via" loading="lazy" />
+	  <img
+		src="assets/image/equipmentier/cisco (1).png"
+		alt="Anat"
+		loading="lazy"
+	  />
+	  <img src="assets/image/equipmentier/Fortinet (1).png" alt="Diz" loading="lazy" />
+	  <img
+		src="assets/image/equipmentier/Huawei (1).jpg"
+		alt="Obaps"
+		loading="lazy"
+	  />
+	  <img
+		src="assets/image/equipmentier/microsoft (1).jpg"
+		alt="Sbin"
+		loading="lazy"
+	  />
+	  <img
+		src="assets/image/equipmentier/mikrotik (1).jpg"
+		alt="Swedo"
+		loading="lazy"
+	  />
+	  <img src="assets/image/equipmentier/tplink (1).png" alt="Up" loading="lazy" />
+	  <img src="assets/image/equipmentier/Ubiquity (1).png" alt="Via" loading="lazy" />
+	</div>
+  </div>
 	
 <!-- witrfm_footer_area -->
 <div class="witrfm_area">
