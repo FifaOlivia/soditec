@@ -44,42 +44,39 @@
             $(this).find('.scroll_fixed').addClass('postfix').removeClass('prefix');
         }
     });	
-		/* witr_active_id5 Slider Active */		
-				new Swiper('.witr_active_id5', {
-				  effect: 'cube',
-					cubeEffect: {
-						shadow: false,
-						slideShadows: true,
-						shadowOffset: 20,
-						shadowScale: 0.94,
-					},						
-					grabCursor: false,
-					speed: 2000,
-					direction: 'horizontal',
-					freeMode: false,
-					mousewheel: false,
-					keyboard: false,
-					loop: false,
-					autoplay: {
-						delay: 6000,								  
-						disableOnInteraction: false,
-					},
-					  pagination: {
-						el: '.swiper-pagination',
-						clickable: true,
-						type: 'progressbar',
-					  },
-					  navigation: {
-						nextEl: '.swiper-button-next',
-						prevEl: '.swiper-button-prev',
-					  },
-					  scrollbar: {
-						el: '.scrollbar_false',
-						hide: true,
-					  },							   
-					  
-				});	
 
+
+	new Swiper('.witr_active_id5', {
+		effect: 'fade', // Changer l'effet à fade pour un fondu
+		grabCursor: true, // Permet de cliquer et de faire glisser pour faire défiler les slides
+		speed: 1000, // Durée de la transition
+		direction: 'horizontal', // Le carrousel défile horizontalement
+		freeMode: false,
+		mousewheel: false,
+		keyboard: false,
+		loop: true, // Les slides vont se répéter
+		autoplay: {
+			delay: 6000,
+			disableOnInteraction: false,
+		},
+		pagination: {
+			el: '.swiper-pagination',
+			clickable: true,
+			type: 'progressbar',
+		},
+		navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+		},
+		scrollbar: {
+			el: '.scrollbar_false',
+			hide: true,
+		},
+		fadeEffect: {
+			crossFade: true, // Active l'effet de fondu croisé pour une transition plus fluide entre les slides
+		},
+	});
+	
 	
 		/*---------------------
 		 HOME-2countdown
