@@ -1,364 +1,174 @@
-<!DOCTYPE HTML>
+<!doctype html>
 <html lang="en-US">
-    <head>
-		<meta charset="UTF-8">
-		<meta http-equiv="x-ua-compatible" content="ie=edge">
-		<title>Soditec - Déploiement d'infrastructure technologique</title>
-		<meta name="description" content="">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="icon"  type="image/png" href="assets/images/favicon.png">		
-        <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="venobox/venobox.css">
-        <link rel="stylesheet" type="text/css" href="assets/css/plugin_theme_css.css">       
-		<link rel="stylesheet" type="text/css" href="style.css">
-		<link rel="stylesheet" type="text/css" href="assets/css/responsive.css">		
-		
-		<style>
-			body {
-				font-family: Arial, sans-serif;
-				margin: 0;
-				padding: 0;
-				background-color: #f4f4f4;
-			}
-			.chatbot-avatar {
-				position: fixed;
-				bottom: 70px;
-				right: 20px;
-				display: flex;
-				align-items: center;
-				cursor: pointer;
-				animation: blink 1.5s infinite;
-			}
-			.chatbot-avatar img {
-				width: 60px;
-				height: 60px;
-				border-radius: 50%;
-				box-shadow: 0 0 10px rgba(0,0,0,0.3);
-			}
-			.chatbot-bubble {
-				background: #007bff;
-				color: #fff;
-				padding: 10px 15px;
-				border-radius: 15px;
-				margin-right: 10px;
-				font-size: 14px;
-				animation: fadeIn 0.5s ease-in-out;
-			}
-			.chat-container {
-				display: none;
-				position: fixed;
-				bottom: 100px;
-				right: 20px;
-				width: 350px;
-				background: #fff;
-				border-radius: 10px;
-				box-shadow: 0 0 15px rgba(0,0,0,0.3);
-				overflow: hidden;
-				animation: slideUp 0.4s ease-in-out;
-			}
-			.chat-header {
-				background: #007bff;
-				color: #fff;
-				padding: 15px;
-				font-size: 16px;
-				display: flex;
-				align-items: center;
-			}
-			.chat-header img {
-				width: 40px;
-				height: 40px;
-				border-radius: 50%;
-				margin-right: 10px;
-			}
-			.chat-body {
-				padding: 15px;
-				height: 300px;
-				overflow-y: auto;
-				background: #f9f9f9;
-			}
-			.chat-message {
-				margin-bottom: 15px;
-				display: flex;
-				align-items: flex-start;
-			}
-			.chat-message img {
-				width: 40px;
-				height: 40px;
-				border-radius: 50%;
-			}
-			.chat-message p {
-				max-width: 250px;
-				padding: 10px;
-				border-radius: 10px;
-				font-size: 14px;
-			}
-			.chat-message.bot p {
-				background: #007bff;
-				color: #fff;
-				margin-left: 10px;
-			}
-			.chat-message.user {
-				flex-direction: row-reverse;
-			}
-			.chat-message.user p {
-				background: #e1e1e1;
-				margin-right: 10px;
-			}
-			.chat-footer {
-				display: flex;
-				align-items: center;
-				padding: 10px;
-				background: #fff;
-			}
-			.chat-footer input[type="file"] {
-				display: none;
-			}
-			.file-label, .send-btn {
-				cursor: pointer;
-				font-size: 20px;
-				color: #007bff;
-				margin-right: 10px;
-			}
-			.message-input {
-				flex: 1;
-				padding: 10px;
-				border: 1px solid #ddd;
-				border-radius: 5px;
-			}
-			@keyframes fadeIn {
-				from { opacity: 0; }
-				to { opacity: 1; }
-			}
-			@keyframes slideUp {
-				from { transform: translateY(50px); opacity: 0; }
-				to { transform: translateY(0); opacity: 1; }
-			}
-			@keyframes blink {
-				0% { opacity: 1; }
-				50% { opacity: 0.5; }
-				100% { opacity: 1; }
-			}
-			@media (max-width: 768px) {
-				.chatbot-avatar {
-					bottom: 30px;
-				}
-				.chatbot-bubble {
-					display: none;
-				}
-				.chat-container {
-					width: 90%;
-					bottom: 50px;
-					right: 5%;
-				}
-			}
-		
-			/* Barre de défilement personnalisée */
-		::-webkit-scrollbar {
-			width: 10px;
-		}
-		
-		::-webkit-scrollbar-track {
-			background: #e0e0e0; /* Couleur de fond de la piste */
-			border-radius: 10px;
-		}
-		
-		::-webkit-scrollbar-thumb {
-			background: #007bff; /* Couleur du "pouce" de la barre de défilement */
-			border-radius: 10px;
-			border: 2px solid #fff; /* Bordure pour un effet de relief */
-		}
-		
-		::-webkit-scrollbar-thumb:hover {
-			background: #0056b3; /* Couleur au survol */
-		}
-		
-		::-webkit-scrollbar-corner {
-			background: transparent; /* Coin de la barre de défilement */
-		}
+      <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      <title>Soditec</title>
+      <meta name="description" content="Société de Déploiement d'Infrastructures Technologiques">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="icon"  type="image/png" href="assets/images/favicon.png">		
+      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="venobox/venobox.css">
+      <link rel="stylesheet" type="text/css" href="assets/css/plugin_theme_css.css">    
+      <link rel="stylesheet" type="text/css" href="style.css">
+      <link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
 
+    <style>
+/* Barre de défilement personnalisée */ ::-webkit-scrollbar { width: 10px; } 
+::-webkit-scrollbar-track { background: #e0e0e0; /* Couleur de fond de la piste */ border-radius: 10px; } 
 
-		 /* Custom styling */
-		 .formation-title {
-                font-size: 2rem;
-                font-weight: bold;
-            }
-            .formation-desc {
-                font-size: 1.1rem;
-                color: #666;
-            }
-            .formation-button {
-                background-color: #007bff;
-                color: white;
-                padding: 10px 20px;
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-            }
-            .formation-button:hover {
-                background-color: #0056b3;
-            }
-            @media (max-width: 767px) {
-                .formation-content {
-                    text-align: center;
-                }
-                .formation-content img {
-                    margin-bottom: 15px;
-                }
-            }
-		
-			
-		</style>		
-			</head>
-		<body>
-	<div class="em40_header_area_main">
-		<!-- HEADER TOP AREA -->
-	   <div class="solutech-header-top">
-		   <div class="container">
-			   <div class="row">
-				   <div class="col-xs-12 col-lg-9 col-xl-9 col-md-9 col-sm-12">
-					   <div class="top-address text-left">
-						   <p>
-							   <span><i class="fas fa-home"></i>Zogbohoue, Cotonou</span>
-							   <a href="#"><i class="fas fa-phone-alt"></i>+229 63014242</a>
-							   <a href="#"><i class="fas fa-envelope"></i>contact@soditec.bj</a>
-						   </p>
-					   </div>
-				   </div>
-				   <!-- TOP RIGHT -->
-				   <div class="col-xs-12 col-lg-3 col-xl-3 col-md-3 col-sm-12 ">
-					   <div class="top-right-menu">
-						   <ul class="social-icons text-right text_m_center">
-							   <li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
-							   <li><a href="#"><i class="fab fa-x-twitter"></i></a></li>
-							   <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-							   <li><a href="#"><i class="fab fa-tumblr"></i></a></li>
-							   <li><a href="#"><i class="fab fa-whatsapp"></i></a></li>								
-						   </ul>
-					   </div>
-				   </div>	
-			   </div>		
-		   </div>
-	   </div>
-	   <!-- END HEADER TOP AREA -->
-	   <div class="tx_top2_relative">
-		   <div class="">
-			   <div class="tx_relative_m">
-				   <div class="">  
-					   <div class="mainmenu_width_tx  ">
-						   <div class="solutech-main-menu one_page hidden-xs hidden-sm witr_h_h10">
-							   <div class="solutech_nav_area scroll_fixed postfix">
-								   <div class="container">
-									   <div class="row logo-left">				
-										   <!-- LOGO -->
-										   <div class="col-md-3 col-sm-3 col-xs-4">
-											   <div class="logo" style="margin-top: -20px;">
-												   <a class="main_sticky_main_l" href="index.html" title="solutech">
-													   <img src="assets/image/header/logo_bleu.png" alt="solutech">
-												   </a>
-												   <a class="main_sticky_l" href="index.html" title="solutech">
-													   <img src="assets/image/header/logo_blanc.png" alt="solutech">
-												   </a>
-											   </div>	  
-										   </div>
-										   <div class="col-md-9 col-sm-9 col-xs-8">
-											   <nav class="solutech_menu main-search-menu">					
-												   <ul class="sub-menu">
-													   <li>
-														   <a href="index.html">Accueil</a>
-													   </li>
-													   <li><a href="about.html">A propos</a></li>
-													   <li class="menu-item-has-children">
-														   <a href="service-details.html">Services</a>
-														   <ul class="sub-menu">
-															   <li><a href="home-security.html">Dévelopment Web</a></li>
-															   <li><a href="software-development.html">Télécommunication</a></li>
-															   <li><a href="installation.html">Ingénierie System</a></li>
-															   <li><a href="service-maintenance.html">Maintenance Informatique</a></li>
-															   <li><a href="service-reseaux.html">Réseaux</a></li>
-															   <li><a href="service-video-surveillance.html">Vidéo Surveillance</a></li>
-															   <li><a href="service-audiovisuel.html">AudioVisuel</a></li>
-															   <li><a href="service-formation.html">Formations professionnelles</a></li>
-														   </ul>
-													   </li>
-													   <li>
-														   <a href="blog-left-sidebar.html">Blog</a>
-													   </li>
-													   <li><a href="portfolio-4column.html">Formations</a></li>
-												   </ul>
-												   <div class="donate-btn-header">
-													   <a class="dtbtn" href="contact.html">Contactez Nous</a>	
-												   </div>
-											   </nav>
-										   </div>	
-									   </div>
-								   </div>
-							   </div>
-						   </div>
-					   </div>
-				   </div> 			
-			   </div>
-		   </div> 
-	   </div> 
-   </div> 
-   
-   
-   
-   
-   
-   <!-- MOBILE MENU Logo AREA -->
-   <div class="mobile_logo_area hidden-md hidden-lg">
-	   <div class="container">
-		   <div class="row">
-			   <div class="col-sm-12">
-				   <div class="mobile_menu_logo text-center">
-					   <a href="index.html" title="solutech">
-						   <img src="assets/image/header/logo_bleu.png" alt="solutech">
-					   </a>		
-				   </div>
-			   </div>
-		   </div>
-	   </div>
-   </div>
-   <!-- MOBILE MENU AREA -->
-   <div class="home-2 mbm hidden-md hidden-lg  header_area main-menu-area">
-	   <div class="menu_area mobile-menu">
-		   <nav class="solutech_menu">						
-			   <ul class="sub-menu">
-				   <li class="menu-item-has-children">
-					   <a href="index.html">Accueil</a>
-				   </li>
-				   <li><a href="about.html">A propos</a></li>
-				   <li class="menu-item-has-children">
-					   <a href="service-details.html">Services</a>
-					   <ul class="sub-menu">
-						   <li><a href="home-security.html">Dévelopment Web</a></li>
-															   <li><a href="software-development.html">Télécommunication</a></li>
-															   <li><a href="installation.html">Ingénierie System</a></li>
-															   <li><a href="service-maintenance.html">Maintenance Informatique</a></li>
-															   <li><a href="service-reseaux.html">Réseaux</a></li>
-															   <li><a href="service-video-surveillance.html">Vidéo Surveillance</a></li>
-															   <li><a href="service-audiovisuel.html">AudioVisuel</a></li>
-															   <li><a href="service-formation.html">Formations professionnelles</a></li>
-					   </ul>
-				   </li>
-				   <li>
-					   <a href="blog-left-sidebar.html">Blog</a>
-				   </li>
-				   <li><a href="portfolio-4column.html">Formations</a></li>
-				   <li><a href="contact.html">Contactez Nous</a></li>
-			   </ul>
-		   </nav>	
-	   </div>					
-   </div>
-   <!-- END MOBILE MENU AREA  -->
-   
+::-webkit-scrollbar-thumb { background: #007bff; /* Couleur du "pouce" de la barre de défilement */ border-radius: 10px; border: 2px solid #fff; /* Bordure pour un effet de relief */ } 
+::-webkit-scrollbar-thumb:hover { background: #0056b3; /* Couleur au survol */ } 
+::-webkit-scrollbar-corner { background: transparent; /* Coin de la barre de défilement */ } 
+h1 { font-weight: bold; font-size: 8rem; text-align: center; margin-bottom: 1rem; }
 
 
 
+ .equipementiercontainer { display: flex; overflow: hidden; border-top: 2px solid #fdba74; /* Orange border */ border-bottom: 2px solid #fdba74; padding: 1rem; background-color: #ffffff; } 
+.images { display: flex; gap: 4rem; animation: loop-scroll 10s linear infinite; } .images:hover { animation-play-state: paused; }
+.images img { max-width: none; } @keyframes loop-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    </style>
+  </head>
+  <body>
+    <div class="em40_header_area_main">
+      <!-- HEADER TOP AREA -->
+      <div class="solutech-header-top">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12 col-lg-9 col-xl-9 col-md-9 col-sm-12">
+              <div class="top-address text-left">
+                <p>
+                  <span><i class="fas fa-home"></i>Zogbohoue, Cotonou</span>
+                  <a href="#"><i class="fas fa-phone-alt"></i>+229 63014242</a>
+                  <a href="#"
+                    ><i class="fas fa-envelope"></i>contact@soditec.bj</a
+                  >
+                </p>
+              </div>
+            </div>
+            <!-- TOP RIGHT -->
+            <div class="col-xs-12 col-lg-3 col-xl-3 col-md-3 col-sm-12">
+              <div class="top-right-menu">
+                <ul class="social-icons text-right text_m_center">
+                  <li>
+                    <a href="#"><i class="fa fa-facebook-f"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><i class="fab fa-x-twitter"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><i class="fab fa-tumblr"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- END HEADER TOP AREA -->
+      <div class="tx_top2_relative">
+        <div class="">
+          <div class="tx_relative_m">
+            <div class="">
+              <div class="mainmenu_width_tx">
+                <div
+                  class="solutech-main-menu one_page hidden-xs hidden-sm witr_h_h10"
+                >
+                  <div class="solutech_nav_area scroll_fixed postfix">
+                    <div class="container">
+                      <div class="row logo-left">
+                        <!-- LOGO -->
+                        <div class="col-md-3 col-sm-3 col-xs-4">
+                          <div class="logo" style="margin-top: -8px">
+                            <a
+                              class="main_sticky_main_l"
+                              href="index.html"
+                              title="solutech"
+                            >
+                              <img
+                                src="assets/image/header/logo_bleu.png"
+                                alt="solutech"
+                              />
+                            </a>
+                            <a
+                              class="main_sticky_l"
+                              href="index.html"
+                              title="solutech"
+                            >
+                              <img
+                                src="assets/image/header/logo_blanc.png"
+                                alt="solutech"
+                              />
+                            </a>
+                          </div>
+                        </div>
+                        <div class="col-md-9 col-sm-9 col-xs-8">
+                          <nav class="solutech_menu main-search-menu">
+                            <ul class="sub-menu" style="display: flex; list-style: none; padding: 0px 40% 0px 0px; margin: 0; position: relative;">
+                              <li><a href="index.html">Accueil</a></li>
+                              <li><a href="about.html">À propos</a></li>
+                              <li class="menu-item-has-children" style="position: relative;">
+                                <a href="service-details.html">Services</a>
+                                <ul class="sub-menu">
+                                  <li><a href="home-security.html">Développement Web</a></li>
+                                  <li><a href="software-development.html">Télécommunication</a></li>
+                                  <li><a href="installation.html">Ingénierie Système</a></li>
+                                  <li><a href="service-maintenance.html">Maintenance Informatique</a></li>
+                                  <li><a href="service-reseaux.html">Réseaux</a></li>
+                                  <li><a href="service-video-surveillance.html">Vidéo Surveillance</a></li>
+                                  <li><a href="service-audiovisuel.html">Audiovisuel</a></li>
+                                  <li><a href="service-formation.html">Formations professionnelles</a></li>
+                                </ul>
+                              </li>
+                              <li><a href="blog-left-sidebar.html">Blog</a></li>
+                              <li><a href="portfolio-4column.html">Formations</a></li>
+                            </ul>
+                            
+                            <div class="donate-btn-header" style="position: absolute; right: 5%; transform: translateX(5%);">
+                              <a class="dtbtn" href="contact.html">Contactez Nous</a>
+                            </div>
+                          </nav>
+                        </div>                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MOBILE MENU Logo AREA -->
+    <div class="mobile_logo_area hidden-md hidden-lg">
+      <div class="container">
+        <div class="row" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+            <div class="col-sm-12">
+                <div class="mobile_menu_logo text-center" style="display: flex; justify-content: center; align-items: center; width: 100%; text-align: center;">
+                    <a href="index.html" title="solutech">
+                        <img src="assets/image/header/logo_bleu.png" alt="solutech" style="max-width: 150px; height: auto;">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    </div>
+    
+      </div>
+    </div>
+    <!-- MOBILE MENU AREA -->
 <!-- breadcumb-area -->
-<div class="breadcumb-area" style="position: relative; padding: 150px 0px; background-image: url('assets/image/about/Reseau4.jpg'); background-position: center center; background-repeat: no-repeat; background-size: cover;">
+<div class="breadcumb-area" style="position: relative; padding: 20px 0px; background-image: url('assets/image/about/Reseau4.jpg'); background-position: center center; background-repeat: no-repeat; background-size: cover;">
     <!-- Calque semi-transparent -->
-    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5);"></div>
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(5, 28, 235, 0.5);"></div>
     
     <div class="container" style="position: relative; z-index: 1;">
         <div class="row">
@@ -377,6 +187,7 @@
         </div>
     </div>
 </div>
+
 <!-- Formations Section -->
 <div class="container py-5">
     <div class="row about_area">
@@ -489,120 +300,86 @@
     </div>
 </div>
 
-	
-<!-- witrfm_footer_area -->
-<div class="witrfm_area">
-	<div class="footer-middle">  
-		<div class="container">
-			<div class="row">
-				<div class=" col-lg-3 col-md-6 col-sm-12">
-					<div class="widget widget_solutech_description_widget">				
-						<div class="solutech-description-area">
-							<a href="index.html"><img src="assets/image/header/logo_blanc.png" alt="image"></a>
-							<p>Nous aidons les entreprises à élever la valeur avant de créer des logiciels personnalisés et de concevoir des produits parmi les plus simples. les techniciens vivent pour créer des gens.</p>
-							<div class="social-icons">
-								<a href="#"><i class="fa fa-facebook-f"></i></a>
-								<a href="#"><i class="fab fa-google-plus-g"></i></a>
-								<a href="#"><i class="fab fa-x-twitter"></i></a>
-								<a href="#"><i class="fas fa-rss"></i></a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class=" col-lg-3 col-md-6 col-sm-12">
-					<div class="widget widget_nav_menu">
-						<h2 class="widget-title">Soutien 24/7</h2>
-						<ul class="menu">
-							<li><a href="#">Politique de confidentialité</a></li>
-							<li><a href="#">FAQ</a></li>
-							<li><a href="#">Conditions générales & Conditions</a></li>
-							<li><a href="contact.html">Contact</a></li>
-							<li><a href="about.html">Histoire & expérience</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6 col-sm-12">
-					<div class="widget about_us">
-						<h2 class="widget-title">Adresse Locale</h2>
-						<div class="about-footer">
-							<div class="footer-widget address">
-							
-								<div class="footer-address">
-									<div class="footer_s_inner"> 
-										<div class="footer-sociala-icon">
-											<i class="fa fa-map-marker"></i>
-										</div>									
-										<div class="footer-sociala-info">				
-											<p>Address : Zogbohoue,COTONOU</p>
-										</div> 
-									</div> 
-									<div class="footer_s_inner"> 
-										<div class="footer-sociala-icon">
-											<i class="fa fa-phone"></i>
-										</div> 									
-										<div class="footer-sociala-info">   
-												<p>Phone : +229 0160988585</p>
-										</div>
-									</div>
-									<div class="footer_s_inner"> 
-										<div class="footer-sociala-icon"> 
-											<i class="fa fa-envelope"></i>
-										</div> 
-										<div class="footer-sociala-info">  
-											<p>Email : contact@soditec.com</p>									
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>	
-					</div>
-				</div>
-				<div class="col-sm-12 col-md-6  col-lg-3 last">
-					<div class="widget_text widget widget_custom_html">
-						<h2 class="widget-title">HORAIRES</h2>
-						<div class="textwidget custom-html-widget">
-							<div class="witr_table">
-								<div class="witr_sub_table">
-									<span>Lundi - Vendredi</span>
-									<span>08:00 - 18:00</span>
-								</div>
-								<div class="witr_sub_table">	
-									<span>Saturday</span>
-									<span>09:00 - 18:00</span>
-								</div>		
-															
-								<div class="witr_sub_table">		
-									<span>Urgence:</span>
-									<span> (+229) 0160988585</span>
-								</div>
-							</div>
-						</div>
-					</div>				
-				</div>
-			</div>	
-		</div>	
-	</div>	
-	<div class="footer-bottom">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6 col-md-6  col-sm-12">
-					<div class="copy-right-text">
-						<p>Copyright &copy; soditec all rights reserved.</p>
-					</div>
-				</div>
-				<div class="col-lg-6 col-md-6  col-sm-12">				
-					<div class="footer-menu">
-						<ul class="text-right">
-							<li><a href="#">Accueil</a></li>
-							<li><a href="#">A propos</a></li>
-							<li><a href="#">Equipe</a></li>
-						</ul> 				
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+<!-- Footer Section -->
+<footer class="relative bg-blue-900 text-white w-full">
+    <!-- Image de fond -->
+    <div class="absolute inset-0 bg-blue-900/90 z-10"></div> <!-- Overlay bleu -->
+    <div class="absolute inset-0 bg-cover bg-center z-0" style="background-image: url('assets/image/hero_section/Sécurity2.jpg');"></div> <!-- Image de fond -->
+  
+    <!-- Contenu du footer -->
+    <div class="relative z-20">
+        <!-- Footer Middle Section -->
+        <div class="container-fluid mx-auto px-8 py-8"> <!-- Réduit le padding -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"> <!-- Réduit l'espacement entre les colonnes -->
+                <!-- Logo and Description -->
+                <div class="space-y-4"> <!-- Réduit l'espacement -->
+                    <a href="#">
+                        <img src="assets/image/header/logo_blanc.png" alt="Logo" class="h-12"> <!-- Réduit la taille du logo -->
+                    </a>
+                    <p class="text-lg"> <!-- Réduit la taille de la police -->
+                        Nous aidons les entreprises à élever la valeur avant de créer des logiciels personnalisés et de concevoir des produits parmi les plus simples.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-white/20 hover:bg-[#FF914D] transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-white/20 hover:bg-[#FF914D] transition"><i class="fab fa-google-plus-g"></i></a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-white/20 hover:bg-[#FF914D] transition"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-white/20 hover:bg-[#FF914D] transition"><i class="fas fa-rss"></i></a>
+                    </div>
+                </div>
+  
+                <!-- Support Links -->
+                <div class="space-y-4"> <!-- Réduit l'espacement -->
+                    <h2 class="text-2xl font-semibold text-[#FF914D]">Soutien 24/7</h2>
+                    <ul class="space-y-2 text-lg"> <!-- Réduit l'espacement des liens -->
+                        <li><a href="#" class="hover:text-[#FF914D]">Politique de confidentialité</a></li>
+                        <li><a href="#" class="hover:text-[#FF914D]">FAQ</a></li>
+                        <li><a href="#" class="hover:text-[#FF914D]">Conditions générales</a></li>
+                        <li><a href="#" class="hover:text-[#FF914D]">Contact</a></li>
+                        <li><a href="#" class="hover:text-[#FF914D]">Histoire & expérience</a></li>
+                    </ul>
+                </div>
+  
+                <!-- Address Section -->
+                <div class="space-y-4"> <!-- Réduit l'espacement -->
+                    <h2 class="text-2xl font-semibold text-[#FF914D]">Adresse Locale</h2>
+                    <div class="space-y-2 text-lg"> <!-- Réduit l'espacement des informations -->
+                        <p><i class="fas fa-map-marker-alt"></i>   Address : Zogbohoue,COTONOU</p>
+                        <p><i class="fas fa-phone"></i> Phone : +229 0160988585</p>
+                        <p><i class="fas fa-envelope"></i> Email : contact@soditec.bj</p>
+                    </div>
+                </div>
+  
+                <!-- Opening Hours -->
+                <div class="space-y-4"> <!-- Réduit l'espacement -->
+                    <h2 class="text-2xl font-semibold text-[#FF914D]">HORAIRES</h2>
+                    <div class="space-y-2 text-lg"> <!-- Réduit l'espacement des horaires -->
+                        <p class="underline">Lundi - Vendredi: 08:00 - 18:00</p>
+                        <p class="underline">Samedi: 09:00 - 18:00</p>
+                        <p class="underline">Urgence: (+229) 0160988585</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+  
+        <!-- Séparation -->
+        <div class="w-3/4 border-t border-white mx-auto my-4"></div> <!-- Limite la largeur de la ligne de séparation -->
+  
+        <!-- Footer Bottom Section -->
+        <div class="py-3"> <!-- Réduit le padding -->
+            <div class="container mx-auto px-8"> <!-- Réduit le padding -->
+                <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                    <p class="text-lg">Copyright &copy; SODITEC - Tous droits réservés.</p>
+                    <ul class="flex space-x-4 text-lg"> <!-- Réduit l'espacement des liens -->
+                        <li><a href="#" class="hover:text-[#FF914D]">Accueil</a></li>
+                        <li><a href="#" class="hover:text-[#FF914D]">À Propos</a></li>
+                        <li><a href="#" class="hover:text-[#FF914D]">Équipe</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
 	
   	
         <!-- Include All JS -->
@@ -617,6 +394,7 @@
         <script src="assets/js/ajax-mail.js"></script>		
         <script src="assets/js/map.js"></script>		
         <script src="assets/js/theme.js"></script>
+		<script src="https://cdn.tailwindcss.com"></script>
 	
 	</body>
 </html>
