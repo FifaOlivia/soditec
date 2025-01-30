@@ -7113,12 +7113,13 @@ p.form-messege{
  .em40_header_area_main.hdisplay_none {
      display: none;
 }
- .solutech-header-top {
-     background: #0c5adb;
-     padding: 10px 0;
-     padding-right: 200px;
-     padding-left: 200px;
+.solutech-header-top {
+    background: linear-gradient(135deg, #FF914D, #FF5733); /* Dégradé du orange au rouge */
+    padding: 10px 0;
+    padding-right: 200px;
+    padding-left: 200px;
 }
+
  .top-address p {
      margin-bottom: 0;
 }
@@ -7162,7 +7163,7 @@ p.form-messege{
      color:#17161a;
 }
  .top-right-menu .social-icons li a:hover, .top-right-menu .social-icons li a i:hover {
-     color: #17161a;
+     color: #007BFF;
 }
  .top-both-p0 .top-address p a, .top-both-p0 .top-address p span {
      margin-right: 0px;
@@ -7250,7 +7251,11 @@ p.form-messege{
 }
 /* mobile logo */
  .mobile_menu_logo.text-center {
-     padding: 20px 0;
+     padding: 5px 0;
+}
+
+.mobile_menu_logo {
+    width: 200px;
 }
 /*===================== END solutech HEADING TOP AREA CSS =========================*/
 /*======================== EM CREATIVE HEADER =========================*/
@@ -7627,10 +7632,27 @@ p.form-messege{
 }
 /* LOGO LEFT RIGHT CSS */
  .logo-left {
+    margin-top: -10px;
 }
- .logo-left .logo {
-     text-align: left;
+.logo-left .logo {
+    position: absolute;
+    left: 3%;
+    top: 44%;
+    transform: translateY(-50%);
+    width: 200px;
+    max-width: 100%;
 }
+
+@media (max-width: 768px) {
+    .logo-left .logo {
+        position: relative;
+        top: 0;
+        transform: none;
+        text-align: left;
+        width: 150px; 
+    }
+}
+
  .logo-right .logo {
      text-align: right;
 }
@@ -11245,8 +11267,7 @@ p.form-messege{
  .text-left .witr_swiper_content p, .text-right .witr_swiper_content p {
      width: 51%;
 }
- .
-  .swiper-slide a {
+.swiper-slide a {
      display: inline-block;
 }
  .witr_swiper_area .text-left .witr_slider_thumb {
