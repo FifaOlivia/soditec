@@ -18,9 +18,47 @@
 ::-webkit-scrollbar-track { background: #e0e0e0; /* Couleur de fond de la piste */ border-radius: 10px; } 
 ::-webkit-scrollbar-thumb { background: #007bff; /* Couleur du "pouce" de la barre de défilement */ border-radius: 10px; border: 2px solid #fff; /* Bordure pour un effet de relief */ } 
 ::-webkit-scrollbar-thumb:hover { background: #0056b3; /* Couleur au survol */ } ::-webkit-scrollbar-corner { background: transparent; /* Coin de la barre de défilement */ } 
-h1 { font-weight: bold; font-size: 8rem; text-align: center; margin-bottom: 1rem; } .equipementiercontainer { display: flex; overflow: hidden; border-top: 2px solid #fdba74; /* Orange border */ border-bottom: 2px solid #fdba74; padding: 1rem; background-color: #ffffff; } 
-.images { display: flex; gap: 4rem; animation: loop-scroll 10s linear infinite; } .images:hover { animation-play-state: paused; }
-.images img { max-width: none; } @keyframes loop-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+h1 { font-weight: bold; font-size: 8rem; text-align: center; margin-bottom: 1rem; } 
+
+.mycontainer {
+    width: 100%;
+    overflow: hidden; /* Masque les parties d'images qui sortent de la vue */
+    position: relative;
+    background-color: #f8f8f8; /* Légère couleur de fond */
+    padding: 20px 0; /* Espacement vertical autour des images */
+    box-sizing: border-box; /* Inclus padding dans le calcul de la largeur */
+    border: 2px solid #FF914D; /* Bordure avec la couleur demandée */
+    border-radius: 10px; /* Bords arrondis du container */
+  }
+
+  .images {
+    display: flex;
+    animation: scroll-left 30s linear infinite; /* Animation de défilement */
+  }
+
+  .images img {
+    margin-right: 30px; /* Espacement plus large entre les images */
+    height: 100px; /* Taille réduite des images */
+    width: auto;
+    border-radius: 8px; /* Bordures arrondies des images */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre subtile autour des images */
+    transition: transform 0.3s ease; /* Légère animation sur le survol */
+  }
+
+  .images img:hover {
+    transform: scale(1.05); /* Agrandissement au survol */
+  }
+
+  /* Animation qui fait défiler les images vers la gauche */
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
     </style>
   </head>
   <body>
@@ -180,304 +218,225 @@ h1 { font-weight: bold; font-size: 8rem; text-align: center; margin-bottom: 1rem
             </div>
         </div>
     </div>
-</div>
+</div><!-- Section de bienvenue -->
+<section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4 flex flex-wrap items-center">
+        <div class="w-full lg:w-1/2 mb-8 lg:mb-0">
+            <h2 class="text-5xl font-bold text-[#007BFF] mb-6">Bienvenue chez SODITEC</h2>
+            <p class="text-lg text-gray-700 mb-6">
+                Chez <strong class="text-[#FF914D]">SODITEC</strong>, nous mettons notre expertise au service de vos besoins technologiques.
+                Basés à Cotonou, nous offrons des solutions adaptées pour garantir performance et sécurité.
+            </p>
+            <p class="text-lg text-gray-700 mb-6">
+                Notre mission est de vous accompagner dans la transformation digitale en déployant des infrastructures 
+                technologiques de pointe et en proposant des formations pour préparer aux métiers de demain.
+            </p>
+            <a href="contact.html" class="py-3 px-6 bg-[#007BFF] text-white text-xl rounded-lg hover:bg-[#FF914D] transition-all shadow-lg">Contactez-nous</a>
+        </div>
+        <div class="w-full lg:w-1/2">
+          <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+          <dotlottie-player src="https://lottie.host/9cbe37f9-5a15-4760-98d8-c6740c24b38a/7IVDClpK1i.lottie" background="transparent" speed="1" style="width: 800px; height: 500px" loop autoplay></dotlottie-player>
+        </div>
+    </div>
+</section>
 
-<!-- Section de bienvenue -->
-<section class="about-welcome-section py-20 bg-gray-50">
-    <div class="container mx-auto px-4">
-        <div class="row align-items-center">
-            <!-- Colonne du texte -->
-            <div class="col-lg-6 col-md-12 mb-8 lg:mb-0">
-                <div class="about-welcome-content">
-                    <h2 class="text-5xl font-bold text-gray-800 mb-6 transition duration-500 ease-in-out transform hover:scale-105">
-                        Bienvenue chez SODITEC
-                    </h2>
-                    <p class="text-xl text-gray-700 mb-6">
-                        Chez <strong>SODITEC</strong> (Société de Déploiement d'Infrastructures Technologiques), 
-                        nous mettons notre expertise au service de vos besoins technologiques. Basés à 
-                        Cotonou, Zogbohoué, nous offrons des solutions complètes et adaptées pour garantir 
-                        la performance, la sécurité et l’efficacité de vos systèmes informatiques et réseaux.
-                    </p>
-                    <p class="text-xl text-gray-700 mb-6">
-                        Notre mission est de vous accompagner dans la transformation digitale en déployant 
-                        des infrastructures technologiques de pointe et en proposant des formations 
-                        pour vous préparer aux métiers de demain.
-                    </p>
-                    <a href="contact.html" class="btn btn-primary py-3 px-8 bg-blue-600 text-white font-semibold text-xl rounded-lg hover:bg-blue-700 transition duration-500 transform hover:scale-110 shadow-lg">
-                        Contactez-nous
-                    </a>
-                </div>
-            </div>
-            <!-- Colonne de l'image -->
-            <div class="col-lg-6 col-md-12">
-                <div class="about-welcome-image opacity-90 transition duration-500 ease-in-out hover:opacity-100">
-                    <img src="assets/image/about/undraw_typewriter_d4km.png" alt="Équipe SODITEC" class="w-full h-auto rounded-lg shadow-lg object-cover opacity-90 transition duration-500 ease-in-out hover:opacity-100">
-                </div>
-            </div>
+<!-- Section Mission -->
+<section class="py-20 bg-white">
+    <div class="container mx-auto px-4 flex flex-wrap items-center">
+        <div class="w-full lg:w-1/2 mb-8 lg:mb-0">
+            <h2 class="text-5xl font-bold text-[#007BFF] mb-6">Notre Mission</h2>
+            <p class="text-lg text-gray-700 leading-relaxed">
+                Chez SODITEC, notre mission est de concevoir et déployer des infrastructures IT sécurisées, scalables et éco-responsables,
+                permettant aux entreprises et institutions publiques de transformer numériquement leurs opérations avec agilité.
+            </p>
+            <ul class="mt-4 space-y-2 text-lg text-gray-700">
+                <li><strong class="text-[#FF914D]">🔹 Réduction de 30 %</strong> des temps d’interruption des systèmes critiques d’ici 2027.</li>
+                <li><strong class="text-[#FF914D]">🔹 Sécurité cybernétique</strong> de niveau militaire pour 100 % de nos solutions.</li>
+                <li><strong class="text-[#FF914D]">🔹 Diviser par deux</strong> l’empreinte carbone de nos data centers d’ici 2030.</li>
+            </ul>
+        </div>
+        <div class="w-full lg:w-1/2">
+          <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+          <dotlottie-player src="https://lottie.host/95b12406-88df-45db-b0cc-6406c436e282/xGYepP0sih.lottie" background="transparent" speed="1" style="width: 800px; height: 500px" loop autoplay></dotlottie-player>
+        </div>
+    </div>
+</section>
+
+<!-- Section Vision -->
+<section class="py-20 bg-gray-100">
+    <div class="container mx-auto px-4 flex flex-wrap items-center">
+        <div class="w-full lg:w-1/2">
+          <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+<dotlottie-player src="https://lottie.host/2607f4d2-236b-4bd8-837d-8acaa37238a8/MN1aUEPWdT.lottie" background="transparent" speed="1" style="width: 800px; height: 500px" loop autoplay></dotlottie-player>
+        </div>
+        <div class="w-full lg:w-1/2 mt-8 lg:mt-0">
+            <h2 class="text-5xl font-bold text-[#007BFF] mb-6">Notre Vision</h2>
+            <p class="text-lg text-gray-700 leading-relaxed">
+                Chez <strong class="text-[#FF914D]">SODITEC</strong>, nous imaginons un futur où la technologie éthique et l’innovation disruptive redéfinissent le progrès humain.
+            </p>
+            <p class="text-lg text-gray-700 leading-relaxed">
+                En combinant excellence technique, IA responsable et partenariats globaux, nous construisons des solutions durables
+                qui transforment l’éducation, la santé et les infrastructures urbaines pour 10 millions de personnes d’ici 2030.
+            </p>
         </div>
     </div>
 </section>
 
 
+<section style="padding: 56px 0; background-color: #f8f9fa;">
+  <div class="container text-center">
+      <div style="max-width: 600px; margin: 0 auto;">
+          <h3 style="color: #007BFF; font-size: 2rem; font-weight: 600;">NOTRE ÉQUIPE</h3>
+          <p style="color: #2d3748; margin-top: 12px;">
+              Découvrez les professionnels qui assurent la réussite de vos projets numériques.
+          </p>
+      </div>
+      <div class="row mt-5">
+        <div class="col-md-4 col-sm-6 mb-4">
+          <div style="width: 96px; height: 96px; margin: 0 auto;">
+              <img src="https://randomuser.me/api/portraits/men/46.jpg" 
+                   style="width: 100%; height: 100%; border-radius: 50%;" alt="">
+          </div>
+          <div style="margin-top: 12px;">
+              <h4 style="color: #2d3748; font-weight: 600; font-size: 1.25rem;">James DOSSOUVI</h4>
+              <p style="color: #FF914D;">Directeur Géneral</p>
+              <p style="color: #718096; margin-top: 8px;">
+                  Expert en infrastructures technologiques, il pilote les solutions innovantes de SODITEC.
+              </p>
+              <div class="mt-3 d-flex justify-content-center gap-3">
+                  <a href="#" style="color: #007BFF; transition: color 0.3s;" onmouseover="this.style.color='#FF914D'" onmouseout="this.style.color='#007BFF'">
+                      <i class="fab fa-twitter" style="font-size: 1.25rem;"></i>
+                  </a>
+                  <a href="#" style="color: #007BFF; transition: color 0.3s;" onmouseover="this.style.color='#FF914D'" onmouseout="this.style.color='#007BFF'">
+                      <i class="fab fa-linkedin" style="font-size: 1.25rem;"></i>
+                  </a>
+              </div>
+          </div>
+      </div>
 
-<div class="single_faq_bg_area faq_area">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-6 col-md-10 col-sm-12">
-				<div class="witr_section_title">
-					<div class="witr_section_title_inner text-center">
-						<h2>NOTRE EQUIPE</h2>		
-						<p class="text-lg leading-relaxed text-gray-700">
-							Créer un futur où la technologie et l'innovation transforment positivement la vie des individus et des communautés à travers le monde. 
-							En repoussant les frontières de l'ingéniosité humaine, nous nous engageons à construire des solutions durables, accessibles et éthiques 
-							qui favorisent la croissance, l'éducation et le bien-être. Nous croyons en l'impact de la technologie comme un vecteur de progrès, 
-							en récoltant la force de notre diversité et de notre collaboration pour façonner un avenir meilleur pour tous.
-						</p>
-					</div>
-				</div>
-				
-				<div class="witr_single_progress">
-					<div class="witr_title2">
-						<span class="witr_label"> Innovation</span>	
-					</div>		
-					<div class="progress witr_progress-style2">
-						<div class="progress-bar wow fadeInLeft " data-wow-duration="1.5s" data-wow-delay="0.2s" style="width: 90%;">
-							<span class="witr_percent">90%</span>					
-						</div>
-					</div>				
-				</div>
-				<div class="witr_single_progress">
-					<div class="witr_title2">
-						<span class="witr_label">Écoute Client </span>	
-					</div>		
-					<div class="progress witr_progress-style2">
-						<div class="progress-bar wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay="0.2s" style="width: 100%;">
-							<span class="witr_percent">100%</span>					
-						</div>
-					</div>				
-				</div>
-				<div class="witr_single_progress">
-					<div class="witr_title2">
-						<span class="witr_label">Efficacité </span>	
-					</div>		
-					<div class="progress witr_progress-style2">
-						<div class="progress-bar wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay="0.2s" style="width: 85%;">
-							<span class="witr_percent">95%</span>					
-						</div>
-					</div>				
-				</div>
-				<div class="witr_single_progress">
-					<div class="witr_title2">
-						<span class="witr_label">Valorisation des ressources </span>	
-					</div>		
-					<div class="progress witr_progress-style2">
-						<div class="progress-bar wow fadeInLeft " data-wow-duration="1.5s" data-wow-delay="0.2s" style="width: 90%;">
-							<span class="witr_percent">90%</span>					
-						</div>
-					</div>				
-				
-				</div>
-		
-
-
-
-			</div>
-			<div class="col-lg-6 col-md-12 col-sm-12">
-				<div class="accordion_area">
-                    <div class="faq-part">
-                        <div id="accordion">
-							<div class="card card-2">
-								<div class="card-header witr_ac_card">
-									<a href="#" class="card-link witr_ac_style" data-bs-toggle="collapse" data-bs-target="#collapse_242536c" aria-expanded="true">
-									 01. Innovation</a>
-								</div>
-								<div id="collapse_242536c" class="collapse" data-parent="#accordion">
-									<p>Nous restons à la pointe de la technologie pour offrir les meilleures solutions.</p>
-								</div>
-							</div>
-							<div class="card card-2">
-								<div class="card-header witr_ac_card">
-									<a href="#" class="card-link witr_ac_style" data-bs-toggle="collapse" data-bs-target="#collapse_9315e3d1" aria-expanded="true">
-									02. Écoute Client</a>
-								</div>
-								<div id="collapse_9315e3d1" class="collapse   " data-parent="#accordion">
-                                    <p>Nous accordons une attention particulière aux besoins spécifiques de chaque client.</p>
-								</div>
-							</div> 
-							<!-- card -->	
-							<div class="card card-2  ">
-								<div class="card-header witr_ac_card">
-									<a href="#" class="card-link witr_ac_style" data-bs-toggle="collapse" data-bs-target="#collapse_9965145" aria-expanded="true">
-									03. Efficacité</a>
-								</div>
-								<div id="collapse_9965145" class="collapse   " data-parent="#accordion">
-                                     <p>Nous optimisons nos processus pour garantir des résultats rapides et fiables.</p>
-								</div>
-							</div>
-							<!-- card -->	
-							<div class="card card-2  ">
-								<div class="card-header witr_ac_card">
-									<a href="#" class="card-link witr_ac_style" data-bs-toggle="collapse" data-bs-target="#collapse_4b685b3" aria-expanded="true">
-									 04. Valorisation des ressources</a>
-								</div>
-								<div id="collapse_4b685b3" class="collapse   " data-parent="#accordion">
-									<p>Nous investissons dans nos talents et nos outils pour maximiser la valeur ajoutée.</p>
-								</div>
-							</div>
-					
-						</div>
-                    </div> 	
-                </div>
-			</div>
-		</div>
-	</div>
-</div>
-
-<!-- Missions soditec -->
-<section class="about-welcome-section py-20 bg-gray-50">
-    <div class="container mx-auto px-4">
-        <div class="row align-items-center">
-            <!-- Colonne du texte -->
-            <div class="col-lg-6 col-md-12 mb-8 lg:mb-0">
-                <div class="about-welcome-content">
-                    <h2 class="text-5xl font-bold text-gray-800 mb-6 transition duration-500 ease-in-out transform hover:scale-105">
-                        Notre Mission
-                    </h2>
-                    <!-- <p class="text-xl text-gray-700 mb-6"> -->
-                        <p class="text-lg leading-relaxed text-gray-700">
-							Notre mission est de révolutionner le paysage technologique en créant des solutions innovantes qui simplifient la vie quotidienne et 
-							stimulent la croissance économique. En mettant l'accent sur la qualité, l'intégrité et l'innovation, nous nous engageons à fournir des 
-							produits et services de haute technologie qui répondent aux besoins de nos clients tout en respectant les normes éthiques et environnementales. 
-							Nous croyons en l'importance de la collaboration et de la diversité pour inspirer des idées nouvelles et renforcer notre capacité à surpasser les attentes.
-						  </p>
-                              
-                </div>
-            </div>
-            <!-- Colonne de l'image -->
-            <div class="col-lg-6 col-md-12">
-                <div class="about-welcome-image opacity-90 transition duration-500 ease-in-out hover:opacity-100">
-                    <img src="assets/image/about/undraw_typewriter_d4km.png" alt="Équipe SODITEC" class="w-full h-auto rounded-lg shadow-lg object-cover opacity-90 transition duration-500 ease-in-out hover:opacity-100">
-                </div>
+      <div class="col-md-4 col-sm-6 mb-4">
+        <div style="width: 96px; height: 96px; margin: 0 auto;">
+            <img src="https://images.unsplash.com/photo-1511485977113-f34c92461ad9?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ" 
+                 style="width: 100%; height: 100%; border-radius: 50%;" alt="">
+        </div>
+        <div style="margin-top: 12px;">
+            <h4 style="color: #2d3748; font-weight: 600; font-size: 1.25rem;">Cynthia FELIHO</h4>
+            <p style="color: #FF914D;">Experte Comptable</p>
+            <p style="color: #718096; margin-top: 8px;">
+              Spécialiste en finance et audit, garantissant la stabilité financière et la conformité des opérations.
+            </p>
+            <div class="mt-3 d-flex justify-content-center gap-3">
+                <a href="#" style="color: #007BFF; transition: color 0.3s;" onmouseover="this.style.color='#FF914D'" onmouseout="this.style.color='#007BFF'">
+                    <i class="fab fa-twitter" style="font-size: 1.25rem;"></i>
+                </a>
+                <a href="#" style="color: #007BFF; transition: color 0.3s;" onmouseover="this.style.color='#FF914D'" onmouseout="this.style.color='#007BFF'">
+                    <i class="fab fa-linkedin" style="font-size: 1.25rem;"></i>
+                </a>
             </div>
         </div>
     </div>
+
+    <div class="col-md-4 col-sm-6 mb-4">
+      <div style="width: 96px; height: 96px; margin: 0 auto;">
+          <img src="https://randomuser.me/api/portraits/men/46.jpg" 
+               style="width: 100%; height: 100%; border-radius: 50%;" alt="">
+      </div>
+      <div style="margin-top: 12px;">
+          <h4 style="color: #2d3748; font-weight: 600; font-size: 1.25rem;">Enock TOGLOZIN</h4>
+          <p style="color: #FF914D;">Technicien Informatique</p>
+          <p style="color: #718096; margin-top: 8px;">
+            Expert en réseaux et support informatique, garant de la performance et de la sécurité des systèmes.
+          </p>
+          <div class="mt-3 d-flex justify-content-center gap-3">
+              <a href="#" style="color: #007BFF; transition: color 0.3s;" onmouseover="this.style.color='#FF914D'" onmouseout="this.style.color='#007BFF'">
+                  <i class="fab fa-twitter" style="font-size: 1.25rem;"></i>
+              </a>
+              <a href="#" style="color: #007BFF; transition: color 0.3s;" onmouseover="this.style.color='#FF914D'" onmouseout="this.style.color='#007BFF'">
+                  <i class="fab fa-linkedin" style="font-size: 1.25rem;"></i>
+              </a>
+          </div>
+      </div>
+  </div>
+          
+          <!-- Ajouter d'autres membres en copiant le bloc ci-dessus et en changeant les informations -->
+          
+      </div>
+
+      <div class="row mt-5">
+        <div class="col-md-4 col-sm-6 mb-4">
+          <div style="width: 96px; height: 96px; margin: 0 auto;">
+              <img src="https://randomuser.me/api/portraits/men/46.jpg" 
+                   style="width: 100%; height: 100%; border-radius: 50%;" alt="">
+          </div>
+          <div style="margin-top: 12px;">
+              <h4 style="color: #2d3748; font-weight: 600; font-size: 1.25rem;">James DOSSOUVI</h4>
+              <p style="color: #FF914D;">Directeur Géneral</p>
+              <p style="color: #718096; margin-top: 8px;">
+                  Expert en infrastructures technologiques, il pilote les solutions innovantes de SODITEC.
+              </p>
+              <div class="mt-3 d-flex justify-content-center gap-3">
+                  <a href="#" style="color: #007BFF; transition: color 0.3s;" onmouseover="this.style.color='#FF914D'" onmouseout="this.style.color='#007BFF'">
+                      <i class="fab fa-twitter" style="font-size: 1.25rem;"></i>
+                  </a>
+                  <a href="#" style="color: #007BFF; transition: color 0.3s;" onmouseover="this.style.color='#FF914D'" onmouseout="this.style.color='#007BFF'">
+                      <i class="fab fa-linkedin" style="font-size: 1.25rem;"></i>
+                  </a>
+              </div>
+          </div>
+      </div>
+
+      <div class="col-md-4 col-sm-6 mb-4">
+        <div style="width: 96px; height: 96px; margin: 0 auto;">
+            <img src="https://images.unsplash.com/photo-1511485977113-f34c92461ad9?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ" 
+                 style="width: 100%; height: 100%; border-radius: 50%;" alt="">
+        </div>
+        <div style="margin-top: 12px;">
+            <h4 style="color: #2d3748; font-weight: 600; font-size: 1.25rem;">Cynthia FELIHO</h4>
+            <p style="color: #FF914D;">Experte Comptable</p>
+            <p style="color: #718096; margin-top: 8px;">
+              Spécialiste en finance et audit, garantissant la stabilité financière et la conformité des opérations.
+            </p>
+            <div class="mt-3 d-flex justify-content-center gap-3">
+                <a href="#" style="color: #007BFF; transition: color 0.3s;" onmouseover="this.style.color='#FF914D'" onmouseout="this.style.color='#007BFF'">
+                    <i class="fab fa-twitter" style="font-size: 1.25rem;"></i>
+                </a>
+                <a href="#" style="color: #007BFF; transition: color 0.3s;" onmouseover="this.style.color='#FF914D'" onmouseout="this.style.color='#007BFF'">
+                    <i class="fab fa-linkedin" style="font-size: 1.25rem;"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 col-sm-6 mb-4">
+      <div style="width: 96px; height: 96px; margin: 0 auto;">
+          <img src="https://randomuser.me/api/portraits/men/46.jpg" 
+               style="width: 100%; height: 100%; border-radius: 50%;" alt="">
+      </div>
+      <div style="margin-top: 12px;">
+          <h4 style="color: #2d3748; font-weight: 600; font-size: 1.25rem;">Enock TOGLOZIN</h4>
+          <p style="color: #FF914D;">Technicien Informatique</p>
+          <p style="color: #718096; margin-top: 8px;">
+            Expert en réseaux et support informatique, garant de la performance et de la sécurité des systèmes.
+          </p>
+          <div class="mt-3 d-flex justify-content-center gap-3">
+              <a href="#" style="color: #007BFF; transition: color 0.3s;" onmouseover="this.style.color='#FF914D'" onmouseout="this.style.color='#007BFF'">
+                  <i class="fab fa-twitter" style="font-size: 1.25rem;"></i>
+              </a>
+              <a href="#" style="color: #007BFF; transition: color 0.3s;" onmouseover="this.style.color='#FF914D'" onmouseout="this.style.color='#007BFF'">
+                  <i class="fab fa-linkedin" style="font-size: 1.25rem;"></i>
+              </a>
+          </div>
+      </div>
+  </div>
+          
+          <!-- Ajouter d'autres membres en copiant le bloc ci-dessus et en changeant les informations -->
+          
+      </div>
+      
+  </div>
 </section>
-  
 
 
-<!-- solutech_team_area -->
-<div class="solutech_team2_area">
-	<div class="container">	
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="witr_section_title">
-					<div class="witr_section_title_inner text-center">
-						<h2>NOTRE EQUIPE</h2>		
-						<h3>Voici notre équipe d'experts qualifiés</h3>	
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row team_top">
-			<!-- solutech_team_01 -->
-			<div class="col-lg-4 col-md-6 col-sm-12">
-				<div class="em-team all_color_team ">
-					<div class="em-team-one">	
-						<div class="em-team-content-image-inner">	
-							<div class="em-team-content-image">
-								<img src="assets/image/team/Enock2.jpeg" alt="image">
-							</div>	
-						</div>
-						<div class="em-team-content-waraper all_content_bg_color">
-							<div class="em-team-content-title-inner">
-								<div class="em-content-title">
-									<h5><a href="#">James DOSSOUVI</a></h5>
-								</div>
-							</div>
-							<div class="em-team-content-subtitle-inner">
-								<div class="em-content-subtitle">
-									<span>DIRECTEUR GENERAL</span>
-								</div>
-							</div>
-							<div class="em-team-content-socials-inner">
-								<div class="em-team-content-socials all_team_s_color">			
-									<a href="#"><i class="fa fa-facebook-f"></i></a>		
-									<a href="#"><i class="fab fa-x-twitter"></i></a>		
-									<a href="#"><i class="fab fa-tumblr"></i></a>		
-									<a href="#"><i class="fab fa-vimeo-v"></i></a>		
-								</div>
-							</div>							
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- solutech_team_02 -->
-			<div class="col-lg-4 col-md-6 col-sm-12">
-				<div class="em-team all_color_team ">
-					<div class="em-team-one">	
-						<div class="em-team-content-image-inner">	
-							<div class="em-team-content-image">
-								<img src="assets/image/team/Enock2.jpeg" alt="image">
-							</div>
-						</div>
-						<div class="em-team-content-waraper all_content_bg_color">
-							<div class="em-team-content-title-inner">
-								<div class="em-content-title">
-									<h5><a href="#">Cynthia FELIHO</a></h5>
-								</div>
-							</div>
-							<div class="em-team-content-subtitle-inner">
-								<div class="em-content-subtitle">
-									<span>COMPTABILITE & COMMERCIAL</span>
-								</div>
-							</div>
-							<div class="em-team-content-socials-inner">
-								<div class="em-team-content-socials all_team_s_color">			
-									<a href="#"><i class="fa fa-facebook-f"></i></a>		
-									<a href="#"><i class="fab fa-x-twitter"></i></a>		
-									<a href="#"><i class="fab fa-tumblr"></i></a>		
-									<a href="#"><i class="fab fa-vimeo-v"></i></a>		
-								</div>
-							</div>							
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- solutech_team_03 -->
-			<div class="col-lg-4 col-md-6 col-sm-12">
-				<div class="em-team all_color_team ">
-					<div class="em-team-one">	
-						<div class="em-team-content-image-inner">	
-							<div class="em-team-content-image">
-								<img src="assets/image/team/Enock2.jpeg" alt="image">
-							</div>	
-						</div>
-						<div class="em-team-content-waraper all_content_bg_color">
-							<div class="em-team-content-title-inner">
-								<div class="em-content-title">
-									<h5><a href="#">Enock TOGLOZIN</a></h5>
-								</div>
-							</div>
-							<div class="em-team-content-subtitle-inner">
-								<div class="em-content-subtitle">
-									<span>Technicien</span>
-								</div>
-							</div>
-							<div class="em-team-content-socials-inner">
-								<div class="em-team-content-socials all_team_s_color">			
-									<a href="#"><i class="fa fa-facebook-f"></i></a>		
-									<a href="#"><i class="fab fa-x-twitter"></i></a>		
-									<a href="#"><i class="fab fa-tumblr"></i></a>		
-									<a href="#"><i class="fab fa-vimeo-v"></i></a>		
-								</div>
-							</div>							
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
 <!-- solutech_counter_area -->
 <div class="solutech_counter_area">
     <div class="container counter_bg">    
@@ -584,60 +543,157 @@ h1 { font-weight: bold; font-size: 8rem; text-align: center; margin-bottom: 1rem
 		</div>
 	</div>
 </div> -->
-<div class="witr_section_title">
-	<div class="witr_section_title_inner  text-center"> <br><br>
-		<h2>Nos Equipementiers</h2>		
-		<h3>Voici Nos  équipementiers</h3><br><br>
-	</div><div class="equipementiercontainer">
-	<div class="images">
-	  <img
-		src="assets/image/equipmentier/cisco (1).png"
-		alt="Anat"
-		loading="lazy"
-	  />
-	  <img src="assets/image/equipmentier/Fortinet (1).png" alt="Diz" loading="lazy" />
-	  <img
-		src="assets/image/equipmentier/Huawei (1).jpg"
-		alt="Obaps"
-		loading="lazy"
-	  />
-	  <img
-		src="assets/image/equipmentier/microsoft (1).jpg"
-		alt="Sbin"
-		loading="lazy"
-	  />
-	  <img
-		src="assets/image/equipmentier/mikrotik (1).jpg"
-		alt="Swedo"
-		loading="lazy"
-	  />
-	  <img src="assets/image/equipmentier/tplink (1).png" alt="Up" loading="lazy" />
-	  <img src="assets/image/equipmentier/Ubiquity (1).png" alt="Via" loading="lazy" />
-	  <img
-		src="assets/image/equipmentier/cisco (1).png"
-		alt="Anat"
-		loading="lazy"
-	  />
-	  <img src="assets/image/equipmentier/Fortinet (1).png" alt="Diz" loading="lazy" />
-	  <img
-		src="assets/image/equipmentier/Huawei (1).jpg"
-		alt="Obaps"
-		loading="lazy"
-	  />
-	  <img
-		src="assets/image/equipmentier/microsoft (1).jpg"
-		alt="Sbin"
-		loading="lazy"
-	  />
-	  <img
-		src="assets/image/equipmentier/mikrotik (1).jpg"
-		alt="Swedo"
-		loading="lazy"
-	  />
-	  <img src="assets/image/equipmentier/tplink (1).png" alt="Up" loading="lazy" />
-	  <img src="assets/image/equipmentier/Ubiquity (1).png" alt="Via" loading="lazy" />
-	</div>
+ <!-- witr_brand_area -->
+ <div class="col-lg-12">
+  <div class="witr_section_title">
+    <div class="witr_section_title_inner text-center">
+      <h2>Nos equipmentier</h2>
+    </div>
   </div>
+</div>
+<br>
+<div class="mycontainer">
+  <div class="images">
+    <img
+      src="assets/image/partenaires/anat.png"
+      alt="Anat"
+      loading="lazy"
+    />
+    <img src="assets/image/partenaires/diz.png" alt="Diz" loading="lazy" />
+    <img
+      src="assets/image/partenaires/obaps.jpeg"
+      alt="Obaps"
+      loading="lazy"
+    />
+    <img
+      src="assets/image/partenaires/sbin.png"
+      alt="Sbin"
+      loading="lazy"
+    />
+    <img
+      src="assets/image/partenaires/swedo.png"
+      alt="Swedo"
+      loading="lazy"
+    />
+    <img src="assets/image/partenaires/up.jpeg" alt="Up" loading="lazy" />
+    <img src="assets/image/partenaires/via.png" alt="Via" loading="lazy" />
+    <img
+      src="assets/image/partenaires/anat.png"
+      alt="Anat"
+      loading="lazy"
+    />
+    <img src="assets/image/partenaires/diz.png" alt="Diz" loading="lazy" />
+    <img
+      src="assets/image/partenaires/obaps.jpeg"
+      alt="Obaps"
+      loading="lazy"
+    />
+    <img
+      src="assets/image/partenaires/sbin.png"
+      alt="Sbin"
+      loading="lazy"
+    />
+    <img
+      src="assets/image/partenaires/swedo.png"
+      alt="Swedo"
+      loading="lazy"
+    />
+    <img src="assets/image/partenaires/up.jpeg" alt="Up" loading="lazy" />
+    <img src="assets/image/partenaires/via.png" alt="Via" loading="lazy" />
+    <img
+      src="assets/image/partenaires/anat.png"
+      alt="Anat"
+      loading="lazy"
+    />
+    <img src="assets/image/partenaires/diz.png" alt="Diz" loading="lazy" />
+    <img
+      src="assets/image/partenaires/obaps.jpeg"
+      alt="Obaps"
+      loading="lazy"
+    />
+    <img
+      src="assets/image/partenaires/sbin.png"
+      alt="Sbin"
+      loading="lazy"
+    />
+    <img
+      src="assets/image/partenaires/swedo.png"
+      alt="Swedo"
+      loading="lazy"
+    />
+    <img src="assets/image/partenaires/up.jpeg" alt="Up" loading="lazy" />
+    <img src="assets/image/partenaires/via.png" alt="Via" loading="lazy" />
+    <img
+      src="assets/image/partenaires/anat.png"
+      alt="Anat"
+      loading="lazy"
+    />
+    <img src="assets/image/partenaires/diz.png" alt="Diz" loading="lazy" />
+    <img
+      src="assets/image/partenaires/obaps.jpeg"
+      alt="Obaps"
+      loading="lazy"
+    />
+    <img
+      src="assets/image/partenaires/sbin.png"
+      alt="Sbin"
+      loading="lazy"
+    />
+    <img
+      src="assets/image/partenaires/swedo.png"
+      alt="Swedo"
+      loading="lazy"
+    />
+    <img src="assets/image/partenaires/up.jpeg" alt="Up" loading="lazy" />
+    <img src="assets/image/partenaires/via.png" alt="Via" loading="lazy" />
+    <img
+      src="assets/image/partenaires/anat.png"
+      alt="Anat"
+      loading="lazy"
+    />
+    <img src="assets/image/partenaires/diz.png" alt="Diz" loading="lazy" />
+    <img
+      src="assets/image/partenaires/obaps.jpeg"
+      alt="Obaps"
+      loading="lazy"
+    />
+    <img
+      src="assets/image/partenaires/sbin.png"
+      alt="Sbin"
+      loading="lazy"
+    />
+    <img
+      src="assets/image/partenaires/swedo.png"
+      alt="Swedo"
+      loading="lazy"
+    />
+    <img src="assets/image/partenaires/up.jpeg" alt="Up" loading="lazy" />
+    <img src="assets/image/partenaires/via.png" alt="Via" loading="lazy" />
+    <img
+      src="assets/image/partenaires/anat.png"
+      alt="Anat"
+      loading="lazy"
+    />
+    <img src="assets/image/partenaires/diz.png" alt="Diz" loading="lazy" />
+    <img
+      src="assets/image/partenaires/obaps.jpeg"
+      alt="Obaps"
+      loading="lazy"
+    />
+    <img
+      src="assets/image/partenaires/sbin.png"
+      alt="Sbin"
+      loading="lazy"
+    />
+    <img
+      src="assets/image/partenaires/swedo.png"
+      alt="Swedo"
+      loading="lazy"
+    />
+    <img src="assets/image/partenaires/up.jpeg" alt="Up" loading="lazy" />
+    <img src="assets/image/partenaires/via.png" alt="Via" loading="lazy" />
+  </div>
+</div>
 <!-- Footer Section -->
 <footer class="relative bg-blue-900 text-white w-full">
     <!-- Image de fond -->
