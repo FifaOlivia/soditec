@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire d'Inscription</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .shadow-custom {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .shadow-custom-hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Header -->
+    <header class="bg-blue-600 text-white py-12">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl font-bold mb-2">Formulaire d'Inscription</h1>
+            <p class="text-lg">Inscrivez-vous à nos formations en remplissant ce formulaire.</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12">
+        <section class="bg-white rounded-lg shadow-custom hover:shadow-custom-hover transition-shadow duration-300 animate-fade-in p-8 max-w-2xl mx-auto">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Informations Personnelles</h2>
+
+            <!-- Formulaire -->
+            <form action="#" method="POST" class="space-y-6">
+                <!-- Nom -->
+                <div>
+                    <label for="nom" class="block text-sm font-medium text-gray-700">Nom complet</label>
+                    <input type="text" id="nom" name="nom" required
+                           class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                </div>
+
+                <!-- Email -->
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700">Adresse email</label>
+                    <input type="email" id="email" name="email" required
+                           class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                </div>
+
+                <!-- Téléphone -->
+                <div>
+                    <label for="telephone" class="block text-sm font-medium text-gray-700">Numéro de téléphone</label>
+                    <input type="tel" id="telephone" name="telephone" required
+                           class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                </div>
+
+                <!-- Service choisi -->
+                <div>
+                    <label for="service" class="block text-sm font-medium text-gray-700">Formation choisie</label>
+                    <select id="service" name="service" required
+                            class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                        <option value="" disabled selected>Sélectionnez une formation</option>
+                        <option value="reseau">Réseau</option>
+                        <option value="systeme-informatique">Système Informatique</option>
+                        <option value="cybersecurite">Cybersécurité</option>
+                    </select>
+                </div>
+
+                <!-- Message -->
+                <div>
+                    <label for="message" class="block text-sm font-medium text-gray-700">Message (optionnel)</label>
+                    <textarea id="message" name="message" rows="4"
+                              class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"></textarea>
+                </div>
+
+                <!-- Bouton de soumission -->
+                <div>
+                    <button type="submit"
+                            class="w-full bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition-colors duration-300">
+                        S'inscrire
+                    </button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2025 SODITECT. Tous droits réservés.</p>
+        </div>
+    </footer>
+</body>
+</html>
