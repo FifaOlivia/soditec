@@ -189,10 +189,10 @@ h1 { font-weight: bold; font-size: 8rem; text-align: center; margin-bottom: 1rem
 </div>
 
 <!-- Formations Section -->
-<div class="container py-5">
+<!-- <div class="container py-5">
     <div class="row about_area">
-        <!-- Formation 1 - Développement Web -->
-        <div class="col-lg-6 col-md-12 col-sm-12">
+        Formation 1 - Développement Web -->
+        <!-- <div class="col-lg-6 col-md-12 col-sm-12">
             <div class="single_image_area">
                 <div class="single_image">
                     <img src="assets/image/formation/System.jpeg" alt="Développement Web" class="img-fluid">
@@ -216,10 +216,10 @@ h1 { font-weight: bold; font-size: 8rem; text-align: center; margin-bottom: 1rem
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <!-- Formation 2 - Réseau -->
-        <div class="col-lg-6 col-md-12 col-sm-12">
+        <!-- <div class="col-lg-6 col-md-12 col-sm-12">
             <div class="single_image_area">
                 <div class="single_image">
                     <img src="assets/image/formation/Security.jpeg" alt="Réseau" class="img-fluid">
@@ -243,10 +243,10 @@ h1 { font-weight: bold; font-size: 8rem; text-align: center; margin-bottom: 1rem
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <!-- Formation 3 - Système Informatique -->
-        <div class="col-lg-6 col-md-12 col-sm-12">
+        <!-- <div class="col-lg-6 col-md-12 col-sm-12">
             <div class="single_image_area">
                 <div class="single_image">
                     <img src="assets/image/formation/Reseau_info.jpg" alt="Système Informatique" class="img-fluid">
@@ -270,9 +270,9 @@ h1 { font-weight: bold; font-size: 8rem; text-align: center; margin-bottom: 1rem
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- Formation 4 - CyberSécurité -->
-        <div class="col-lg-6 col-md-12 col-sm-12">
+        <!-- <div class="col-lg-6 col-md-12 col-sm-12">
             <div class="single_image_area">
                 <div class="single_image">
                     <img src="assets/image/formation/Security.jpeg" alt="CyberSécurité" class="img-fluid">
@@ -298,7 +298,161 @@ h1 { font-weight: bold; font-size: 8rem; text-align: center; margin-bottom: 1rem
             </div>
         </div>
     </div>
-</div>
+</div> -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Formations</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Ajout de animations via Tailwind CSS -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'scale-up': 'scaleUp 0.3s ease-in-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        scaleUp: {
+                            '0%': { transform: 'scale(0.95)' },
+                            '100%': { transform: 'scale(1)' },
+                        },
+                    },
+                    boxShadow: {
+                        'custom': '0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.12)',
+                        'custom-hover': '0 8px 12px -2px rgba(0, 0, 0, 0.3), 0 4px 8px -2px rgba(0, 0, 0, 0.2)',
+                    },
+                },
+            },
+        };
+    </script>
+</head>
+<body class="bg-gray-100">
+    <!-- Section des formations actuelles -->
+    <div class="container mx-auto py-12 px-4">
+        <!-- Titre de la section -->
+        <h2 class="text-3xl font-bold text-center mb-8 animate-fade-in">Nos Formations</h2>
+
+        <!-- Grille des formations -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Formation 1 - Développement Web -->
+            <div class="bg-white rounded-lg overflow-hidden border-2 border-gray-200 hover:border-blue-500 transition-all duration-300 shadow-custom hover:shadow-custom-hover animate-fade-in">
+                <img src="assets/image/formation/System.jpeg" alt="Développement Web" class="w-full h-40 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">Développement Web</h3>
+                    <p class="text-gray-700 mb-4">
+                        Apprenez à développer des sites web dynamiques et interactifs en utilisant les dernières technologies front-end et back-end.
+                    </p>
+                    <a href="formation-developpement-web.html" class="inline-block bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors">
+                        Voir plus
+                    </a>
+                </div>
+            </div>
+
+            <!-- Formation 2 - Réseau -->
+            <div class="bg-white rounded-lg overflow-hidden border-2 border-gray-200 hover:border-blue-500 transition-all duration-300 shadow-custom hover:shadow-custom-hover animate-fade-in">
+                <img src="assets/image/formation/Security.jpeg" alt="Réseau" class="w-full h-40 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">Réseau</h3>
+                    <p class="text-gray-700 mb-4">
+                        Maîtrisez la configuration et la gestion des réseaux informatiques pour garantir la sécurité et la performance de vos infrastructures.
+                    </p>
+                    <a href="formation-reseau.html" class="inline-block bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors">
+                        Voir plus
+                    </a>
+                </div>
+            </div>
+
+            <!-- Formation 3 - Système Informatique -->
+            <div class="bg-white rounded-lg overflow-hidden border-2 border-gray-200 hover:border-blue-500 transition-all duration-300 shadow-custom hover:shadow-custom-hover animate-fade-in">
+                <img src="assets/image/formation/Reseau_info.jpg" alt="Système Informatique" class="w-full h-40 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">Système Informatique</h3>
+                    <p class="text-gray-700 mb-4">
+                        Découvrez les bases de l'administration des systèmes et apprenez à gérer et configurer des serveurs et des infrastructures IT complexes.
+                    </p>
+                    <a href="formation-systeme-informatique.html" class="inline-block bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors">
+                        Voir plus
+                    </a>
+                </div>
+            </div>
+
+            <!-- Formation 4 - CyberSécurité -->
+            <div class="bg-white rounded-lg overflow-hidden border-2 border-gray-200 hover:border-blue-500 transition-all duration-300 shadow-custom hover:shadow-custom-hover animate-fade-in">
+                <img src="assets/image/formation/Security.jpeg" alt="CyberSécurité" class="w-full h-40 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">CyberSécurité</h3>
+                    <p class="text-gray-700 mb-4">
+                        Apprenez à protéger vos systèmes et données contre les cybermenaces en maîtrisant les techniques de cybersécurité avancées.
+                    </p>
+                    <a href="formation-cybersecurite.html" class="inline-block bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors">
+                        Voir plus
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section des anciennes formations (Archives) -->
+    <div class="container mx-auto py-12 px-4">
+        <h2 class="text-3xl font-bold text-center mb-8 animate-fade-in">Anciennes Formations (Archives)</h2>
+
+        <!-- Grille des anciennes formations -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Ancienne Formation 1 -->
+            <div class="bg-white rounded-lg overflow-hidden border-2 border-gray-200 hover:border-gray-500 transition-all duration-300 shadow-custom hover:shadow-custom-hover animate-fade-in">
+                <img src="assets/image/formation/Reseau_info.jpg" alt="Ancienne Formation 1" class="w-full h-40 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">Ancienne Formation 1</h3>
+                    <p class="text-gray-700 mb-4">
+                        Description courte de l'ancienne formation 1.
+                    </p>
+                    <a href="ancienne-formation1.html" class="inline-block bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition-colors">
+                        Voir plus
+                    </a>
+                </div>
+            </div>
+
+            <!-- Ancienne Formation 2 -->
+            <div class="bg-white rounded-lg overflow-hidden border-2 border-gray-200 hover:border-gray-500 transition-all duration-300 shadow-custom hover:shadow-custom-hover animate-fade-in">
+                <img src="assets/image/formation/System.jpeg" alt="Ancienne Formation 2" class="w-full h-40 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">Ancienne Formation 2</h3>
+                    <p class="text-gray-700 mb-4">
+                        Description courte de l'ancienne formation 2.
+                    </p>
+                    <a href="ancienne-formation2.html" class="inline-block bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition-colors">
+                        Voir plus
+                    </a>
+                </div>
+            </div>
+
+            <!-- Ajoutez d'autres anciennes formations ici -->
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
 
 <!-- Footer Section -->
 <footer class="relative bg-blue-900 text-white w-full">
