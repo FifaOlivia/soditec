@@ -110,102 +110,44 @@
     animation: fadeIn 1s forwards;
     animation-delay: 0.5s;
 }
+.mycontainer {
+    width: 100%;
+    overflow: hidden; /* Masque les parties d'images qui sortent de la vue */
+    position: relative;
+    background-color: #f8f8f8; /* Légère couleur de fond */
+    padding: 20px 0; /* Espacement vertical autour des images */
+    box-sizing: border-box; /* Inclus padding dans le calcul de la largeur */
+    border: 2px solid #FF914D; /* Bordure avec la couleur demandée */
+    border-radius: 10px; /* Bords arrondis du container */
+  }
 
-      .file-label,
-      .send-btn {
-        cursor: pointer;
-        font-size: 20px;
-        color: #007bff;
-        margin-right: 10px;
-      }
-      .message-input {
-        flex: 1;
-        padding: 10px;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-      }
-      h1 {
-        font-weight: bold;
-        font-size: 2rem;
-        text-align: center;
-        margin-bottom: 1rem;
-      }
+  .images {
+    display: flex;
+    animation: scroll-left 30s linear infinite; /* Animation de défilement */
+  }
 
-      .mycontainer {
-        display: flex;
-        overflow: hidden;
-        border-top: 2px solid #007bff;
-        border-bottom: 2px solid #007bff;
-        padding: 1rem;
-        background-color: #ffffff;
-      }
+  .images img {
+    margin-right: 30px; /* Espacement plus large entre les images */
+    height: 100px; /* Taille réduite des images */
+    width: auto;
+    border-radius: 8px; /* Bordures arrondies des images */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre subtile autour des images */
+    transition: transform 0.3s ease; /* Légère animation sur le survol */
+  }
 
-      .images {
-        display: flex;
-        gap: 4rem;
-        animation: loop-scroll 10s linear infinite;
-      }
+  .images img:hover {
+    transform: scale(1.05); /* Agrandissement au survol */
+  }
 
-      .images:hover {
-        animation-play-state: paused;
-      }
-
-      .images img {
-        width: 8rem;
-        height: 8rem;
-        max-width: none;
-      }
-
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-        }
-        to {
-          opacity: 1;
-        }
-      }
-      @keyframes slideUp {
-        from {
-          transform: translateY(50px);
-          opacity: 0;
-        }
-        to {
-          transform: translateY(0);
-          opacity: 1;
-        }
-      }
-      @keyframes loop-scroll {
-        from {
-          transform: translateX(0);
-        }
-        to {
-          transform: translateX(-50%);
-        } 
-      }
-      @keyframes blink {
-        0% {
-          opacity: 1;
-        }
-        50% {
-          opacity: 0.5;
-        }
-        100% {
-          opacity: 1;
-        }
-      }
-      @media (max-width: 768px) {
-        .chatbot-avatar {
-          bottom: 30px;
-        }
-        .chatbot-bubble {
-          display: none;
-        }
-        .chat-container {
-          width: 90%;
-          bottom: 50px;
-          right: 5%;
-        }
-      }
+  /* Animation qui fait défiler les images vers la gauche */
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
 
       ::-webkit-scrollbar {
         width: 10px;
@@ -716,105 +658,110 @@
   </div>
   
 
-    <div class="solutech_pricing_bg_area">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="witr_section_title">
-              <div class="witr_section_title_inner text-center">
-                <h2>Tarification</h2>
-                <div class="witr_bar_main">
-                  <div class="witr_bar_inner witr_bar_innerc"></div>
-                </div>
-                <h6>
-                  Choisissez le bon plan tarifaire pour vous et votre
-                  entreprise.
-                </h6>
+  <div class="solutech_pricing_bg_area">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="witr_section_title">
+            <div class="witr_section_title_inner text-center">
+              <h2>Nos Offres Tarifaires</h2>
+              <div class="witr_bar_main">
+                <div class="witr_bar_inner witr_bar_innerc"></div>
+              </div>
+              <h6>
+                Choisissez l'offre qui correspond à vos besoins avec SODITEC.
+              </h6>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="row pricing_top">
+        <!-- Forfait Mensuel -->
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <div class="pricing_area all_pricing_color">
+            <div class="pricing-part">
+              <div class="witr_pricing_icon">
+                <i class="fas fa-comment-dollar"></i>
+              </div>
+              <h4>Forfait Mensuel</h4>
+              <sub>SODITEC</sub>
+              <div class="prt_content">
+                <p>30% de réduction</p>
+              </div>
+              <h5>192,000 <span> /Mois</span></h5>
+              <div class="witri_texti_list">
+                <ul>
+                  <li>Déploiement d'infrastructures de base</li>
+                  <li>Maintenance et support inclus</li>
+                  <li>Accès à des formations technologiques adaptées</li>
+                </ul>
+              </div>
+              <div class="witr_btnp_color">
+                <a class="btn" href="#">Achetez</a>
               </div>
             </div>
           </div>
         </div>
-        <div class="row pricing_top">
-          <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="pricing_area all_pricing_color">
-              <div class="pricing-part">
-                <div class="witr_pricing_icon">
-                  <i class="fas fa-comment-dollar"></i>
-                </div>
-                <h4>Forfait Mensuel</h4>
-                <sub>SODITEC</sub>
-                <div class="prt_content">
-                  <p>30% réduction</p>
-                </div>
-                <h5>192000 <span> /Mois</span></h5>
-                <div class="witri_texti_list">
-                  <ul>
-                    <li>Infos à prendre auprès de SODITEC</li>
-                    <li>Infos à prendre auprès de SODITEC</li>
-                    <li>Infos à prendre auprès de SODITEC</li>
-                  </ul>
-                </div>
-                <div class="witr_btnp_color">
-                  <a class="btn" href="#">Abonnez-vous</a>
-                </div>
+  
+        <!-- Forfait Annuel -->
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <div class="pricing_area all_pricing_color">
+            <div class="pricing-part">
+              <div class="witr_pricing_icon">
+                <i class="fas fa-coins"></i>
+              </div>
+              <h4>Forfait Annuel</h4>
+              <sub>SODITEC</sub>
+              <div class="prt_content">
+                <p>40% de réduction</p>
+              </div>
+              <h5>500,000 <span> /An</span></h5>
+              <div class="witri_texti_list">
+                <ul>
+                  <li>Consultation stratégique pour la transformation digitale</li>
+                  <li>Installation et gestion d'infrastructures avancées</li>
+                  <li>Formations approfondies et personnalisées</li>
+                </ul>
+              </div>
+              <div class="witr_btnp_color">
+                <a class="btn" href="#">Achetez</a>
               </div>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="pricing_area all_pricing_color">
-              <div class="pricing-part">
-                <div class="witr_pricing_icon">
-                  <i class="fas fa-coins"></i>
-                </div>
-                <h4>Forfait annuel</h4>
-                <sub>SODITEC</sub>
-                <div class="prt_content">
-                  <p>40% de réduction</p>
-                </div>
-                <h5>50000 <span> /Mois</span></h5>
-                <div class="witri_texti_list">
-                  <ul>
-                    <li>Infos à prendre auprès de SODITEC</li>
-                    <li>Infos à prendre auprès de SODITEC</li>
-                    <li>Infos à prendre auprès de SODITEC</li>
-                  </ul>
-                </div>
-                <div class="witr_btnp_color">
-                  <a class="btn" href="#">Abonnez-vous</a>
-                </div>
+        </div>
+  
+        <!-- Forfait Premium -->
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <div class="pricing_area all_pricing_color">
+            <div class="pricing-part">
+              <div class="witr_pricing_icon">
+                <i class="fab fa-bitcoin"></i>
               </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="pricing_area all_pricing_color">
-              <div class="pricing-part">
-                <div class="witr_pricing_icon">
-                  <i class="fab fa-bitcoin"></i>
-                </div>
-                <h4>Forfait Premium</h4>
-                <sub>SODITEC </sub>
-                <div class="prt_content">
-                  <p>50% de réduction</p>
-                </div>
-                <h5>1000000 <span> /month</span></h5>
-                <div class="witri_texti_list">
-                  <ul>
-                    <li>Infos à prendre auprès de SODITEC</li>
-                    <li>Infos à prendre auprès de SODITEC</li>
-                    <li>Infos à prendre auprès de SODITEC</li>
-                  </ul>
-                </div>
-                <div class="witr_btnp_color">
-                  <a class="btn" href="#">Abonnez-vous</a>
-                </div>
+              <h4>Forfait Premium</h4>
+              <sub>SODITEC</sub>
+              <div class="prt_content">
+                <p>50% de réduction</p>
+              </div>
+              <h5>100,000 <span> /Mois</span></h5>
+              <div class="witri_texti_list">
+                <ul>
+                  <li>Solutions technologiques de pointe pour grandes entreprises</li>
+                  <li>Support prioritaire et personnalisé</li>
+                  <li>Accès à des outils et formations exclusives</li>
+                </ul>
+              </div>
+              <div class="witr_btnp_color">
+                <a class="btn" href="#">Achetez</a>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
+  
 </div>
-
 
 
 
@@ -912,14 +859,14 @@
               <div class="witr_single_pslide">
                 <div class="witr_pslide_image">
                   <img
-                    src="assets/image/infrastructure/WhatsApp-Image-2022-07-23-at-17..jpg"
+                    src="assets/image/infrastructure/Borne-de-diffusion-Hotspot_2-scaled-qdzm3hki9w695epg7ezxfkrfhd3y4t0wmn4hcokkfk.jpg"
                     alt="image"
                   />
                 </div>
                 <div class="witr_content_pslide_text">
                   <div class="witr_content_pslide">
-                    <h3><a href="#">Exemple de travail de Soditec</a></h3>
-                    <p>Materiel</p>
+                    <h3><a href="#">Borne wifi</a></h3>
+                    <p>Infrastructure</p>
                   </div>
                 </div>
               </div>
@@ -1102,182 +1049,6 @@
       </div>
     </div>
 
-    <div class="single_faq_bg_area faq_area">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6 col-md-10 col-sm-12">
-            <div class="witr_section_title">
-              <div class="witr_section_title_inner text-left">
-                <h2>Notre Vision</h2>
-              </div>
-            </div>
-            <div class="witr_single_progress">
-              <div class="witr_title2">
-                <span class="witr_label"> Innovation</span>
-              </div>
-              <div class="progress witr_progress-style2">
-                <div
-                  class="progress-bar wow fadeInLeft"
-                  data-wow-duration="1.5s"
-                  data-wow-delay="0.2s"
-                  style="width: 90%"
-                >
-                  <span class="witr_percent">90%</span>
-                </div>
-              </div>
-            </div>
-            <div class="witr_single_progress">
-              <div class="witr_title2">
-                <span class="witr_label">Écoute Client </span>
-              </div>
-              <div class="progress witr_progress-style2">
-                <div
-                  class="progress-bar wow fadeInLeft"
-                  data-wow-duration="1.5s"
-                  data-wow-delay="0.2s"
-                  style="width: 100%"
-                >
-                  <span class="witr_percent">100%</span>
-                </div>
-              </div>
-            </div>
-            <div class="witr_single_progress">
-              <div class="witr_title2">
-                <span class="witr_label">Efficacité </span>
-              </div>
-              <div class="progress witr_progress-style2">
-                <div
-                  class="progress-bar wow fadeInLeft"
-                  data-wow-duration="1.5s"
-                  data-wow-delay="0.2s"
-                  style="width: 85%"
-                >
-                  <span class="witr_percent">95%</span>
-                </div>
-              </div>
-            </div>
-            <div class="witr_single_progress">
-              <div class="witr_title2">
-                <span class="witr_label">Valorisation des ressources </span>
-              </div>
-              <div class="progress witr_progress-style2">
-                <div
-                  class="progress-bar wow fadeInLeft"
-                  data-wow-duration="1.5s"
-                  data-wow-delay="0.2s"
-                  style="width: 90%"
-                >
-                  <span class="witr_percent">90%</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6 col-md-12 col-sm-12">
-            <div class="accordion_area">
-              <div class="faq-part">
-                <div id="accordion">
-                  <div class="card card-2">
-                    <div class="card-header witr_ac_card">
-                      <a
-                        href="#"
-                        class="card-link witr_ac_style"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapse_242536c"
-                        aria-expanded="true"
-                      >
-                        01. Innovation</a
-                      >
-                    </div>
-                    <div
-                      id="collapse_242536c"
-                      class="collapse"
-                      data-parent="#accordion"
-                    >
-                      <p>
-                        Nous restons à la pointe de la technologie pour offrir
-                        les meilleures solutions.
-                      </p>
-                    </div>
-                  </div>
-                  <div class="card card-2">
-                    <div class="card-header witr_ac_card">
-                      <a
-                        href="#"
-                        class="card-link witr_ac_style"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapse_9315e3d1"
-                        aria-expanded="true"
-                      >
-                        02. Écoute Client</a
-                      >
-                    </div>
-                    <div
-                      id="collapse_9315e3d1"
-                      class="collapse"
-                      data-parent="#accordion"
-                    >
-                      <p>
-                        Nous accordons une attention particulière aux besoins
-                        spécifiques de chaque client.
-                      </p>
-                    </div>
-                  </div>
-                  <!-- card -->
-                  <div class="card card-2">
-                    <div class="card-header witr_ac_card">
-                      <a
-                        href="#"
-                        class="card-link witr_ac_style"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapse_9965145"
-                        aria-expanded="true"
-                      >
-                        03. Efficacité</a
-                      >
-                    </div>
-                    <div
-                      id="collapse_9965145"
-                      class="collapse"
-                      data-parent="#accordion"
-                    >
-                      <p>
-                        Nous optimisons nos processus pour garantir des
-                        résultats rapides et fiables.
-                      </p>
-                    </div>
-                  </div>
-                  <!-- card -->
-                  <div class="card card-2">
-                    <div class="card-header witr_ac_card">
-                      <a
-                        href="#"
-                        class="card-link witr_ac_style"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapse_4b685b3"
-                        aria-expanded="true"
-                      >
-                        04. Valorisation des ressources</a
-                      >
-                    </div>
-                    <div
-                      id="collapse_4b685b3"
-                      class="collapse"
-                      data-parent="#accordion"
-                    >
-                      <p>
-                        Nous investissons dans nos talents et nos outils pour
-                        maximiser la valeur ajoutée.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <!-- solutech_testimonial_bg_area -->
     <div class="solutech_testimonial_bg_area">
       <div class="container">
@@ -1347,7 +1118,7 @@
                   <i class="fa fa-quote-right"></i>
                   <!-- content -->
                   <p>
-                    La formation que j’ai suivie chez SODITEC a complètement
+                    La formation que j’ai suivie chez SODITEC a
                     transformé ma carrière. J’ai acquis des compétences
                     pratiques en réseau informatique.
                   </p>
@@ -1372,7 +1143,7 @@
                   <p>
                     Nous avons été impressionnés par la qualité des équipements
                     et la rapidité de l’installation. Un service efficace et
-                    professionnel. Merci, SODITEC !
+                    professionnel !
                   </p>
                 </div>
                 <div class="em_test_thumb">
@@ -1388,11 +1159,110 @@
         </div>
       </div>
     </div>
-
+<br>
     <!-- witr_brand_area -->
-    <h1 style="padding-top: 20px">Nos partenaires</h1>
+    <div class="col-lg-12">
+      <div class="witr_section_title">
+        <div class="witr_section_title_inner text-center">
+          <h2>Nos partenaires</h2>
+        </div>
+      </div>
+    </div>
+    <br>
     <div class="mycontainer">
       <div class="images">
+        <img
+          src="assets/image/partenaires/anat.png"
+          alt="Anat"
+          loading="lazy"
+        />
+        <img src="assets/image/partenaires/diz.png" alt="Diz" loading="lazy" />
+        <img
+          src="assets/image/partenaires/obaps.jpeg"
+          alt="Obaps"
+          loading="lazy"
+        />
+        <img
+          src="assets/image/partenaires/sbin.png"
+          alt="Sbin"
+          loading="lazy"
+        />
+        <img
+          src="assets/image/partenaires/swedo.png"
+          alt="Swedo"
+          loading="lazy"
+        />
+        <img src="assets/image/partenaires/up.jpeg" alt="Up" loading="lazy" />
+        <img src="assets/image/partenaires/via.png" alt="Via" loading="lazy" />
+        <img
+          src="assets/image/partenaires/anat.png"
+          alt="Anat"
+          loading="lazy"
+        />
+        <img src="assets/image/partenaires/diz.png" alt="Diz" loading="lazy" />
+        <img
+          src="assets/image/partenaires/obaps.jpeg"
+          alt="Obaps"
+          loading="lazy"
+        />
+        <img
+          src="assets/image/partenaires/sbin.png"
+          alt="Sbin"
+          loading="lazy"
+        />
+        <img
+          src="assets/image/partenaires/swedo.png"
+          alt="Swedo"
+          loading="lazy"
+        />
+        <img src="assets/image/partenaires/up.jpeg" alt="Up" loading="lazy" />
+        <img src="assets/image/partenaires/via.png" alt="Via" loading="lazy" />
+        <img
+          src="assets/image/partenaires/anat.png"
+          alt="Anat"
+          loading="lazy"
+        />
+        <img src="assets/image/partenaires/diz.png" alt="Diz" loading="lazy" />
+        <img
+          src="assets/image/partenaires/obaps.jpeg"
+          alt="Obaps"
+          loading="lazy"
+        />
+        <img
+          src="assets/image/partenaires/sbin.png"
+          alt="Sbin"
+          loading="lazy"
+        />
+        <img
+          src="assets/image/partenaires/swedo.png"
+          alt="Swedo"
+          loading="lazy"
+        />
+        <img src="assets/image/partenaires/up.jpeg" alt="Up" loading="lazy" />
+        <img src="assets/image/partenaires/via.png" alt="Via" loading="lazy" />
+        <img
+          src="assets/image/partenaires/anat.png"
+          alt="Anat"
+          loading="lazy"
+        />
+        <img src="assets/image/partenaires/diz.png" alt="Diz" loading="lazy" />
+        <img
+          src="assets/image/partenaires/obaps.jpeg"
+          alt="Obaps"
+          loading="lazy"
+        />
+        <img
+          src="assets/image/partenaires/sbin.png"
+          alt="Sbin"
+          loading="lazy"
+        />
+        <img
+          src="assets/image/partenaires/swedo.png"
+          alt="Swedo"
+          loading="lazy"
+        />
+        <img src="assets/image/partenaires/up.jpeg" alt="Up" loading="lazy" />
+        <img src="assets/image/partenaires/via.png" alt="Via" loading="lazy" />
         <img
           src="assets/image/partenaires/anat.png"
           alt="Anat"
