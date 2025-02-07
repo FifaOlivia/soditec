@@ -10712,7 +10712,6 @@ p.form-messege{
  .witr_pslide_image::before{
      position:absolute;
      content:'';
-     background:#00000080;
      top:0;
      left:0;
      bottom:0;
