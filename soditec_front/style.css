@@ -4275,7 +4275,6 @@ p.form-messege{
  .witr_sb_thumb::before{
      position:absolute;
      content:'';
-     background:rgba(0, 0, 0, 0.5);
      top:0;
      left:0;
      bottom:0;
@@ -11505,7 +11504,7 @@ p.form-messege{
 }
  .counter_bg {
      box-shadow:0px 0px 30px 0px rgb(0 0 0 / 6%);
-     padding:70px 0px 55px 0px;
+     padding:20px 0px 25px 0px;
      background: #fff;
 }
  .counter_bg .witr_counter_single {
@@ -11780,8 +11779,8 @@ p.form-messege{
      margin-bottom:30px;
 }
  .solutech_pricing_bg_area {
-     padding: 100px 0px 70px;
-     background: #FAFAFA;
+     padding: 30px 0px 30px;
+     background: #FF914D;
 }
  .prt_content p {
      color: #0c5adb;
@@ -12515,7 +12514,7 @@ p.form-messege{
      padding: 95px 0px 70px;
 }
  .solutech_project_area{
-     padding:95px 30px 95px;
+     padding:35px 30px 35px;
 }
  .project_top{
      margin-top:65px;
