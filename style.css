@@ -1720,7 +1720,7 @@ p.form-messege{
 }
 /*=========================== 6.service css ===========================*/
  .service {
-     background: rgb(1, 219, 176);
+     background: rgb(194, 194, 194);
 }
  .witr_s_flex{
      display: flex;
@@ -7113,7 +7113,7 @@ p.form-messege{
      display: none;
 }
 .solutech-header-top {
-    background: linear-gradient(135deg, #FF914D, #FF5733); /* Dégradé du orange au rouge */
+    background-color:  #14B8A6;
     padding: 10px 0;
     padding-right: 200px;
     padding-left: 200px;
@@ -10791,9 +10791,7 @@ p.form-messege{
  .ps1 .witr_content_pslide_text a{
      color:#fff;
 }
- .ps1 .witr_content_pslide_text a:hover{
-     color:#0c5adb;
-}
+
 /* ps2 Slide */
  .ps2.ps1 .witr_content_pslide_text {
      position: absolute;
@@ -11434,7 +11432,7 @@ p.form-messege{
      background: #0c5adb1F;
 }
  .solutech_serivce_area {
-     padding:95px 0px 70px;
+     padding:25px 0px 25px;
      background:#00247E08;
 }
  .serivce_bg .witr_feature_btn2 a {
@@ -11629,10 +11627,9 @@ p.form-messege{
      background:#0c5adb80;
 }
  .testi_top{
-     margin-top:50px;
+     margin-top:30px;
 }
  .carso_idtesti .testiCreCon {
-     padding: 50px 20px 50px 20px;
      border-style: solid;
      border-width: 3px 0px 0px 0px;
      border-color: #0c5adb;
@@ -11779,7 +11776,6 @@ p.form-messege{
 }
  .solutech_pricing_bg_area {
      padding: 30px 0px 30px;
-     background: #FF914D;
 }
  .prt_content p {
      color: #0c5adb;
@@ -12350,8 +12346,6 @@ p.form-messege{
      background-image: url(assets/images/slider-1.jpg);
      background-position: top center;
      background-size: cover;
-     padding: 260px 0px 70px;
-     margin-bottom: 100px;
 }
  .service .em-service2.sleft .em-service-icon {
      float: left;
