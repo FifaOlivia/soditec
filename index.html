@@ -15,33 +15,6 @@
       
 
     <style>
-.service-card {
-    background-color: #007BFF;
-    border: 2px solid #FF914D;
-    border-radius: 15px;
-    padding: 30px;
-    position: relative; /* Important for the animation of the border */
-    transition: transform 0.3s ease;
-    overflow: hidden; /* Keeps the border and animation inside */
-}
-
-.service-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 2px solid #FF914D;
-    border-radius: 15px;
-    opacity: 0;
-    transition: all 0.5s ease-in-out;
-    clip-path: inset(10px);
-}
-
-.service-card:hover {
-    transform: translateY(-5px);
-}
 
 .service-card:hover::before {
     opacity: 1;
@@ -408,7 +381,7 @@
                   </div>
                 </div>
               </div>
-              <div class="slider_vd_icon">
+              <div class="slider_vd_icon  hidden sm:block">
                 <div class="slider_vd_icon_inner">
                   <a class="tx_svd_icon recpwit video-popup video-vemo-icon">
                     <i class="fas fa-server"></i>
@@ -466,7 +439,7 @@
                   </div>
                 </div>
               </div>
-              <div class="slider_vd_icon">
+              <div class="slider_vd_icon hidden sm:block">
                 <div class="slider_vd_icon_inner">
                   <a
                     class="tx_svd_icon recpwit video-popup video-vemo-icon"
@@ -476,7 +449,7 @@
                     <i class="fas fa-network-wired"></i>
                   </a>
                 </div>
-              </div>
+              </div>              
             </div>
           </div>
 
@@ -530,7 +503,7 @@
                   </div>
                 </div>
               </div>
-              <div class="slider_vd_icon">
+              <div class="slider_vd_icon  hidden sm:block">
                 <div class="slider_vd_icon_inner">
                   <a
                     class="tx_svd_icon recpwit video-popup video-vemo-icon"
@@ -550,6 +523,23 @@
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
       </div>
+      <style>
+        html, body {
+          overflow-x: hidden;
+          height: 100%;
+        }
+        </style>
+        
+        <script>
+        // Ajustement pour éviter l'espace blanc dû aux animations
+        window.addEventListener('resize', () => {
+          document.querySelectorAll('.swiper-slide').forEach(slide => {
+            slide.style.height = window.innerHeight + 'px';
+          });
+        });
+        </script>
+        
+    
     </div>
 
    			
@@ -826,7 +816,7 @@
                   />
                 </div>
                 <div class="witr_content_pslide_text">
-                  <div class="witr_content_pslide" style="background-color: #007BFF; margin:0px 20px 0px 0px; text-align: center; border-radius: 10%;">
+                  <div class="witr_content_pslide">
                     <h3>
                       <a href="#">Installation d'une borne wifi à l'ONAB</a>
                     </h3>
@@ -845,7 +835,7 @@
                   />
                 </div>
                 <div class="witr_content_pslide_text">
-                  <div class="witr_content_pslide" style="background-color: #007BFF; margin:0px 230px 0px 0px; text-align: center; border-radius: 10%;">
+                  <div class="witr_content_pslide">
                     <h3><a href="#">Borne wifi</a></h3>
                     <p>Infrastructure</p>
                   </div>
@@ -862,7 +852,7 @@
                   />
                 </div>
                 <div class="witr_content_pslide_text">
-                  <div class="witr_content_pslide" style="background-color: #007BFF; margin:0px 5px 0px 0px; text-align: center; border-radius: 10%;">
+                  <div class="witr_content_pslide">
                     <h3>
                       <a href="#">Déploiement d'un Data-Center à Bourjon</a>
                     </h3>
@@ -881,7 +871,7 @@
                   />
                 </div>
                 <div class="witr_content_pslide_text">
-                  <div class="witr_content_pslide" style="background-color: #007BFF; margin:0px 5px 0px 0px; text-align: center; border-radius: 10%;">
+                  <div class="witr_content_pslide">
                     <h3>
                       <a href="#">Mise en place d'une Baie Server à l'ONAB</a>
                     </h3>
@@ -900,7 +890,7 @@
                   />
                 </div>
                 <div class="witr_content_pslide_text" >
-                  <div class="witr_content_pslide" style="background-color: #007BFF; margin:0px 230px 0px 0px; text-align: center; border-radius: 10%;">
+                  <div class="witr_content_pslide">
                     <h3><a href="#">Borne wifi</a></h3>
                     <p>Infrastructure</p>
                   </div>
@@ -911,6 +901,66 @@
         </div>
       </div>
     </div>
+
+    <style>
+.witr_content_pslide {
+  background-color: #007BFF; /* Bleu */
+  color: white;
+  border-radius: 1rem;
+  padding: 1.5rem; /* Réduit légèrement le padding pour éviter une card trop grosse */
+  text-align: center;
+  transition: transform 0.3s ease;
+  max-width: 320px; /* Limite la largeur de la card */
+  margin: 1rem auto; /* Centrer la card sur la page */
+}
+
+/* Effet au survol */
+.witr_content_pslide:hover {
+  transform: translateY(-5px);
+}
+
+/* Taille de texte responsive */
+.witr_content_pslide h3 {
+  font-size: 1.25rem; /* Réduit la taille du titre */
+  margin-bottom: 0.5rem;
+}
+
+.witr_content_pslide p {
+  font-size: 0.875rem; /* Réduit un peu la taille du texte */
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .witr_content_pslide {
+    padding: 1rem;
+    border-radius: 0.75rem;
+  }
+
+  .witr_content_pslide h3 {
+    font-size: 1.125rem; /* Ajuste la taille du titre sur mobile */
+  }
+
+  .witr_content_pslide p {
+    font-size: 0.85rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .witr_content_pslide {
+    padding: 1.5rem;
+    border-radius: 1.25rem; /* Réduit légèrement la bordure */
+  }
+
+  .witr_content_pslide h3 {
+    font-size: 1.75rem;
+  }
+
+  .witr_content_pslide p {
+    font-size: 1rem;
+  }
+}
+</style>
+
 
     <section style="padding: 56px 0; background-color: #f8f9fa;">
       <div class="container text-center">

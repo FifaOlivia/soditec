@@ -15,33 +15,6 @@
       
 
     <style>
-.service-card {
-    background-color: #007BFF;
-    border: 2px solid #FF914D;
-    border-radius: 15px;
-    padding: 30px;
-    position: relative; /* Important for the animation of the border */
-    transition: transform 0.3s ease;
-    overflow: hidden; /* Keeps the border and animation inside */
-}
-
-.service-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 2px solid #FF914D;
-    border-radius: 15px;
-    opacity: 0;
-    transition: all 0.5s ease-in-out;
-    clip-path: inset(10px);
-}
-
-.service-card:hover {
-    transform: translateY(-5px);
-}
 
 .service-card:hover::before {
     opacity: 1;
@@ -379,67 +352,93 @@
     </div>
 </div><!-- Section de bienvenue -->
 <section class="py-20 bg-gray-50">
-    <div class="container mx-auto px-4 flex flex-wrap items-center">
-        <div class="w-full lg:w-1/2 mb-8 lg:mb-0">
-            <h2 class="text-5xl font-bold text-[#007BFF] mb-6">Bienvenue chez SODITEC</h2>
-            <p class="text-lg text-gray-700 mb-6">
-                Chez <strong class="text-[#FF914D]">SODITEC</strong>, nous mettons notre expertise au service de vos besoins technologiques.
-                Basés à Cotonou, nous offrons des solutions adaptées pour garantir performance et sécurité.
-            </p>
-            <p class="text-lg text-gray-700 mb-6">
-                Notre mission est de vous accompagner dans la transformation digitale en déployant des infrastructures 
-                technologiques de pointe et en proposant des formations pour préparer aux métiers de demain.
-            </p>
-            <a href="contact.html" class="py-3 px-6 bg-[#007BFF] text-white text-xl rounded-lg hover:bg-[#FF914D] transition-all shadow-lg">Contactez-nous</a>
-        </div>
-        <div class="w-full lg:w-1/2">
+  <div class="container mx-auto px-4 flex flex-wrap items-center">
+      <!-- Div Texte -->
+      <div class="w-full lg:w-1/2 mb-8 lg:mb-0">
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#007BFF] mb-6">Bienvenue chez SODITEC</h2>
+          <p class="text-base sm:text-lg lg:text-xl text-gray-700 mb-6">
+              Chez <strong class="text-[#FF914D]">SODITEC</strong>, nous mettons notre expertise au service de vos besoins technologiques.
+              Basés à Cotonou, nous offrons des solutions adaptées pour garantir performance et sécurité.
+          </p>
+          <p class="text-base sm:text-lg lg:text-xl text-gray-700 mb-6">
+              Notre mission est de vous accompagner dans la transformation digitale en déployant des infrastructures 
+              technologiques de pointe et en proposant des formations pour préparer aux métiers de demain.
+          </p>
+          <a href="contact.html" class="py-3 px-6 bg-[#007BFF] text-white text-lg sm:text-xl rounded-lg hover:bg-[#FF914D] transition-all shadow-lg">Contactez-nous</a>
+      </div>
+
+      <!-- Div Animation Lottie -->
+      <div class="w-full lg:w-1/2 flex justify-center">
           <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
-          <dotlottie-player src="https://lottie.host/9cbe37f9-5a15-4760-98d8-c6740c24b38a/7IVDClpK1i.lottie" background="transparent" speed="1" style="width: 800px; height: 500px" loop autoplay></dotlottie-player>
-        </div>
-    </div>
+          <dotlottie-player 
+              src="https://lottie.host/9cbe37f9-5a15-4760-98d8-c6740c24b38a/7IVDClpK1i.lottie" 
+              background="transparent" speed="1" 
+              style="width: 100%; max-width: 800px; height: auto;" 
+              loop autoplay>
+          </dotlottie-player>
+      </div>
+  </div>
 </section>
+
 
 <!-- Section Mission -->
 <section class="py-20 bg-white">
-    <div class="container mx-auto px-4 flex flex-wrap items-center">
-        <div class="w-full lg:w-1/2 mb-8 lg:mb-0">
-            <h2 class="text-5xl font-bold text-[#007BFF] mb-6">Notre Mission</h2>
-            <p class="text-lg text-gray-700 leading-relaxed">
-                Chez SODITEC, notre mission est de concevoir et déployer des infrastructures IT sécurisées, scalables et éco-responsables,
-                permettant aux entreprises et institutions publiques de transformer numériquement leurs opérations avec agilité.
-            </p>
-            <ul class="mt-4 space-y-2 text-lg text-gray-700">
-                <li><strong class="text-[#FF914D]">🔹 Réduction de 30 %</strong> des temps d’interruption des systèmes critiques d’ici 2027.</li>
-                <li><strong class="text-[#FF914D]">🔹 Sécurité cybernétique</strong> de niveau militaire pour 100 % de nos solutions.</li>
-                <li><strong class="text-[#FF914D]">🔹 Diviser par deux</strong> l’empreinte carbone de nos data centers d’ici 2030.</li>
-            </ul>
-        </div>
-        <div class="w-full lg:w-1/2">
+  <div class="container mx-auto px-4 flex flex-wrap items-center">
+      <!-- Div Texte -->
+      <div class="w-full lg:w-1/2 mb-8 lg:mb-0">
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#007BFF] mb-6">Notre Mission</h2>
+          <p class="text-base sm:text-lg lg:text-xl text-gray-700 leading-relaxed">
+              Chez SODITEC, notre mission est de concevoir et déployer des infrastructures IT sécurisées, scalables et éco-responsables,
+              permettant aux entreprises et institutions publiques de transformer numériquement leurs opérations avec agilité.
+          </p>
+          <ul class="mt-4 space-y-2 text-base sm:text-lg lg:text-xl text-gray-700">
+              <li><strong class="text-[#FF914D]">🔹 Réduction de 30 %</strong> des temps d’interruption des systèmes critiques d’ici 2027.</li>
+              <li><strong class="text-[#FF914D]">🔹 Sécurité cybernétique</strong> de niveau militaire pour 100 % de nos solutions.</li>
+              <li><strong class="text-[#FF914D]">🔹 Diviser par deux</strong> l’empreinte carbone de nos data centers d’ici 2030.</li>
+          </ul>
+      </div>
+
+      <!-- Div Animation Lottie -->
+      <div class="w-full lg:w-1/2 flex justify-center">
           <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
-          <dotlottie-player src="https://lottie.host/95b12406-88df-45db-b0cc-6406c436e282/xGYepP0sih.lottie" background="transparent" speed="1" style="width: 800px; height: 500px" loop autoplay></dotlottie-player>
-        </div>
-    </div>
+          <dotlottie-player 
+              src="https://lottie.host/95b12406-88df-45db-b0cc-6406c436e282/xGYepP0sih.lottie" 
+              background="transparent" speed="1" 
+              style="width: 100%; max-width: 800px; height: auto;" 
+              loop autoplay>
+          </dotlottie-player>
+      </div>
+  </div>
 </section>
 
 <!-- Section Vision -->
 <section class="py-20 bg-gray-100">
-    <div class="container mx-auto px-4 flex flex-wrap items-center">
-        <div class="w-full lg:w-1/2">
+  <div class="container mx-auto px-4 flex flex-wrap items-center">
+      <!-- Div Animation Lottie -->
+      <div class="w-full lg:w-1/2 flex justify-center">
           <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
-<dotlottie-player src="https://lottie.host/2607f4d2-236b-4bd8-837d-8acaa37238a8/MN1aUEPWdT.lottie" background="transparent" speed="1" style="width: 800px; height: 500px" loop autoplay></dotlottie-player>
-        </div>
-        <div class="w-full lg:w-1/2 mt-8 lg:mt-0">
-            <h2 class="text-5xl font-bold text-[#007BFF] mb-6">Notre Vision</h2>
-            <p class="text-lg text-gray-700 leading-relaxed">
-                Chez <strong class="text-[#FF914D]">SODITEC</strong>, nous imaginons un futur où la technologie éthique et l’innovation disruptive redéfinissent le progrès humain.
-            </p>
-            <p class="text-lg text-gray-700 leading-relaxed">
-                En combinant excellence technique, IA responsable et partenariats globaux, nous construisons des solutions durables
-                qui transforment l’éducation, la santé et les infrastructures urbaines pour 10 millions de personnes d’ici 2030.
-            </p>
-        </div>
-    </div>
+          <dotlottie-player 
+              src="https://lottie.host/2607f4d2-236b-4bd8-837d-8acaa37238a8/MN1aUEPWdT.lottie" 
+              background="transparent" speed="1" 
+              style="width: 100%; max-width: 800px; height: auto;" 
+              loop autoplay>
+          </dotlottie-player>
+      </div>
+      
+      <!-- Div Texte -->
+      <div class="w-full lg:w-1/2 mt-8 lg:mt-0">
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#007BFF] mb-6">Notre Vision</h2>
+          <p class="text-base sm:text-lg lg:text-xl text-gray-700 leading-relaxed">
+              Chez <strong class="text-[#FF914D]">SODITEC</strong>, nous imaginons un futur où la technologie éthique et l’innovation disruptive redéfinissent le progrès humain.
+          </p>
+          <p class="text-base sm:text-lg lg:text-xl text-gray-700 leading-relaxed">
+              En combinant excellence technique, IA responsable et partenariats globaux, nous construisons des solutions durables
+              qui transforment l’éducation, la santé et les infrastructures urbaines pour 10 millions de personnes d’ici 2030.
+          </p>
+      </div>
+  </div>
 </section>
+
 
 
 <section style="padding: 56px 0; background-color: #f8f9fa;">
@@ -855,99 +854,92 @@
 </div>
 <!-- Footer Section -->
 <footer class="relative bg-blue-900 text-white w-full">
-    <!-- Image de fond -->
-    <div class="absolute inset-0 bg-blue-900/90 z-10"></div> <!-- Overlay bleu -->
-    <div class="absolute inset-0 bg-cover bg-center z-0" style="background-image: url('assets/image/hero_section/Sécurity2.jpg');"></div> <!-- Image de fond -->
-  
-    <!-- Contenu du footer -->
-    <div class="relative z-20">
-        <!-- Footer Middle Section -->
-        <div class="container-fluid mx-auto px-8 py-8"> <!-- Réduit le padding -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"> <!-- Réduit l'espacement entre les colonnes -->
-                <!-- Logo and Description -->
-                <div class="space-y-4"> <!-- Réduit l'espacement -->
-                    <a href="#">
-                        <img src="assets/image/header/logo_blanc.png" alt="Logo" class="h-12"> <!-- Réduit la taille du logo -->
-                    </a>
-                    <p class="text-lg"> <!-- Réduit la taille de la police -->
-                        Nous aidons les entreprises à élever la valeur avant de créer des logiciels personnalisés et de concevoir des produits parmi les plus simples.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-white/20 hover:bg-[#FF914D] transition"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-white/20 hover:bg-[#FF914D] transition"><i class="fab fa-google-plus-g"></i></a>
-                        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-white/20 hover:bg-[#FF914D] transition"><i class="fab fa-x-twitter"></i></a>
-                        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-white/20 hover:bg-[#FF914D] transition"><i class="fas fa-rss"></i></a>
-                    </div>
-                </div>
-  
-                <!-- Support Links -->
-                <div class="space-y-4"> <!-- Réduit l'espacement -->
-                    <h2 class="text-2xl font-semibold text-[#FF914D]">Soutien 24/7</h2>
-                    <ul class="space-y-2 text-lg"> <!-- Réduit l'espacement des liens -->
-                        <li><a href="#" class="hover:text-[#FF914D]">Politique de confidentialité</a></li>
-                        <li><a href="#" class="hover:text-[#FF914D]">FAQ</a></li>
-                        <li><a href="#" class="hover:text-[#FF914D]">Conditions générales</a></li>
-                        <li><a href="#" class="hover:text-[#FF914D]">Contact</a></li>
-                        <li><a href="#" class="hover:text-[#FF914D]">Histoire & expérience</a></li>
-                    </ul>
-                </div>
-  
-                <!-- Address Section -->
-                <div class="space-y-4"> <!-- Réduit l'espacement -->
-                    <h2 class="text-2xl font-semibold text-[#FF914D]">Adresse Locale</h2>
-                    <div class="space-y-2 text-lg"> <!-- Réduit l'espacement des informations -->
-                        <p><i class="fas fa-map-marker-alt"></i>   Address : Zogbohoue,COTONOU</p>
-                        <p><i class="fas fa-phone"></i> Phone : +229 0160988585</p>
-                        <p><i class="fas fa-envelope"></i> Email : contact@soditec.bj</p>
-                    </div>
-                </div>
-  
-                <!-- Opening Hours -->
-                <div class="space-y-4"> <!-- Réduit l'espacement -->
-                    <h2 class="text-2xl font-semibold text-[#FF914D]">HORAIRES</h2>
-                    <div class="space-y-2 text-lg"> <!-- Réduit l'espacement des horaires -->
-                        <p class="underline">Lundi - Vendredi: 08:00 - 18:00</p>
-                        <p class="underline">Samedi: 09:00 - 18:00</p>
-                        <p class="underline">Urgence: (+229) 0160988585</p>
-                    </div>
-                </div>
-            </div>
+  <!-- Image de fond -->
+  <div class="absolute inset-0 bg-blue-900/90 z-10"></div> <!-- Overlay bleu -->
+  <div class="absolute inset-0 bg-cover bg-center z-0" style="background-image: url('assets/image/hero_section/Sécurity2.jpg');"></div> <!-- Image de fond -->
+
+  <!-- Contenu du footer -->
+  <div class="relative z-20">
+      <!-- Footer Middle Section -->
+      <div class="container-fluid mx-auto px-8 py-8"> <!-- Réduit le padding -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"> <!-- Réduit l'espacement entre les colonnes -->
+              <!-- Logo and Description -->
+              <div class="space-y-4"> <!-- Réduit l'espacement -->
+                  <a href="#">
+                      <img src="assets/image/header/logo_blanc.png" alt="Logo" class="h-12"> <!-- Réduit la taille du logo -->
+                  </a>
+                  <p class="text-lg"> <!-- Réduit la taille de la police -->
+                      Nous aidons les entreprises à élever la valeur avant de créer des logiciels personnalisés et de concevoir des produits parmi les plus simples.
+                  </p>
+                  <div class="flex space-x-4">
+                      <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-white/20 hover:bg-[#FF914D] transition"><i class="fab fa-facebook-f"></i></a>
+                      <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-white/20 hover:bg-[#FF914D] transition"><i class="fab fa-youtube"></i></a>
+                      <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-white/20 hover:bg-[#FF914D] transition"><i class="fab fa-linkedin"></i></a>
+                      <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-white/20 hover:bg-[#FF914D] transition"><i class="fab fa-whatsapp"></i></a>
+                  </div>
+              </div>
+
+              <!-- Support Links -->
+              <div class="space-y-4"> <!-- Réduit l'espacement -->
+                  <h2 class="text-2xl font-semibold text-[#FFFFFF]">Soutien 24/7</h2>
+                  <ul class="space-y-2 text-lg"> <!-- Réduit l'espacement des liens -->
+                      <li><a href="#" >Politique de confidentialité</a></li>
+                      <li><a href="#" >FAQ</a></li>
+                      <li><a href="#" >Conditions générales</a></li>
+                      <li><a href="#">Contact</a></li>
+                      <li><a href="#">Histoire & expérience</a></li>
+                  </ul>
+              </div>
+
+              <!-- Address Section -->
+              <div class="space-y-4"> <!-- Réduit l'espacement -->
+                  <h2 class="text-2xl font-semibold text-[#FFFFFF]">Adresse Locale</h2>
+                  <div class="space-y-2 text-lg"> <!-- Réduit l'espacement des informations -->
+                      <p><i class="fas fa-map-marker-alt"></i>   Address : Zogbohoue,COTONOU</p>
+                      <p><i class="fas fa-phone"></i> Phone : +229 0160988585</p>
+                      <p><i class="fas fa-envelope"></i> Email : contact@soditec.bj</p>
+                  </div>
+              </div>
+
+              <!-- Opening Hours -->
+              <div class="space-y-4"> <!-- Réduit l'espacement -->
+                  <h2 class="text-2xl font-semibold text-[#FFFFFF]">HORAIRES</h2>
+                  <div class="space-y-2 text-lg"> <!-- Réduit l'espacement des horaires -->
+                      <p class="underline">Lundi - Vendredi: 08:00 - 18:00</p>
+                      <p class="underline">Samedi: 09:00 - 18:00</p>
+                      <p class="underline">Urgence: (+229) 0160988585</p>
+                  </div>
+              </div>
+          </div>
+          <div class="w-full border-t border-white mx-auto my-2"></div> <!-- Limite la largeur de la ligne de séparation -->
+
+          <div class="flex items-center justify-center" style="margin-bottom: -20px;">
+            <p class="text-center">Copyright &copy; SODITEC - Tous droits réservés.</p>
         </div>
-  
-        <!-- Séparation -->
-        <div class="w-3/4 border-t border-white mx-auto my-4"></div> <!-- Limite la largeur de la ligne de séparation -->
-  
-        <!-- Footer Bottom Section -->
-        <div class="py-3"> <!-- Réduit le padding -->
-            <div class="container mx-auto px-8"> <!-- Réduit le padding -->
-                <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-                    <p class="text-lg">Copyright &copy; SODITEC - Tous droits réservés.</p>
-                    <ul class="flex space-x-4 text-lg"> <!-- Réduit l'espacement des liens -->
-                        <li><a href="#" class="hover:text-[#FF914D]">Accueil</a></li>
-                        <li><a href="#" class="hover:text-[#FF914D]">À Propos</a></li>
-                        <li><a href="#" class="hover:text-[#FF914D]">Équipe</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+          
+      </div>
+     
+      <!-- Séparation -->
+    
+  </div>
 </footer>
 
-	
-  	
-        <!-- Include All JS -->
-        <script src="assets/js/vendor/jquery-3.5.1.min.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
-        <script src="assets/js/isotope.pkgd.min.js"></script>
-        <script src="assets/js/slick.min.js"></script>
-        <script src="assets/js/imagesloaded.pkgd.min.js"></script>
-        <script src="venobox/venobox.min.js"></script>
-        <script src="assets/js/theme-pluginjs.js"></script>
-        <script src="assets/js/jquery.meanmenu.js"></script>
-        <script src="assets/js/ajax-mail.js"></script>		
-        <script src="assets/js/map.js"></script>		
-        <script src="assets/js/theme.js"></script>
-		<script src="https://cdn.tailwindcss.com"></script>
-	
-	</body>
+    <!-- Include All JS -->
+     
+    <script src="assets/js/vendor/jquery-3.5.1.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/isotope.pkgd.min.js"></script>
+    <script src="assets/js/slick.min.js"></script>
+    <script src="assets/js/imagesloaded.pkgd.min.js"></script>
+    <script src="venobox/venobox.min.js"></script>
+    <script src="assets/js/theme-pluginjs.js"></script>
+    <script src="assets/js/jquery.meanmenu.js"></script>
+    <script src="assets/js/ajax-mail.js"></script>
+    <script src="assets/js/map.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="script.js"></script>
+    <script src="https://code.tidio.co/aphhzuslbivehfqibvpzy38gmxwxglud.js" async></script>
+
+  </body>
 </html>
